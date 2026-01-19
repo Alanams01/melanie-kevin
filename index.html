@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mélanie & Kévin - Mariage</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500&family=Prata&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- RESET --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            
+            /* TON IMAGE LOCALE */
+            background-image: url('photo.jpeg'); 
+            
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Évite les barres de défilement si on bouge trop les éléments */
+        }
+
+        /* Filtre sombre */
+        .overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.3); 
+            z-index: 1;
+        }
+
+        /* Conteneur principal */
+        .content {
+            z-index: 10;
+            text-align: center;
+            width: 100%;
+            padding: 0 20px;
+            
+            /* --- C'EST ICI QUE CA SE JOUE --- */
+            /* Je remonte le bloc de 15% de la hauteur de l'écran (-15vh) */
+            /* Tu peux changer 15vh en 20vh si tu veux monter encore plus haut */
+            transform: translateY(-15vh);
+        }
+
+        /* --- COMPTE À REBOURS STYLE "CAPSULE" --- */
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            border: 1px solid white;
+            border-radius: 100px;
+            padding: 15px 40px;
+            min-width: 160px;
+            text-align: center;
+            color: white;
+            /* Petit flou d'arrière-plan pour la lisibilité */
+            backdrop-filter: blur(2px); 
+        }
+
+        .number {
+            display: block;
+            font-family: 'Prata', serif;
+            font-size: 2.5rem;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .label {
+            display: block;
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: #fff;
+        }
+
+        /* --- LE BOUTON ROSE --- */
+        .btn-outer-border {
+            display: inline-block;
+            border: 1px solid white;
+            padding: 4px;
+            border-radius: 4px;
+        }
+
+        .btn-inner {
+            display: block;
+            background-color: #E69DB3;
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-inner:hover {
+            background-color: #d68ca0;
+            cursor: pointer;
+        }
+
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            .countdown-container { gap: 10px; }
+            .countdown-item {
+                min-width: 120px;
+                padding: 10px 20px;
+                margin-bottom: 10px;
+            }
+            .number { font-size: 1.8rem; }
+            .label { font-size: 1.4rem; }
+            
+            /* Sur mobile, on remonte un peu moins pour garder l'équilibre */
+            .content { transform: translateY(-10vh); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <div class="overlay"></div>
+
+        <div class="content">
+            
+            <div class="countdown-container" id="countdown">
+                <div class="countdown-item">
+                    <span class="number" id="days">00</span>
+                    <span class="label">Jours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="number" id="hours">00</span>
+                    <span class="label">Heures</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="number" id="minutes">00</span>
+                    <span class="label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="number" id="seconds">00</span>
+                    <span class="label">Secondes</span>
+                </div>
+            </div>
+
+            <div class="btn-outer-border">
+                <a href="#programme" class="btn-inner">
+                    Voir l'invitation
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // DATE DU MARIAGE
+        const weddingDate = new Date("2026-06-24T14:00:00").getTime();
+
+        setInterval(() => {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) return;
+
+            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+        }, 1000);
+    </script>
+
+</body>
+</html>
