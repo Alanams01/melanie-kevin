@@ -17,24 +17,24 @@
         /* --- HERO SECTION --- */
         .hero {
             height: 100vh;
-            min-height: -webkit-fill-available;
+            /* Fix pour mobile (barre d'adresse) */
+            min-height: -webkit-fill-available; 
             width: 100%;
-            /* TA PHOTO ICI */
+            /* TA PHOTO */
             background-image: url('photo.jpeg'); 
             background-size: cover;
-            background-position: center;
+            background-position: center bottom; /* On cadre vers le bas pour voir le couple */
             position: relative;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Centre verticalement */
+            justify-content: center;
             align-items: center;
         }
 
-        /* Filtre sombre léger (pour lisibilité) */
         .overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.2); /* Moins sombre qu'avant */
+            background: rgba(0, 0, 0, 0.2); /* Voile léger */
             z-index: 1;
         }
 
@@ -42,48 +42,41 @@
             z-index: 10;
             text-align: center;
             width: 100%;
-            padding: 0 15px;
-            /* On remonte légèrement le contenu pour laisser la place au couple en bas */
-            transform: translateY(-10vh);
+            padding: 0 10px; /* Marges très fines sur les côtés */
+            transform: translateY(-15vh); /* On remonte le tout vers le haut */
         }
 
         /* --- COMPTE À REBOURS --- */
         .countdown-container {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
+            gap: 15px; /* Espace standard sur PC */
+            margin-bottom: 30px;
         }
 
         .countdown-item {
-            /* Le style "Capsule" Élégant */
-            border: 0.5px solid rgba(255, 255, 255, 0.8); /* Bordure très fine */
-            border-radius: 50%; /* Cercle parfait ou ovale */
-            width: 110px; /* Taille fixe pour l'harmonie */
-            height: 110px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            border: 0.5px solid rgba(255, 255, 255, 0.9);
+            border-radius: 50px; /* Forme capsule */
+            padding: 10px 30px; /* Espace intérieur PC */
+            text-align: center;
             color: white;
-            /* PAS DE FOND GRIS, juste un flou subtil */
-            backdrop-filter: blur(2px); 
+            backdrop-filter: blur(2px);
+            min-width: 100px;
         }
 
         .number {
+            display: block;
             font-family: 'Prata', serif;
-            font-size: 2.2rem;
+            font-size: 2rem;
             line-height: 1;
-            margin-bottom: 2px;
         }
 
         .label {
+            display: block;
             font-family: 'Great Vibes', cursive;
             font-size: 1.5rem;
-            font-weight: 400;
-            color: #f0f0f0;
-            margin-top: -5px; /* Remonte le texte vers le chiffre */
+            color: #fff;
+            margin-top: -5px;
         }
 
         /* --- BOUTON --- */
@@ -91,7 +84,7 @@
             display: inline-block;
             border: 0.5px solid rgba(255,255,255,0.8);
             padding: 3px;
-            border-radius: 2px;
+            border-radius: 3px;
         }
 
         .btn-inner {
@@ -99,49 +92,52 @@
             background-color: #E69DB3;
             color: white;
             text-decoration: none;
-            padding: 12px 25px;
-            font-size: 0.9rem;
+            padding: 10px 25px;
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-weight: 300;
             border: 0.5px solid white;
-            transition: 0.3s;
         }
 
-        /* --- MOBILE SPÉCIFIQUE (Pour éviter l'effet "Gros Pavés") --- */
+        /* --- VERSION MOBILE (Alignement forcé sur une ligne) --- */
         @media (max-width: 768px) {
             
             .content {
-                transform: translateY(-5vh); /* On remonte un peu moins sur mobile */
+                /* On remonte encore plus sur mobile pour dégager la photo */
+                transform: translateY(-20vh); 
             }
 
             .countdown-container {
-                display: grid;
-                grid-template-columns: 1fr 1fr; /* Grille 2x2 */
-                gap: 10px;
-                max-width: 280px; /* On force une petite largeur totale */
-                margin: 0 auto 30px auto;
+                /* FORCE L'ALIGNEMENT HORIZONTAL */
+                flex-wrap: nowrap; 
+                gap: 5px; /* Espace tout petit entre les bulles */
+                width: 100%;
+                max-width: 400px; /* Sécurité */
+                margin: 0 auto 25px auto;
             }
 
             .countdown-item {
-                width: 100%; /* S'adapte à la grille */
-                height: auto; /* Hauteur auto */
-                aspect-ratio: 1 / 1; /* Force le carré/rond */
-                border-radius: 50%; /* Ronds parfaits */
-                border: 0.5px solid rgba(255, 255, 255, 0.6); /* Encore plus fin */
+                /* On réduit tout pour que ça rentre */
+                padding: 8px 2px; /* Très peu d'espace sur les côtés */
+                min-width: 0; /* Permet de rétrécir */
+                flex: 1; /* Les 4 prennent la même largeur */
+                border-radius: 10px; /* Coins arrondis plus doux */
             }
 
             .number {
-                font-size: 1.8rem; /* Chiffres plus petits */
+                font-size: 1.4rem; /* Chiffres plus petits */
+                margin-bottom: 2px;
             }
 
             .label {
-                font-size: 1.3rem; /* Texte plus petit */
+                font-size: 0.9rem; /* Texte "Jours" tout petit mais lisible */
+                margin-top: 0;
             }
 
+            /* Bouton plus petit */
             .btn-inner {
-                padding: 10px 20px;
-                font-size: 0.8rem; /* Bouton plus discret */
+                padding: 8px 20px;
+                font-size: 0.7rem;
             }
         }
     </style>
@@ -164,11 +160,11 @@
                 </div>
                 <div class="countdown-item">
                     <span class="number" id="minutes">00</span>
-                    <span class="label">Minutes</span>
+                    <span class="label">Min</span>
                 </div>
                 <div class="countdown-item">
                     <span class="number" id="seconds">00</span>
-                    <span class="label">Secondes</span>
+                    <span class="label">Sec</span>
                 </div>
             </div>
 
