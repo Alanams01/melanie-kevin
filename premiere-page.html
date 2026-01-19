@@ -13,90 +13,117 @@
         /* --- RESET --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
+        html {
+            scroll-behavior: smooth;
+        }
+
         body { 
             font-family: 'Montserrat', sans-serif; 
             color: #4a4a4a;
-            background-color: white; /* Fond de secours */
             margin: 0;
+            background-color: #f0f0f0; /* Juste pour voir si ça bug */
+            /* IMPORTANT : PAS d'overflow caché sur le body sinon le sticky casse */
+            overflow-x: hidden; 
         }
 
-        /* --- CONFIGURATION DES IMAGES (LA MAGIE EST ICI) --- */
-        .sticky-image-container {
-            position: sticky; /* L'image va se coller */
-            top: 0;           /* Elle se colle tout en haut */
-            height: 100vh;    /* Elle prend tout l'écran */
+        /* --- CONFIGURATION DES IMAGES (STICKY) --- */
+        .parallax-container {
+            position: sticky; /* L'image se colle */
+            top: 0;
+            height: 100vh; /* Fallback vieux mobiles */
+            height: 100dvh; /* Unité moderne mobile (Dynamic Viewport Height) */
             width: 100%;
-            z-index: -1;      /* Elle reste derrière le texte */
             overflow: hidden;
+            z-index: 1; /* On reste positif (pas de -1) */
+            
+            /* Flex pour centrer le contenu (titres sur images) */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
 
-        .sticky-image-container img {
+        .parallax-container img {
+            position: absolute;
+            top: 0; left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* L'image remplit bien sans être déformée */
-            display: block;
+            object-fit: cover; /* Remplit l'écran sans déformer */
+            z-index: -1; /* L'image est derrière le texte du container */
         }
 
-        /* Le voile noir sur les images */
+        /* Le voile noir léger sur TOUTES les images */
         .overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.2);
+            background: rgba(0,0,0,0.25);
+            z-index: 0;
         }
 
-        /* --- CONFIGURATION DES TEXTES (BLOCS BLANCS) --- */
+        /* Contenu texte SUR les images (ex: Hero, Titres) */
+        .image-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        /* --- CONFIGURATION DES SECTIONS TEXTE (RIDEAU BLANC) --- */
         .white-section {
-            background-color: white; /* Important pour cacher l'image quand on scrolle */
+            position: relative;
+            background-color: white;
+            z-index: 10; /* Z-index SUPÉRIEUR aux images pour passer devant */
             padding: 60px 20px;
             text-align: center;
-            position: relative;
-            z-index: 10; /* Le texte passe DEVANT l'image */
-            box-shadow: 0 -10px 20px rgba(0,0,0,0.05); /* Petite ombre pour le style */
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1); /* Petite ombre en haut */
+            min-height: 50vh; /* Sécurité pour avoir assez de blanc */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         /* --- TYPOGRAPHIE --- */
-        .hero-title {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            text-align: center;
-            width: 100%;
-            z-index: 2;
-        }
+        .names-hero { font-family: 'Great Vibes', cursive; font-size: 3.5rem; line-height: 1.2; }
+        .date-hero { font-family: 'Prata', serif; text-transform: uppercase; letter-spacing: 3px; border-top: 1px solid white; border-bottom: 1px solid white; padding: 5px 0; display: inline-block; margin-top: 10px;}
 
-        .names { font-family: 'Great Vibes', cursive; font-size: 3.5rem; line-height: 1.2; margin-bottom: 10px; }
-        .date { font-family: 'Prata', serif; text-transform: uppercase; letter-spacing: 3px; border-top: 1px solid white; border-bottom: 1px solid white; padding: 5px 0; display: inline-block; }
-
-        .section-logo { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #E69DB3; margin-bottom: 10px; }
+        .section-logo { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #E69DB3; margin-bottom: 10px; line-height: 1; }
         h2 { font-family: 'Prata', serif; font-size: 1.8rem; text-transform: uppercase; color: #222; margin-bottom: 10px; }
-        .infos { font-size: 0.9rem; color: #666; margin-bottom: 20px; }
-        .bold-time { font-weight: 600; color: #000; display: block; }
+        .infos { font-size: 0.95rem; color: #666; margin-bottom: 20px; }
+        .bold-time { font-weight: 600; color: #000; display: block; margin-bottom: 5px;}
         
         /* --- BOUTONS & FORMULAIRE --- */
-        .btn { padding: 10px 25px; border: 1px solid #222; color: #222; text-decoration: none; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; display:inline-block; margin: 0 5px; transition:0.3s;}
+        .btn { padding: 12px 25px; border: 1px solid #222; color: #222; text-decoration: none; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; display:inline-block; margin: 0 5px; transition:0.3s;}
         .btn:hover { background: #E69DB3; border-color: #E69DB3; color: white; }
 
-        .rsvp-form { max-width: 600px; margin: 0 auto; text-align: left; }
-        input[type="text"], textarea { width: 100%; padding: 10px; border: 1px solid #ddd; margin-top:5px; margin-bottom:15px; font-family: 'Montserrat', sans-serif;}
+        .rsvp-form { max-width: 600px; width: 100%; text-align: left; }
+        input[type="text"], textarea { width: 100%; padding: 12px; border: 1px solid #ddd; margin-top:5px; margin-bottom:15px; font-family: 'Montserrat', sans-serif;}
         label { font-weight: 500; font-size: 0.9rem; }
-        .submit-btn { background: #222; color: white; border: none; padding: 12px 30px; text-transform: uppercase; letter-spacing: 2px; width: 100%; cursor: pointer; }
         
-        /* Ajustement Mobile */
+        .radio-group { display: flex; gap: 20px; margin-bottom: 15px;}
+        
+        .submit-btn { background: #222; color: white; border: none; padding: 15px 30px; text-transform: uppercase; letter-spacing: 2px; width: 100%; cursor: pointer; }
+        
+        /* Animation flèche */
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
+
+        /* Mobile Adjustments */
         @media (max-width: 768px) {
-            .names { font-size: 3rem; }
-            .white-section { padding: 50px 15px; }
+            .names-hero { font-size: 3rem; }
+            .white-section { padding: 50px 15px; min-height: auto; }
         }
     </style>
 </head>
 <body>
 
-    <div class="sticky-image-container">
-        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop" alt="Accueil">
+    <div class="parallax-container">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop" alt="Hero">
         <div class="overlay"></div>
-        <div class="hero-title">
-            <div class="names">Mélanie & Kévin</div>
-            <div class="date">24 Juin 2026</div>
-            <div style="margin-top: 40px; font-size: 2rem;">↓</div>
+        <div class="image-content">
+            <div class="names-hero">Mélanie & Kévin</div>
+            <div class="date-hero">24 Juin 2026</div>
+            <div style="margin-top: 40px; font-size: 2rem; animation: bounce 2s infinite;">↓</div>
         </div>
     </div>
 
@@ -114,7 +141,9 @@
         </div>
     </section>
 
-    <div class="sticky-image-container" style="height: 60vh;"> <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2070&auto=format&fit=crop" alt="Transition 1">
+    <div class="parallax-container">
+        <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2070&auto=format&fit=crop" alt="Transition 1">
+        <div class="overlay"></div>
     </div>
 
     <section class="white-section" id="houppa">
@@ -131,8 +160,9 @@
         </div>
     </section>
 
-    <div class="sticky-image-container" style="height: 60vh;">
+    <div class="parallax-container">
         <img src="https://images.unsplash.com/photo-1511285560982-1351cdeb9821?q=80&w=2070&auto=format&fit=crop" alt="Transition 2">
+        <div class="overlay"></div>
     </div>
 
     <section class="white-section" id="henne">
@@ -145,8 +175,9 @@
         <p style="font-size: 0.85rem; font-style: italic;">Fête jusqu'au bout de la nuit !</p>
     </section>
 
-    <div class="sticky-image-container" style="height: 60vh;">
+    <div class="parallax-container">
         <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=2070&auto=format&fit=crop" alt="Transition 3">
+        <div class="overlay"></div>
     </div>
 
     <section class="white-section" id="rsvp">
@@ -156,11 +187,17 @@
             <label>Nom & Prénom</label>
             <input type="text" name="nom" required>
             
-            <label>Présence Mairie ?</label>
-            <input type="text" name="mairie" placeholder="Oui / Non">
+            <label>Serez-vous présents à la Mairie ?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="mairie" value="Oui"> Oui</label>
+                <label><input type="radio" name="mairie" value="Non"> Non</label>
+            </div>
 
-            <label>Présence Houppa ?</label>
-            <input type="text" name="houppa" placeholder="Oui / Non">
+            <label>Serez-vous présents à la Houppa ?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="houppa" value="Oui"> Oui</label>
+                <label><input type="radio" name="houppa" value="Non"> Non</label>
+            </div>
 
             <label>Message</label>
             <textarea name="message" rows="3"></textarea>
