@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mélanie & Kévin - Mariage</title>
+    <title>Mélanie & Kévin</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500&family=Prata&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400&family=Prata&display=swap" rel="stylesheet">
 
     <style>
         /* --- RESET --- */
@@ -16,28 +16,25 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            height: 100vh; /* Hauteur de l'écran */
-            /* Pour mobile : on s'assure que la barre d'adresse ne cache pas le bas */
-            min-height: -webkit-fill-available; 
+            height: 100vh;
+            min-height: -webkit-fill-available;
             width: 100%;
-            
-            /* TON IMAGE */
+            /* TA PHOTO ICI */
             background-image: url('photo.jpeg'); 
-            
             background-size: cover;
-            background-position: center bottom; /* On cadre sur le bas de la photo (souvent mieux pour voir les gens sur mobile) */
+            background-position: center;
             position: relative;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Centre verticalement par défaut */
+            justify-content: center; /* Centre verticalement */
             align-items: center;
-            overflow: hidden;
         }
 
+        /* Filtre sombre léger (pour lisibilité) */
         .overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.3); 
+            background: rgba(0, 0, 0, 0.2); /* Moins sombre qu'avant */
             z-index: 1;
         }
 
@@ -46,52 +43,55 @@
             text-align: center;
             width: 100%;
             padding: 0 15px;
-            /* DECALAGE VERS LE HAUT (Desktop) */
-            transform: translateY(-15vh);
+            /* On remonte légèrement le contenu pour laisser la place au couple en bas */
+            transform: translateY(-10vh);
         }
 
-        /* --- COMPTE À REBOURS (Desktop par défaut) --- */
+        /* --- COMPTE À REBOURS --- */
         .countdown-container {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             margin-bottom: 40px;
             flex-wrap: wrap;
         }
 
         .countdown-item {
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            border-radius: 50px; /* Arrondi pilule */
-            padding: 15px 40px;
-            min-width: 150px;
-            text-align: center;
+            /* Le style "Capsule" Élégant */
+            border: 0.5px solid rgba(255, 255, 255, 0.8); /* Bordure très fine */
+            border-radius: 50%; /* Cercle parfait ou ovale */
+            width: 110px; /* Taille fixe pour l'harmonie */
+            height: 110px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             color: white;
-            backdrop-filter: blur(4px); /* Effet verre dépoli */
-            background: rgba(255,255,255,0.1); /* Légère teinte blanche */
+            /* PAS DE FOND GRIS, juste un flou subtil */
+            backdrop-filter: blur(2px); 
         }
 
         .number {
-            display: block;
             font-family: 'Prata', serif;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             line-height: 1;
-            margin-bottom: 5px;
+            margin-bottom: 2px;
         }
 
         .label {
-            display: block;
             font-family: 'Great Vibes', cursive;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 400;
-            color: #fff;
+            color: #f0f0f0;
+            margin-top: -5px; /* Remonte le texte vers le chiffre */
         }
 
         /* --- BOUTON --- */
         .btn-outer-border {
             display: inline-block;
-            border: 1px solid white;
-            padding: 4px;
-            border-radius: 4px;
+            border: 0.5px solid rgba(255,255,255,0.8);
+            padding: 3px;
+            border-radius: 2px;
         }
 
         .btn-inner {
@@ -99,54 +99,49 @@
             background-color: #E69DB3;
             color: white;
             text-decoration: none;
-            padding: 12px 30px;
-            font-size: 1rem;
+            padding: 12px 25px;
+            font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 1px solid white;
-            transition: all 0.3s ease;
+            letter-spacing: 2px;
+            font-weight: 300;
+            border: 0.5px solid white;
+            transition: 0.3s;
         }
 
-        /* --- LE GROS CHANGEMENT : VERSION MOBILE --- */
+        /* --- MOBILE SPÉCIFIQUE (Pour éviter l'effet "Gros Pavés") --- */
         @media (max-width: 768px) {
-            .hero {
-                /* Sur mobile, on aligne le contenu plus vers le haut */
-                justify-content: flex-start;
-                padding-top: 15vh; /* Espace depuis le haut de l'écran */
-            }
-
+            
             .content {
-                /* On annule le décalage complexe du bureau, on utilise le padding-top du hero */
-                transform: none; 
+                transform: translateY(-5vh); /* On remonte un peu moins sur mobile */
             }
 
-            /* On passe en GRILLE 2x2 (Carré) au lieu d'une ligne */
             .countdown-container {
                 display: grid;
-                grid-template-columns: 1fr 1fr; /* 2 colonnes égales */
-                gap: 10px; /* Espace réduit */
-                max-width: 320px; /* On limite la largeur pour que ça reste centré */
-                margin: 0 auto 30px auto; /* Centré horizontalement */
+                grid-template-columns: 1fr 1fr; /* Grille 2x2 */
+                gap: 10px;
+                max-width: 280px; /* On force une petite largeur totale */
+                margin: 0 auto 30px auto;
             }
 
             .countdown-item {
-                padding: 10px 5px; /* Moins de padding */
-                min-width: auto; /* On laisse la grille gérer la largeur */
-                border-radius: 30px; /* Arrondi un peu moins fort pour gagner de la place */
+                width: 100%; /* S'adapte à la grille */
+                height: auto; /* Hauteur auto */
+                aspect-ratio: 1 / 1; /* Force le carré/rond */
+                border-radius: 50%; /* Ronds parfaits */
+                border: 0.5px solid rgba(255, 255, 255, 0.6); /* Encore plus fin */
             }
 
             .number {
-                font-size: 2rem; /* Chiffres un peu plus petits */
+                font-size: 1.8rem; /* Chiffres plus petits */
             }
 
             .label {
-                font-size: 1.4rem; /* Texte un peu plus petit */
+                font-size: 1.3rem; /* Texte plus petit */
             }
 
-            /* Bouton un peu plus compact */
             .btn-inner {
                 padding: 10px 20px;
-                font-size: 0.9rem;
+                font-size: 0.8rem; /* Bouton plus discret */
             }
         }
     </style>
