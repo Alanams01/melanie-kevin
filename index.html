@@ -16,23 +16,24 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            height: 100vh;
+            height: 100vh; /* Hauteur de l'écran */
+            /* Pour mobile : on s'assure que la barre d'adresse ne cache pas le bas */
+            min-height: -webkit-fill-available; 
             width: 100%;
             
-            /* TON IMAGE LOCALE */
+            /* TON IMAGE */
             background-image: url('photo.jpeg'); 
             
             background-size: cover;
-            background-position: center;
+            background-position: center bottom; /* On cadre sur le bas de la photo (souvent mieux pour voir les gens sur mobile) */
             position: relative;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: center; /* Centre verticalement par défaut */
             align-items: center;
-            overflow: hidden; /* Évite les barres de défilement si on bouge trop les éléments */
+            overflow: hidden;
         }
 
-        /* Filtre sombre */
         .overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -40,37 +41,33 @@
             z-index: 1;
         }
 
-        /* Conteneur principal */
         .content {
             z-index: 10;
             text-align: center;
             width: 100%;
-            padding: 0 20px;
-            
-            /* --- C'EST ICI QUE CA SE JOUE --- */
-            /* Je remonte le bloc de 15% de la hauteur de l'écran (-15vh) */
-            /* Tu peux changer 15vh en 20vh si tu veux monter encore plus haut */
+            padding: 0 15px;
+            /* DECALAGE VERS LE HAUT (Desktop) */
             transform: translateY(-15vh);
         }
 
-        /* --- COMPTE À REBOURS STYLE "CAPSULE" --- */
+        /* --- COMPTE À REBOURS (Desktop par défaut) --- */
         .countdown-container {
             display: flex;
             justify-content: center;
             gap: 20px;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             flex-wrap: wrap;
         }
 
         .countdown-item {
-            border: 1px solid white;
-            border-radius: 100px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 50px; /* Arrondi pilule */
             padding: 15px 40px;
-            min-width: 160px;
+            min-width: 150px;
             text-align: center;
             color: white;
-            /* Petit flou d'arrière-plan pour la lisibilité */
-            backdrop-filter: blur(2px); 
+            backdrop-filter: blur(4px); /* Effet verre dépoli */
+            background: rgba(255,255,255,0.1); /* Légère teinte blanche */
         }
 
         .number {
@@ -89,7 +86,7 @@
             color: #fff;
         }
 
-        /* --- LE BOUTON ROSE --- */
+        /* --- BOUTON --- */
         .btn-outer-border {
             display: inline-block;
             border: 1px solid white;
@@ -110,24 +107,47 @@
             transition: all 0.3s ease;
         }
 
-        .btn-inner:hover {
-            background-color: #d68ca0;
-            cursor: pointer;
-        }
-
-        /* --- MOBILE --- */
+        /* --- LE GROS CHANGEMENT : VERSION MOBILE --- */
         @media (max-width: 768px) {
-            .countdown-container { gap: 10px; }
-            .countdown-item {
-                min-width: 120px;
-                padding: 10px 20px;
-                margin-bottom: 10px;
+            .hero {
+                /* Sur mobile, on aligne le contenu plus vers le haut */
+                justify-content: flex-start;
+                padding-top: 15vh; /* Espace depuis le haut de l'écran */
             }
-            .number { font-size: 1.8rem; }
-            .label { font-size: 1.4rem; }
-            
-            /* Sur mobile, on remonte un peu moins pour garder l'équilibre */
-            .content { transform: translateY(-10vh); }
+
+            .content {
+                /* On annule le décalage complexe du bureau, on utilise le padding-top du hero */
+                transform: none; 
+            }
+
+            /* On passe en GRILLE 2x2 (Carré) au lieu d'une ligne */
+            .countdown-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr; /* 2 colonnes égales */
+                gap: 10px; /* Espace réduit */
+                max-width: 320px; /* On limite la largeur pour que ça reste centré */
+                margin: 0 auto 30px auto; /* Centré horizontalement */
+            }
+
+            .countdown-item {
+                padding: 10px 5px; /* Moins de padding */
+                min-width: auto; /* On laisse la grille gérer la largeur */
+                border-radius: 30px; /* Arrondi un peu moins fort pour gagner de la place */
+            }
+
+            .number {
+                font-size: 2rem; /* Chiffres un peu plus petits */
+            }
+
+            .label {
+                font-size: 1.4rem; /* Texte un peu plus petit */
+            }
+
+            /* Bouton un peu plus compact */
+            .btn-inner {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -167,7 +187,6 @@
     </div>
 
     <script>
-        // DATE DU MARIAGE
         const weddingDate = new Date("2026-06-24T14:00:00").getTime();
 
         setInterval(() => {
