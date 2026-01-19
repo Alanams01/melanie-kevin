@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mélanie & Kévin - Mariage</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&family=Prata&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- RESET --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            color: #4a4a4a;
+            background-color: white;
+            line-height: 1.5; /* Interligne légèrement réduit */
+            overflow-x: hidden;
+        }
+
+        /* --- 1. HERO SECTION --- */
+        .hero-header {
+            height: 100vh;
+            width: 100%;
+            /* CHANGE LA PHOTO D'ACCUEIL ICI */
+            background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.3);
+        }
+        
+        .hero-content { position: relative; z-index: 2; }
+        
+        .hero-names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            margin-bottom: 5px;
+        }
+        .hero-date {
+            font-family: 'Prata', serif;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border-top: 1px solid white;
+            border-bottom: 1px solid white;
+            padding: 8px 0;
+            display: inline-block;
+        }
+
+        /* --- STYLES COMMUNS SECTIONS BLANCHES (MODIFIÉ) --- */
+        .white-section {
+            background-color: white;
+            /* J'AI RÉDUIT L'ÉCART ICI (C'était 80px avant) */
+            padding: 40px 20px; 
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* LE LOGO */
+        .section-logo {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem; /* Un peu plus petit pour gagner de la place */
+            color: #E69DB3;
+            margin-bottom: 10px; /* Moins d'espace sous le logo */
+            line-height: 1;
+        }
+
+        h2 {
+            font-family: 'Prata', serif;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            margin-bottom: 10px; /* Moins d'espace sous le titre */
+            color: #222;
+            letter-spacing: 1px;
+        }
+
+        .infos {
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .bold-time {
+            font-weight: 600;
+            color: #000;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        /* --- BOUTONS --- */
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            padding: 10px 25px;
+            border: 1px solid #222;
+            color: #222;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #E69DB3;
+            border-color: #E69DB3;
+            color: white;
+        }
+
+        /* --- IMAGE QUI DÉFILE --- */
+        .parallax-image {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 40vh; /* J'ai réduit la hauteur de l'image aussi (c'était 50vh) */
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- FORMULAIRE RSVP --- */
+        .rsvp-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        label { display: block; margin-top: 15px; margin-bottom: 5px; font-weight: 500; font-size: 0.9rem; }
+        input[type="text"], textarea {
+            width: 100%; padding: 10px;
+            border: 1px solid #ddd;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .radio-options { margin-top: 5px; font-size: 0.9rem; }
+        .radio-options span { margin-right: 15px; }
+        
+        .submit-btn {
+            background-color: #222;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 25px;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+        .submit-btn:hover { background-color: #E69DB3; }
+
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            .hero-names { font-size: 3rem; }
+            .parallax-image {
+                background-attachment: scroll;
+                height: 250px; /* Moins haut sur mobile */
+            }
+            .white-section { padding: 40px 15px; } /* Marges réduites sur mobile */
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero-header">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-names">Mélanie & Kévin</div>
+            <div class="hero-date">24 Juin 2026</div>
+            <div style="margin-top: 40px; font-size: 2rem; animation: bounce 2s infinite;">↓</div>
+        </div>
+    </header>
+
+
+    <section class="white-section" id="mairie">
+        <div class="section-logo">Mélanie & Kévin</div>
+        
+        <h2>Cérémonie Civile</h2>
+        <div class="infos">
+            <span class="bold-time">Jeudi 24 Juin à 14h00</span>
+            Mairie du 16ème Arrondissement<br>
+            71 Avenue Henri Martin, Paris
+        </div>
+        <p style="font-size: 0.85rem; font-style: italic; margin-bottom: 0;">Suivi d'un vin d'honneur.</p>
+
+        <div class="btn-group">
+            <a href="https://waze.com/ul" target="_blank" class="btn">Waze</a>
+            <a href="https://maps.google.com" target="_blank" class="btn">Plan</a>
+        </div>
+    </section>
+
+
+    <div class="parallax-image" style="background-image: url('https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2070&auto=format&fit=crop');"></div>
+
+
+    <section class="white-section" id="houppa">
+        <div class="section-logo">Mélanie & Kévin</div>
+
+        <h2>La Houppa</h2>
+        <div class="infos">
+            <span class="bold-time">Dimanche 27 Juin à 16h30</span>
+            Domaine de la Reine<br>
+            Versailles, France
+        </div>
+        <p style="font-size: 0.85rem; font-style: italic; margin-bottom: 0;">Cérémonie religieuse.</p>
+
+        <div class="btn-group">
+            <a href="https://waze.com/ul" target="_blank" class="btn">Waze</a>
+            <a href="https://maps.google.com" target="_blank" class="btn">Plan</a>
+        </div>
+    </section>
+
+    <div class="parallax-image" style="background-image: url('https://images.unsplash.com/photo-1511285560982-1351cdeb9821?q=80&w=2070&auto=format&fit=crop');"></div>
+
+
+    <section class="white-section" id="henne">
+        <div class="section-logo">Mélanie & Kévin</div>
+        <h2>Henné & Soirée</h2>
+        <div class="infos">
+            <span class="bold-time">Dimanche 27 Juin dès 18h00</span>
+            Domaine de la Reine, Versailles
+        </div>
+        <p style="font-size: 0.85rem; font-style: italic; margin-bottom: 0;">Dîner et fête jusqu'au bout de la nuit !</p>
+    </section>
+
+
+    <div class="parallax-image" style="background-image: url('https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=2070&auto=format&fit=crop');"></div>
+
+
+    <section class="white-section" id="rsvp">
+        <h2>Votre Réponse</h2>
+        <p style="margin-bottom: 20px;">Merci de confirmer votre présence avant le 1er Mai.</p>
+
+        <form class="rsvp-form" action="mailto:melanie.kevin@gmail.com" method="post" enctype="text/plain">
+            
+            <label>Nom & Prénom</label>
+            <input type="text" name="nom" required placeholder="Ex: Dupont Jean">
+
+            <label>Présence à la Mairie ?</label>
+            <div class="radio-options">
+                <span><input type="radio" name="mairie" value="Oui"> Oui</span>
+                <span><input type="radio" name="mairie" value="Non"> Non</span>
+            </div>
+
+            <label>Présence à la Houppa ?</label>
+            <div class="radio-options">
+                <span><input type="radio" name="houppa" value="Oui"> Oui</span>
+                <span><input type="radio" name="houppa" value="Non"> Non</span>
+            </div>
+
+            <label>Nombre d'adultes</label>
+            <input type="text" name="adultes" placeholder="Ex: 2">
+
+            <label>Message pour les mariés</label>
+            <textarea name="message" rows="3"></textarea>
+
+            <button type="submit" class="submit-btn">Envoyer</button>
+        </form>
+    </section>
+
+    <style>
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+    </style>
+
+</body>
+</html>
