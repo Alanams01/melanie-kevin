@@ -13,189 +13,92 @@
         /* --- RESET --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        html, body {
-            overflow-x: hidden; /* Empêche le site de bouger gauche-droite */
-            width: 100%;
-        }
-
         body { 
             font-family: 'Montserrat', sans-serif; 
             color: #4a4a4a;
-            background-color: white;
-            line-height: 1.5;
+            background-color: white; /* Fond de secours */
+            margin: 0;
         }
 
-        /* --- 1. HERO SECTION --- */
-        .hero-header {
-            height: 100vh; /* Prend tout l'écran */
+        /* --- CONFIGURATION DES IMAGES (LA MAGIE EST ICI) --- */
+        .sticky-image-container {
+            position: sticky; /* L'image va se coller */
+            top: 0;           /* Elle se colle tout en haut */
+            height: 100vh;    /* Elle prend tout l'écran */
             width: 100%;
-            /* PHOTO D'ACCUEIL */
-            background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            position: relative;
-        }
-        
-        /* CORRECTION MOBILE : Sur téléphone, le 100vh bug parfois avec la barre d'adresse */
-        /* On force le scroll normal sur le fond d'écran d'accueil */
-        @media (max-width: 768px) {
-            .hero-header {
-                background-attachment: scroll;
-                height: 100vh; 
-                min-height: 600px; /* Sécurité pour voir tout le contenu */
-            }
+            z-index: -1;      /* Elle reste derrière le texte */
+            overflow: hidden;
         }
 
-        .hero-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.3);
-        }
-        
-        .hero-content { position: relative; z-index: 2; width: 100%; padding: 0 20px; }
-        
-        .hero-names {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3.5rem;
-            margin-bottom: 5px;
-            line-height: 1.2;
-        }
-        .hero-date {
-            font-family: 'Prata', serif;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            border-top: 1px solid white;
-            border-bottom: 1px solid white;
-            padding: 8px 0;
-            display: inline-block;
-        }
-
-        /* --- SECTIONS BLANCHES --- */
-        .white-section {
-            background-color: white;
-            padding: 50px 20px;
-            text-align: center;
-            position: relative;
-            z-index: 10;
-        }
-
-        .section-logo {
-            font-family: 'Great Vibes', cursive;
-            font-size: 2.5rem;
-            color: #E69DB3;
-            margin-bottom: 10px;
-            line-height: 1;
-        }
-
-        h2 {
-            font-family: 'Prata', serif;
-            font-size: 1.8rem;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            color: #222;
-            letter-spacing: 1px;
-        }
-
-        .infos {
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-            color: #666;
-        }
-
-        .bold-time {
-            font-weight: 600;
-            color: #000;
+        .sticky-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* L'image remplit bien sans être déformée */
             display: block;
-            margin-bottom: 3px;
         }
 
-        /* --- BOUTONS --- */
-        .btn-group {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .btn {
-            padding: 10px 25px;
-            border: 1px solid #222;
-            color: #222;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-            transition: 0.3s;
-        }
-        .btn:hover {
-            background-color: #E69DB3;
-            border-color: #E69DB3;
-            color: white;
+        /* Le voile noir sur les images */
+        .overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.2);
         }
 
-        /* --- LE CORRECTIF POUR LE DÉFILEMENT (IMAGES PARALLAXE) --- */
-        
-        .parallax-image {
-            width: 100%;
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
+        /* --- CONFIGURATION DES TEXTES (BLOCS BLANCS) --- */
+        .white-section {
+            background-color: white; /* Important pour cacher l'image quand on scrolle */
+            padding: 60px 20px;
+            text-align: center;
             position: relative;
-            z-index: 1;
+            z-index: 10; /* Le texte passe DEVANT l'image */
+            box-shadow: 0 -10px 20px rgba(0,0,0,0.05); /* Petite ombre pour le style */
         }
 
-        /* VERSION ORDINATEUR (Écran large) -> On garde l'effet Fixe */
-        @media (min-width: 769px) {
-            .parallax-image {
-                height: 40vh;
-                background-attachment: fixed; /* C'est ça qui fait l'effet magique */
-            }
+        /* --- TYPOGRAPHIE --- */
+        .hero-title {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            width: 100%;
+            z-index: 2;
         }
 
-        /* VERSION TÉLÉPHONE (Écran petit) -> On désactive le Fixe pour débloquer le scroll */
-        @media (max-width: 768px) {
-            .parallax-image {
-                height: 250px; /* Hauteur fixe simple */
-                background-attachment: scroll; /* L'image défile normalement */
-            }
-            
-            /* Ajustement taille texte mobile */
-            .hero-names { font-size: 3rem; }
-            h2 { font-size: 1.5rem; }
-        }
+        .names { font-family: 'Great Vibes', cursive; font-size: 3.5rem; line-height: 1.2; margin-bottom: 10px; }
+        .date { font-family: 'Prata', serif; text-transform: uppercase; letter-spacing: 3px; border-top: 1px solid white; border-bottom: 1px solid white; padding: 5px 0; display: inline-block; }
 
-        /* --- RSVP --- */
-        .rsvp-form { max-width: 600px; margin: 0 auto; text-align: left; }
-        label { display: block; margin-top: 15px; margin-bottom: 5px; font-weight: 500; font-size: 0.9rem; }
-        input[type="text"], textarea {
-            width: 100%; padding: 10px; border: 1px solid #ddd; font-family: 'Montserrat', sans-serif;
-        }
-        .radio-options { margin-top: 5px; font-size: 0.9rem; }
-        .radio-options span { margin-right: 15px; }
+        .section-logo { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #E69DB3; margin-bottom: 10px; }
+        h2 { font-family: 'Prata', serif; font-size: 1.8rem; text-transform: uppercase; color: #222; margin-bottom: 10px; }
+        .infos { font-size: 0.9rem; color: #666; margin-bottom: 20px; }
+        .bold-time { font-weight: 600; color: #000; display: block; }
         
-        .submit-btn {
-            background-color: #222; color: white; border: none; padding: 12px 30px;
-            text-transform: uppercase; letter-spacing: 2px; margin-top: 25px;
-            cursor: pointer; width: 100%; transition: 0.3s; font-size: 0.9rem;
+        /* --- BOUTONS & FORMULAIRE --- */
+        .btn { padding: 10px 25px; border: 1px solid #222; color: #222; text-decoration: none; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; display:inline-block; margin: 0 5px; transition:0.3s;}
+        .btn:hover { background: #E69DB3; border-color: #E69DB3; color: white; }
+
+        .rsvp-form { max-width: 600px; margin: 0 auto; text-align: left; }
+        input[type="text"], textarea { width: 100%; padding: 10px; border: 1px solid #ddd; margin-top:5px; margin-bottom:15px; font-family: 'Montserrat', sans-serif;}
+        label { font-weight: 500; font-size: 0.9rem; }
+        .submit-btn { background: #222; color: white; border: none; padding: 12px 30px; text-transform: uppercase; letter-spacing: 2px; width: 100%; cursor: pointer; }
+        
+        /* Ajustement Mobile */
+        @media (max-width: 768px) {
+            .names { font-size: 3rem; }
+            .white-section { padding: 50px 15px; }
         }
     </style>
 </head>
 <body>
 
-    <header class="hero-header">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div class="hero-names">Mélanie & Kévin</div>
-            <div class="hero-date">24 Juin 2026</div>
+    <div class="sticky-image-container">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop" alt="Accueil">
+        <div class="overlay"></div>
+        <div class="hero-title">
+            <div class="names">Mélanie & Kévin</div>
+            <div class="date">24 Juin 2026</div>
             <div style="margin-top: 40px; font-size: 2rem;">↓</div>
         </div>
-    </header>
+    </div>
 
     <section class="white-section" id="mairie">
         <div class="section-logo">Mélanie & Kévin</div>
@@ -204,14 +107,15 @@
             <span class="bold-time">Jeudi 24 Juin à 14h00</span>
             Mairie du 16ème Arrondissement<br>Paris
         </div>
-        <p style="font-size: 0.85rem; font-style: italic; margin-bottom: 0;">Suivi d'un vin d'honneur.</p>
-        <div class="btn-group">
-            <a href="https://waze.com/ul" target="_blank" class="btn">Waze</a>
-            <a href="https://maps.google.com" target="_blank" class="btn">Plan</a>
+        <p style="font-size: 0.85rem; font-style: italic;">Suivi d'un vin d'honneur.</p>
+        <div>
+            <a href="https://waze.com/ul" class="btn">Waze</a>
+            <a href="#" class="btn">Plan</a>
         </div>
     </section>
 
-    <div class="parallax-image" style="background-image: url('https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2070&auto=format&fit=crop');"></div>
+    <div class="sticky-image-container" style="height: 60vh;"> <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2070&auto=format&fit=crop" alt="Transition 1">
+    </div>
 
     <section class="white-section" id="houppa">
         <div class="section-logo">Mélanie & Kévin</div>
@@ -220,13 +124,16 @@
             <span class="bold-time">Dimanche 27 Juin à 16h30</span>
             Domaine de la Reine<br>Versailles
         </div>
-        <div class="btn-group">
-            <a href="https://waze.com/ul" target="_blank" class="btn">Waze</a>
-            <a href="https://maps.google.com" target="_blank" class="btn">Plan</a>
+        <p style="font-size: 0.85rem; font-style: italic;">Cérémonie religieuse.</p>
+        <div>
+            <a href="https://waze.com/ul" class="btn">Waze</a>
+            <a href="#" class="btn">Plan</a>
         </div>
     </section>
 
-    <div class="parallax-image" style="background-image: url('https://images.unsplash.com/photo-1511285560982-1351cdeb9821?q=80&w=2070&auto=format&fit=crop');"></div>
+    <div class="sticky-image-container" style="height: 60vh;">
+        <img src="https://images.unsplash.com/photo-1511285560982-1351cdeb9821?q=80&w=2070&auto=format&fit=crop" alt="Transition 2">
+    </div>
 
     <section class="white-section" id="henne">
         <div class="section-logo">Mélanie & Kévin</div>
@@ -235,32 +142,25 @@
             <span class="bold-time">Dimanche 27 Juin dès 18h00</span>
             Domaine de la Reine, Versailles
         </div>
-        <p style="font-size: 0.85rem; font-style: italic; margin-bottom: 0;">Dîner et fête !</p>
+        <p style="font-size: 0.85rem; font-style: italic;">Fête jusqu'au bout de la nuit !</p>
     </section>
 
-    <div class="parallax-image" style="background-image: url('https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=2070&auto=format&fit=crop');"></div>
+    <div class="sticky-image-container" style="height: 60vh;">
+        <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=2070&auto=format&fit=crop" alt="Transition 3">
+    </div>
 
     <section class="white-section" id="rsvp">
         <h2>Votre Réponse</h2>
-        <p style="margin-bottom: 20px;">Merci de confirmer avant le 1er Mai.</p>
-        <form class="rsvp-form" action="mailto:melanie.kevin@gmail.com" method="post" enctype="text/plain">
+        <p style="margin-bottom:20px;">Merci de confirmer avant le 1er Mai.</p>
+        <form class="rsvp-form" action="mailto:email@exemple.com" method="post" enctype="text/plain">
             <label>Nom & Prénom</label>
-            <input type="text" name="nom" required placeholder="Ex: Dupont Jean">
+            <input type="text" name="nom" required>
             
-            <label>Présence à la Mairie ?</label>
-            <div class="radio-options">
-                <span><input type="radio" name="mairie" value="Oui"> Oui</span>
-                <span><input type="radio" name="mairie" value="Non"> Non</span>
-            </div>
+            <label>Présence Mairie ?</label>
+            <input type="text" name="mairie" placeholder="Oui / Non">
 
-            <label>Présence à la Houppa ?</label>
-            <div class="radio-options">
-                <span><input type="radio" name="houppa" value="Oui"> Oui</span>
-                <span><input type="radio" name="houppa" value="Non"> Non</span>
-            </div>
-
-            <label>Nombre d'adultes</label>
-            <input type="text" name="adultes" placeholder="Ex: 2">
+            <label>Présence Houppa ?</label>
+            <input type="text" name="houppa" placeholder="Oui / Non">
 
             <label>Message</label>
             <textarea name="message" rows="3"></textarea>
