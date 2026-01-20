@@ -57,7 +57,7 @@
             width: 100%; height: 100%; object-fit: cover;
         }
 
-        /* --- HERO --- */
+        /* --- HERO (Desktop) --- */
         .hero-content {
             position: relative; z-index: 2; text-align: center; color: white;
             animation: fadeIn 1.5s ease-out;
@@ -66,8 +66,7 @@
             font-family: 'Pinyon Script', cursive; 
             font-size: 6rem; 
             text-shadow: 0 5px 20px rgba(0,0,0,0.4); margin-bottom: 15px;
-            line-height: 1.1;
-            font-weight: 400; 
+            line-height: 1.1; font-weight: 400; 
         }
         .hero-date {
             font-family: 'Cormorant Garamond', serif; 
@@ -76,73 +75,50 @@
             border-bottom: 2px solid rgba(255,255,255,0.9); padding: 15px 0; display: inline-block;
         }
 
-        /* --- SECTIONS TEXTE --- */
+        /* --- SECTIONS TEXTE (Desktop) --- */
         .white-section {
-            position: relative; 
-            z-index: 10;
-            padding: 100px 20px; 
-            text-align: center;
-            background-image: url('fond-page.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-color: #fcfcfc; 
-            box-shadow: 0 -10px 40px rgba(0,0,0,0.08);
+            position: relative; z-index: 10; padding: 100px 20px; text-align: center;
+            background-image: url('fond-page.png'); background-size: cover;
+            background-position: center; background-repeat: no-repeat;
+            background-color: #fcfcfc; box-shadow: 0 -10px 40px rgba(0,0,0,0.08);
         }
 
-        /* LOGO */
-        .section-logo-img { 
-            width: 280px; 
-            height: auto; 
-            margin-bottom: 40px; 
-            display: inline-block; 
-        }
-
-        /* --- IMAGE HEBRAIQUE (Remontée ENCORE PLUS) --- */
+        /* LOGO & IMAGES (Desktop) */
+        .section-logo-img { width: 280px; height: auto; margin-bottom: 40px; display: inline-block; }
         .hebrew-phrase-img {
-            display: block;
-            /* Marge négative augmentée à -65px */
-            margin: -65px auto 30px auto; 
-            max-width: 90%;
-            width: 400px; 
-            height: auto;
+            display: block; margin: -50px auto 30px auto; 
+            max-width: 90%; width: 400px; height: auto;
         }
 
-        /* --- TYPOGRAPHIE --- */
+        /* --- TYPOGRAPHIE (Desktop) --- */
         h2 {
             font-family: 'Cormorant Garamond', serif; font-size: 3.2rem; 
             text-transform: uppercase; font-weight: 600; letter-spacing: 6px; 
             margin-bottom: 15px; color: #000;
         }
-
         .names-script {
             font-family: 'Pinyon Script', cursive; font-size: 4.5rem; color: #111;
             margin: 10px 0 20px 0; line-height: 1.1;
         }
-
         .action-text {
             font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.8rem;
             color: #444; margin-bottom: 40px;
         }
-
         .info-block { margin-bottom: 50px; }
-        
         .time-location {
             font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase;
             letter-spacing: 3px; font-weight: 600; margin-bottom: 15px; color: #555; display: block;
         }
-        
         .venue {
             font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; 
             font-weight: 700; color: #111; line-height: 1.2; margin-bottom: 10px;
         }
-        
         .address {
             font-style: italic; font-family: 'Cormorant Garamond', serif; 
             font-size: 1.4rem; color: #333; font-weight: 500;
         }
 
-        /* PARENTS EN COLONNES */
+        /* PARENTS (Desktop) */
         .parents-columns-container {
             display: flex; justify-content: center; gap: 40px; margin-bottom: 25px;
         }
@@ -150,12 +126,12 @@
             font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
             line-height: 1.6; color: #222; font-weight: 600; text-align: center;
         }
-
         .invitation-phrase-standalone {
             display: block; font-family: 'Cormorant Garamond', serif; font-weight: 500;
             font-style: italic; font-size: 1.3rem; color: #444; margin-bottom: 60px;
         }
 
+        /* COUPLE (Desktop) */
         .couple-block-new { margin-bottom: 60px; }
         .couple-names-fr {
             font-family: 'Pinyon Script', cursive; font-size: 4.5rem; color: #111; line-height: 1; margin-bottom: 15px;
@@ -164,7 +140,7 @@
             font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: #555; font-weight: 500;
         }
 
-        /* DATE SEPARATOR */
+        /* DIVERS (Desktop) */
         .date-separator {
             display: flex; align-items: center; justify-content: center;
             margin: 35px auto; width: 100%; max-width: 500px;
@@ -174,9 +150,7 @@
             font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 700;
             text-transform: uppercase; letter-spacing: 2px; margin: 0 20px; color: #111;
         }
-
         .divider { width: 1px; height: 70px; background: #bbb; margin: 50px auto; opacity: 0.4; }
-
         .btn-waze {
             display: inline-block; text-decoration: none;
             font-family: 'Montserrat', sans-serif; font-size: 0.7rem; text-transform: uppercase;
@@ -184,20 +158,21 @@
             padding: 12px 30px; transition: 0.4s; margin-top: 20px; font-weight: 700;
         }
         .btn-waze:hover { background-color: #111; color: white; }
+        .footer-text {
+            margin-top: 80px; font-size: 1.1rem; color: #555; font-family: 'Cormorant Garamond', serif; 
+            font-style: italic; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6; font-weight: 500;
+        }
 
-        /* --- FORMULAIRE --- */
+        /* --- FORMULAIRE (Desktop) --- */
         .rsvp-container { max-width: 600px; margin: 0 auto; text-align: left; }
         .input-group { margin-bottom: 45px; position: relative; }
-        
         input[type="text"], input[type="number"], textarea {
-            width: 100%; padding: 15px 0; border: none; 
-            border-bottom: 1px solid #ccc;
+            width: 100%; padding: 15px 0; border: none; border-bottom: 1px solid #ccc;
             font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: #111;
             background: transparent; outline: none; transition: 0.4s; border-radius: 0; font-weight: 600;
         }
         input:focus, textarea:focus { border-bottom: 1px solid #000; }
         input::placeholder, textarea::placeholder { color: #bbb; font-style: italic; font-size: 1.2rem; font-weight: 400; }
-
         .radio-title {
             font-family: 'Montserrat', sans-serif; font-size: 0.7rem; text-transform: uppercase;
             letter-spacing: 2px; display: block; margin-bottom: 20px; color: #444; text-align: center; font-weight: 700;
@@ -210,12 +185,8 @@
             cursor: pointer; transition: 0.3s; letter-spacing: 2px; color: #888;
             background: rgba(255,255,255,0.8); font-weight: 600;
         }
-        .radio-options input[type="radio"]:checked + label {
-            background-color: #111; color: white; border-color: #111;
-        }
-
+        .radio-options input[type="radio"]:checked + label { background-color: #111; color: white; border-color: #111; }
         .guest-input { display: none; margin-top: 25px; animation: slideDown 0.6s ease cubic-bezier(0.25, 1, 0.5, 1) forwards; }
-
         .submit-btn {
             width: 100%; padding: 25px; background-color: #111; color: white; border: none;
             font-family: 'Montserrat', sans-serif; font-size: 0.9rem; text-transform: uppercase;
@@ -227,15 +198,47 @@
         @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
 
+        /* =========================================
+           --- MEDIA QUERY MOBILE (IMPORTANTE) ---
+           ========================================= */
         @media (max-width: 768px) {
-            .hero-names { font-size: 4rem; }
-            h2 { font-size: 2.2rem; letter-spacing: 3px; }
-            .white-section { padding: 80px 20px; }
-            .venue { font-size: 1.6rem; }
-            .couple-names-fr { font-size: 3.5rem; }
-            .section-logo-img { width: 160px; } 
-            .hebrew-phrase-img { width: 300px; margin-top: -30px; }
-            .parents-columns-container { flex-direction: column; gap: 15px; }
+            /* Réduction des espacements globaux */
+            .white-section { padding: 60px 15px; }
+            .info-block, .couple-block-new, .invitation-phrase-standalone { margin-bottom: 35px; }
+            .divider { margin: 35px auto; height: 50px; }
+            .footer-text { margin-top: 40px; font-size: 0.9rem; }
+
+            /* Réduction drastique des tailles de police */
+            .hero-names { font-size: 3.8rem; }
+            .hero-date { font-size: 1rem; letter-spacing: 4px; }
+            h2 { font-size: 1.8rem; letter-spacing: 3px; }
+            .names-script, .couple-names-fr { font-size: 2.8rem; }
+            .action-text { font-size: 1.2rem; margin-bottom: 25px; }
+            .venue { font-size: 1.5rem; }
+            .address, .time-location { font-size: 0.9rem; }
+            .date-text { font-size: 0.9rem; letter-spacing: 1px; }
+            .invitation-phrase-standalone { font-size: 1.1rem; margin-bottom: 40px; }
+            .couple-names-he { font-size: 1.4rem; }
+            .rsvp-confirmation-text { font-size: 1.2rem; }
+
+            /* Ajustement des images sur mobile */
+            .section-logo-img { width: 150px; margin-bottom: 25px; }
+            /* Image hébraïque remontée encore plus sur mobile */
+            .hebrew-phrase-img { width: 260px; margin-top: -75px; margin-bottom: 20px; }
+
+            /* --- PARENTS CÔTE À CÔTE SUR MOBILE --- */
+            .parents-columns-container {
+                flex-direction: row; /* Force la ligne même sur mobile */
+                gap: 10px; /* Espace réduit entre les colonnes */
+                justify-content: space-around; /* Répartit l'espace */
+                margin-bottom: 20px;
+            }
+            .parents-col {
+                /* Police BEAUCOUP plus petite pour tenir sur une ligne */
+                font-size: 0.85rem; 
+                line-height: 1.4;
+                flex: 1; /* Largeur équitable */
+            }
         }
     </style>
 </head>
@@ -276,7 +279,7 @@
             <div class="venue">Pavillons des Fêtes</div>
             <div class="address">
                 1 Place de Verdun, Levallois-Perret<br>
-                <span style="font-size: 1.1rem; font-style: italic;">(5 min à pied)</span>
+                <span style="font-size: 0.9em; font-style: italic;">(5 min à pied)</span>
             </div>
         </div>
 
@@ -322,7 +325,7 @@
 
         <a href="https://waze.com/ul?q=Les%20Pyramides%20Le%20Port-Marly" target="_blank" class="btn-waze">Itinéraire Waze</a>
 
-        <div style="margin-top: 80px; font-size: 1.1rem; color: #555; font-family: 'Cormorant Garamond', serif; font-style: italic; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6; font-weight: 500;">
+        <div class="footer-text">
             Une pensée très émue pour nos grands-parents Élie Mamou, Jacques & Germaine Habib, Saidou Edmond Benmoussa & Germaine Benmoussa, Gaston Israel & Emilie Zana qui nous manqueront tant en ce jour unique.<br>Que vos bénédictions illuminent notre vie.
         </div>
     </section>
@@ -335,7 +338,7 @@
     <section class="white-section">
         <img src="logo.png" alt="Logo" class="section-logo-img">
         <h2>Confirmation</h2>
-        <p style="color:#444; margin-bottom:60px; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-style: italic; font-weight: 600;">
+        <p class="rsvp-confirmation-text" style="color:#444; margin-bottom:60px; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-style: italic; font-weight: 600;">
             Merci de confirmer votre présence dès réception.
         </p>
 
@@ -403,5 +406,4 @@
     </script>
 
 </body>
-
 </html>
