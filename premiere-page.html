@@ -17,7 +17,7 @@
         body { 
             font-family: 'Montserrat', sans-serif; 
             color: #111; 
-            background-color: #fff;
+            background-color: #fcfcfc; /* Couleur de fond de secours */
             overflow-x: hidden;
             font-weight: 300;
         }
@@ -53,11 +53,20 @@
             border-bottom: 1px solid rgba(255,255,255,0.7); padding: 12px 0; display: inline-block;
         }
 
-        /* --- SECTIONS BLANCHES --- */
+        /* --- SECTIONS TEXTE AVEC FOND MOTIF --- */
         .white-section {
-            position: relative; background-color: #fff; z-index: 10;
-            padding: 100px 20px; text-align: center;
-            box-shadow: 0 -10px 30px rgba(0,0,0,0.02);
+            position: relative; 
+            z-index: 10;
+            padding: 100px 20px; 
+            text-align: center;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.05); /* Ombre douce pour décoller le texte */
+            
+            /* --- ICI : TON MOTIF À LA PLACE DU BLANC --- */
+            background-image: url('fond-page.png');
+            background-color: #fff; /* Couleur de secours si l'image charge mal */
+            background-size: cover; /* L'image couvre tout le bloc */
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         /* --- TYPO LUXE --- */
@@ -65,6 +74,7 @@
             font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600;
             letter-spacing: -2px; margin-bottom: 40px; display: inline-block;
             border: 1px solid #111; padding: 10px 15px;
+            background: rgba(255,255,255,0.5); /* Légère transparence pour lisibilité sur motif */
         }
 
         h2 {
@@ -94,7 +104,7 @@
             font-size: 1.2rem; color: #555;
         }
 
-        .divider { width: 1px; height: 60px; background: #ddd; margin: 40px auto; }
+        .divider { width: 1px; height: 60px; background: #999; margin: 40px auto; opacity: 0.5; }
 
         .btn-waze {
             display: inline-block; text-decoration: none;
@@ -111,17 +121,17 @@
         
         /* Champs Texte */
         input[type="text"], input[type="number"], textarea {
-            width: 100%; padding: 10px 0; border: none; border-bottom: 1px solid #ccc;
+            width: 100%; padding: 10px 0; border: none; border-bottom: 1px solid #888;
             font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #111;
             background: transparent; outline: none; transition: 0.4s; border-radius: 0;
         }
         input:focus, textarea:focus { border-bottom: 1px solid #000; }
-        input::placeholder, textarea::placeholder { color: #ccc; font-style: italic; }
+        input::placeholder, textarea::placeholder { color: #666; font-style: italic; }
 
         /* Boutons Radio Stylisés */
         .radio-title {
             font-family: 'Montserrat', sans-serif; font-size: 0.7rem; text-transform: uppercase;
-            letter-spacing: 2px; display: block; margin-bottom: 15px; color: #888;
+            letter-spacing: 2px; display: block; margin-bottom: 15px; color: #444;
         }
         
         .radio-options { display: flex; gap: 10px; }
@@ -129,9 +139,10 @@
         .radio-options input[type="radio"] { display: none; }
         
         .radio-options label {
-            flex: 1; text-align: center; padding: 15px; border: 1px solid #ddd;
+            flex: 1; text-align: center; padding: 15px; border: 1px solid #aaa;
             font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase;
-            cursor: pointer; transition: 0.3s; letter-spacing: 1px; color: #aaa;
+            cursor: pointer; transition: 0.3s; letter-spacing: 1px; color: #555;
+            background: rgba(255,255,255,0.5); /* Transparence légère */
         }
         
         .radio-options input[type="radio"]:checked + label {
@@ -145,7 +156,6 @@
             animation: slideDown 0.5s ease forwards;
         }
 
-        /* Bouton Envoyer */
         .submit-btn {
             width: 100%; padding: 20px; background-color: #111; color: white; border: none;
             font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase;
@@ -153,7 +163,7 @@
         }
         .submit-btn:hover { background-color: #333; }
 
-        .hebrew { font-family: serif; font-size: 1.2rem; color: #aaa; margin: 10px 0 30px 0; display: block; letter-spacing: 2px; }
+        .hebrew { font-family: serif; font-size: 1.2rem; color: #666; margin: 10px 0 30px 0; display: block; letter-spacing: 2px; }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
@@ -216,7 +226,7 @@
             Daisy Mamou<br>Lydia & Elias Azoura<br>Véronique & James Azoura<br>Maguy & Joseph Zana
         </div>
 
-        <p style="font-style:italic; color:#888; margin-bottom:30px;">Vous prient de bien vouloir assister à la cérémonie religieuse</p>
+        <p style="font-style:italic; color:#666; margin-bottom:30px;">Vous prient de bien vouloir assister à la cérémonie religieuse</p>
 
         <div class="info-block">
             <span class="time-location">LUNDI 25 MAI 2026 — 17H30 PRÉCISES</span>
@@ -226,7 +236,7 @@
 
         <a href="https://waze.com/ul?q=Les%20Pyramides%20Le%20Port-Marly" target="_blank" class="btn-waze">Itinéraire Waze</a>
 
-        <div style="margin-top: 60px; font-size: 0.9rem; color: #aaa; font-style: italic; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+        <div style="margin-top: 60px; font-size: 0.9rem; color: #666; font-style: italic; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6;">
             Une pensée très émue pour nos grands-parents Élie Mamou, Jacques & Germaine Habib, Saidou Edmond Benmoussa & Germaine Benmoussa, Gaston Israel & Emilie Zana qui nous manqueront tant en ce jour unique.<br>Que vos bénédictions illuminent notre vie.
         </div>
     </section>
@@ -299,11 +309,11 @@
             
             if (show) {
                 element.style.display = 'block';
-                input.setAttribute('required', 'required'); // Devient obligatoire
+                input.setAttribute('required', 'required');
             } else {
                 element.style.display = 'none';
-                input.removeAttribute('required'); // N'est plus obligatoire
-                input.value = ''; // On efface la valeur si on change d'avis
+                input.removeAttribute('required');
+                input.value = '';
             }
         }
     </script>
