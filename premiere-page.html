@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,500&family=Montserrat:wght@200;300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
 
     <style>
         /* --- RESET --- */
@@ -17,20 +17,21 @@
         body { 
             font-family: 'Montserrat', sans-serif; 
             color: #1a1a1a; 
-            background-color: #fcfcfc; 
+            background-color: #fcfcfc;
             
-            /* FOND GÉNÉRAL DU SITE */
+            /* FOND GÉNÉRAL */
             background-image: url('fond-page.png');
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
             
             overflow-x: hidden;
-            font-weight: 300;
+            /* Changement ici : 500 au lieu de 300 pour un texte plus présent */
+            font-weight: 500; 
             letter-spacing: 0.5px;
         }
 
-        /* --- PARALLAXE STICKY --- */
+        /* --- PARALLAXE --- */
         .parallax-container {
             position: sticky; top: 0;
             height: 100vh; height: 100dvh;
@@ -46,15 +47,15 @@
             background: rgba(0,0,0,0.2); z-index: 0;
         }
 
-        /* --- PHOTO 4 (CORRECTION DÉFINITIVE) --- */
+        /* --- PHOTO 4 (FIN) --- */
         .final-container {
-            position: relative; /* Doit être RELATIVE pour s'afficher à la fin */
+            position: relative; 
             z-index: 20; 
             height: 100vh;
             width: 100%;
             overflow: hidden;
             display: block;
-            background-color: #fff; /* Sécurité si l'image ne charge pas */
+            background-color: #fff;
         }
         .final-container img {
             width: 100%; height: 100%; object-fit: cover;
@@ -68,14 +69,17 @@
         .hero-names {
             font-family: 'Pinyon Script', cursive; 
             font-size: 6rem; 
-            text-shadow: 0 5px 20px rgba(0,0,0,0.3); margin-bottom: 15px;
+            text-shadow: 0 5px 20px rgba(0,0,0,0.4); margin-bottom: 15px;
             line-height: 1.1;
+            /* Un peu plus épais pour le script */
+            font-weight: 400; 
         }
         .hero-date {
             font-family: 'Cormorant Garamond', serif; 
-            font-size: 1.2rem; letter-spacing: 8px; font-weight: 600;
-            text-transform: uppercase; border-top: 1px solid rgba(255,255,255,0.9); 
-            border-bottom: 1px solid rgba(255,255,255,0.9); padding: 15px 0; display: inline-block;
+            /* Date plus grasse */
+            font-size: 1.3rem; letter-spacing: 8px; font-weight: 700;
+            text-transform: uppercase; border-top: 2px solid rgba(255,255,255,0.9); 
+            border-bottom: 2px solid rgba(255,255,255,0.9); padding: 15px 0; display: inline-block;
         }
 
         /* --- SECTIONS TEXTE --- */
@@ -85,52 +89,74 @@
             padding: 100px 20px; 
             text-align: center;
             
-            /* ICI : ON APPLIQUE L'IMAGE DE FOND SUR LES SECTIONS AUSSI */
+            /* FOND IMAGE SUR LES SECTIONS */
             background-image: url('fond-page.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            
-            /* Important : rend le fond opaque pour cacher les photos qui scrollent derrière */
             background-color: #fcfcfc; 
             
-            box-shadow: 0 -10px 40px rgba(0,0,0,0.05);
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.08);
         }
 
-        .section-logo-img { width: 120px; height: auto; margin-bottom: 40px; display: inline-block; }
+        /* --- LOGO AGRANDI --- */
+        .section-logo-img {
+            width: 280px; /* BEAUCOUP PLUS GRAND */
+            height: auto;
+            margin-bottom: 40px;
+            display: inline-block;
+        }
 
-        /* --- TYPOGRAPHIE --- */
+        /* --- TYPOGRAPHIE RENFORCÉE --- */
         h2 {
-            font-family: 'Cormorant Garamond', serif; font-size: 3.2rem; 
-            text-transform: uppercase; font-weight: 300; letter-spacing: 6px; 
-            margin-bottom: 15px; color: #000;
+            font-family: 'Cormorant Garamond', serif; 
+            font-size: 3.2rem; 
+            text-transform: uppercase;
+            /* Titres plus gras */
+            font-weight: 600; 
+            letter-spacing: 5px; 
+            margin-bottom: 15px; 
+            color: #000;
         }
 
         .subtitle {
-            font-family: 'Pinyon Script', cursive; font-size: 2.8rem; color: #666;
+            font-family: 'Pinyon Script', cursive; 
+            font-size: 3rem; color: #444; /* Couleur un peu plus foncée */
             margin-bottom: 50px; display: block;
         }
 
         .info-block { margin-bottom: 50px; }
         
         .time-location {
-            font-family: 'Montserrat', sans-serif; font-size: 0.75rem; text-transform: uppercase;
-            letter-spacing: 3px; font-weight: 500; margin-bottom: 15px; color: #888; display: block;
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 0.8rem; text-transform: uppercase;
+            /* Label plus gras */
+            letter-spacing: 3px; font-weight: 600; 
+            margin-bottom: 15px; color: #555; /* Plus foncé pour lisibilité */
+            display: block;
         }
         
         .venue {
-            font-family: 'Cormorant Garamond', serif; font-size: 2rem; 
-            font-weight: 500; color: #111; line-height: 1.2; margin-bottom: 10px;
+            font-family: 'Cormorant Garamond', serif; 
+            font-size: 2.2rem; 
+            /* Lieu plus gras */
+            font-weight: 700; color: #111; 
+            line-height: 1.2; margin-bottom: 10px;
         }
         
         .address {
             font-style: italic; font-family: 'Cormorant Garamond', serif; 
-            font-size: 1.3rem; color: #555;
+            /* Adresse plus visible */
+            font-size: 1.4rem; color: #333; font-weight: 500;
         }
 
         .parents-list {
-            font-family: 'Cormorant Garamond', serif; font-size: 1.2rem;
-            line-height: 1.8; color: #444; margin-bottom: 30px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #222; /* Noir doux */
+            margin-bottom: 30px;
+            font-weight: 600;
         }
 
         /* --- PARENTS EN 2 COLONNES --- */
@@ -139,17 +165,18 @@
             margin-bottom: 40px; text-align: center;
         }
         .parents-column {
-            font-family: 'Cormorant Garamond', serif; font-size: 1.2rem;
-            line-height: 1.8; color: #444;
+            font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
+            line-height: 1.8; color: #222; font-weight: 600;
         }
 
-        .divider { width: 1px; height: 70px; background: #bbb; margin: 50px auto; opacity: 0.4; }
+        .divider { width: 1px; height: 70px; background: #888; margin: 50px auto; opacity: 0.6; }
 
         .btn-waze {
             display: inline-block; text-decoration: none;
-            font-family: 'Montserrat', sans-serif; font-size: 0.7rem; text-transform: uppercase;
-            letter-spacing: 3px; color: #111; border: 1px solid #111; 
-            padding: 12px 30px; transition: 0.4s; margin-top: 20px;
+            font-family: 'Montserrat', sans-serif; font-size: 0.75rem; text-transform: uppercase;
+            letter-spacing: 3px; color: #111; border: 1.5px solid #111; /* Bordure un peu plus épaisse */
+            padding: 14px 35px; transition: 0.4s; margin-top: 20px;
+            font-weight: 700; /* Gras */
         }
         .btn-waze:hover { background-color: #111; color: white; }
 
@@ -159,24 +186,27 @@
         
         input[type="text"], input[type="number"], textarea {
             width: 100%; padding: 15px 0; border: none; 
-            border-bottom: 1px solid #ccc;
-            font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: #111;
+            border-bottom: 1.5px solid #999; /* Ligne plus visible */
+            font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: #111;
             background: transparent; outline: none; transition: 0.4s; border-radius: 0;
+            font-weight: 600; /* Texte saisi plus gras */
         }
-        input:focus, textarea:focus { border-bottom: 1px solid #000; }
-        input::placeholder, textarea::placeholder { color: #bbb; font-style: italic; font-size: 1.2rem; }
+        input:focus, textarea:focus { border-bottom: 2px solid #000; }
+        input::placeholder, textarea::placeholder { color: #777; font-style: italic; font-size: 1.3rem; font-weight: 400; }
 
         .radio-title {
-            font-family: 'Montserrat', sans-serif; font-size: 0.7rem; text-transform: uppercase;
-            letter-spacing: 2px; display: block; margin-bottom: 20px; color: #444; text-align: center;
+            font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase;
+            letter-spacing: 2px; display: block; margin-bottom: 20px; color: #222; text-align: center;
+            font-weight: 700; /* Titre radio gras */
         }
         .radio-options { display: flex; gap: 15px; justify-content: center; }
         .radio-options input[type="radio"] { display: none; }
         .radio-options label {
-            min-width: 120px; text-align: center; padding: 12px; border: 1px solid #ddd;
-            font-family: 'Montserrat', sans-serif; font-size: 0.75rem; text-transform: uppercase;
-            cursor: pointer; transition: 0.3s; letter-spacing: 2px; color: #888;
-            background: rgba(255,255,255,0.8);
+            min-width: 120px; text-align: center; padding: 12px; border: 1px solid #999;
+            font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase;
+            cursor: pointer; transition: 0.3s; letter-spacing: 2px; color: #444;
+            background: rgba(255,255,255,0.6);
+            font-weight: 600; /* Texte bouton gras */
         }
         .radio-options input[type="radio"]:checked + label {
             background-color: #111; color: white; border-color: #111;
@@ -186,12 +216,13 @@
 
         .submit-btn {
             width: 100%; padding: 25px; background-color: #111; color: white; border: none;
-            font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif; font-size: 0.9rem; text-transform: uppercase;
             letter-spacing: 4px; cursor: pointer; transition: 0.4s; margin-top: 30px;
+            font-weight: 700;
         }
         .submit-btn:hover { background-color: #333; letter-spacing: 6px; }
 
-        .hebrew { font-family: serif; font-size: 1.4rem; color: #888; margin: 10px 0 30px 0; display: block; letter-spacing: 1px; }
+        .hebrew { font-family: serif; font-size: 1.5rem; color: #666; margin: 10px 0 30px 0; display: block; letter-spacing: 1px; font-weight: 500; }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
@@ -201,8 +232,11 @@
             .hero-names { font-size: 4rem; }
             h2 { font-size: 2.2rem; letter-spacing: 3px; }
             .white-section { padding: 80px 20px; }
-            .venue { font-size: 1.6rem; }
+            .venue { font-size: 1.8rem; }
             .parents-container { flex-direction: column; gap: 20px; }
+            
+            /* Logo un peu moins géant sur mobile pour pas tout casser */
+            .section-logo-img { width: 200px; } 
         }
     </style>
 </head>
@@ -263,7 +297,7 @@
             </div>
         </div>
 
-        <p style="font-style:italic; color:#666; margin-bottom:40px; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem;">
+        <p style="font-style:italic; color:#444; margin-bottom:40px; font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 500;">
             Vous prient de bien vouloir assister à la cérémonie religieuse
         </p>
 
@@ -275,7 +309,7 @@
 
         <a href="https://waze.com/ul?q=Les%20Pyramides%20Le%20Port-Marly" target="_blank" class="btn-waze">Itinéraire Waze</a>
 
-        <div style="margin-top: 80px; font-size: 1rem; color: #888; font-family: 'Cormorant Garamond', serif; font-style: italic; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+        <div style="margin-top: 80px; font-size: 1.1rem; color: #555; font-family: 'Cormorant Garamond', serif; font-style: italic; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6; font-weight: 500;">
             Une pensée très émue pour nos grands-parents Élie Mamou, Jacques & Germaine Habib, Saidou Edmond Benmoussa & Germaine Benmoussa, Gaston Israel & Emilie Zana qui nous manqueront tant en ce jour unique.<br>Que vos bénédictions illuminent notre vie.
         </div>
     </section>
@@ -288,7 +322,7 @@
     <section class="white-section">
         <img src="logo.png" alt="Logo" class="section-logo-img">
         <h2>Confirmation</h2>
-        <p style="color:#666; margin-bottom:60px; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-style: italic;">
+        <p style="color:#444; margin-bottom:60px; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-style: italic; font-weight: 600;">
             Merci de confirmer votre présence dès réception.
         </p>
 
@@ -337,7 +371,7 @@
     </section>
 
     <div class="final-container">
-        <img src="photo4.jpeg" alt="Final">
+        <img src="photo4.png" alt="Final">
         <div class="overlay"></div>
     </div>
 
