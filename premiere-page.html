@@ -3,325 +3,283 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mélanie & Kévin - L'Union</title>
+    <title>Mélanie & Kévin - Invitation</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400&family=Great+Vibes&display=swap" rel="stylesheet">
 
     <style>
-        /* --- RESET & BASES --- */
+        /* --- RESET --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         html { scroll-behavior: smooth; }
-
+        
         body { 
-            font-family: 'Jost', sans-serif;
-            color: #1a1a1a;
-            margin: 0;
-            background-color: #FAFAFA;
+            font-family: 'Montserrat', sans-serif; 
+            color: #111; 
+            background-color: #fff;
             overflow-x: hidden;
+            font-weight: 300;
         }
 
-        /* --- SYSTÈME DE SCROLL (Sticky) --- */
+        /* --- PARALLAXE STICKY (Compatible Mobile) --- */
         .parallax-container {
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            height: 100dvh;
-            width: 100%;
-            overflow: hidden;
-            z-index: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            position: sticky; top: 0;
+            height: 100vh; height: 100dvh;
+            width: 100%; overflow: hidden; z-index: 1;
+            display: flex; justify-content: center; align-items: center;
         }
-
         .parallax-container img {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             object-fit: cover; z-index: -1;
-            transition: transform 10s ease;
         }
-
         .overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.3); z-index: 0;
+            background: rgba(0,0,0,0.2); z-index: 0;
         }
 
-        /* --- HERO HEADER --- */
+        /* --- HERO --- */
         .hero-content {
             position: relative; z-index: 2; text-align: center; color: white;
-            opacity: 0; animation: fadeInLoad 2s forwards;
+            animation: fadeIn 1.5s ease-out;
         }
-
         .hero-names {
-            font-family: 'Pinyon Script', cursive;
-            font-size: 5rem; line-height: 1.1;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            font-family: 'Great Vibes', cursive; font-size: 5rem; 
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3); margin-bottom: 10px;
         }
-        
         .hero-date {
-            font-family: 'Italiana', serif;
-            font-size: 1.2rem; letter-spacing: 5px; text-transform: uppercase;
-            margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.8);
-            border-bottom: 1px solid rgba(255,255,255,0.8);
-            padding: 8px 20px; display: inline-block;
+            font-family: 'Montserrat', sans-serif; font-size: 0.9rem; letter-spacing: 6px; 
+            text-transform: uppercase; border-top: 1px solid rgba(255,255,255,0.7); 
+            border-bottom: 1px solid rgba(255,255,255,0.7); padding: 12px 0; display: inline-block;
         }
 
-        /* --- SECTIONS BLANCHES --- */
+        /* --- SECTIONS BLANCHES (Style Éditorial) --- */
         .white-section {
-            position: relative;
-            background-color: #fff;
-            z-index: 10;
-            padding: 40px 20px;
-            display: flex; justify-content: center; align-items: center;
-            min-height: 60vh;
+            position: relative; background-color: #fff; z-index: 10;
+            padding: 100px 20px; text-align: center;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.02);
         }
 
-        .inner-frame {
-            border: 1px solid #E69DB3;
-            padding: 60px 30px;
-            max-width: 700px;
-            width: 100%;
-            text-align: center;
-            position: relative;
-            background: #fff;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
-        }
-        
-        .inner-frame::before {
-            content: "✦";
-            position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-            background: white; padding: 0 10px; color: #E69DB3; font-size: 1.2rem;
-        }
-
-        /* --- TYPOGRAPHIE --- */
-        .logo-mk {
-            font-family: 'Italiana', serif; font-size: 2.5rem; letter-spacing: -1px;
-            color: #1a1a1a; margin-bottom: 30px; display: inline-block;
-            border-bottom: 2px solid #E69DB3; padding-bottom: 5px;
+        /* --- TYPO LUXE --- */
+        .mk-monogram {
+            font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600;
+            letter-spacing: -2px; margin-bottom: 40px; display: inline-block;
+            border: 1px solid #111; padding: 10px 15px; /* Le petit carré chic */
         }
 
         h2 {
-            font-family: 'Italiana', serif; font-size: 2.2rem;
-            text-transform: uppercase; letter-spacing: 3px;
-            color: #111; margin: 0 0 20px 0;
+            font-family: 'Cormorant Garamond', serif; font-size: 3rem; text-transform: uppercase;
+            font-weight: 300; letter-spacing: 2px; margin-bottom: 20px; color: #000;
         }
 
-        .action-text {
-            font-family: 'Pinyon Script', cursive; font-size: 2.5rem; color: #E69DB3;
-            margin-bottom: 20px; display: block;
+        .subtitle {
+            font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #666;
+            margin-bottom: 40px; display: block;
         }
 
-        .details-block { margin: 25px 0; }
-
-        .time {
-            font-family: 'Italiana', serif; font-size: 1.3rem; font-weight: 600;
-            display: block; margin-bottom: 5px;
+        .info-block { margin-bottom: 40px; }
+        
+        .time-location {
+            font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase;
+            letter-spacing: 2px; font-weight: 400; margin-bottom: 10px; color: #888;
+        }
+        
+        .venue {
+            font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; 
+            font-weight: 600; color: #111; line-height: 1.2; margin-bottom: 10px;
+        }
+        
+        .address {
+            font-style: italic; font-family: 'Cormorant Garamond', serif; 
+            font-size: 1.2rem; color: #555;
         }
 
-        .place {
-            font-size: 0.95rem; line-height: 1.6; text-transform: uppercase; letter-spacing: 1px;
-            color: #555;
+        .divider { width: 1px; height: 60px; background: #ddd; margin: 40px auto; }
+
+        /* --- BOUTON WAZE PRO --- */
+        .btn-waze {
+            display: inline-block; text-decoration: none;
+            font-family: 'Montserrat', sans-serif; font-size: 0.7rem; text-transform: uppercase;
+            letter-spacing: 2px; color: #111; border-bottom: 1px solid #111;
+            padding-bottom: 3px; transition: 0.3s;
         }
+        .btn-waze:hover { color: #888; border-color: #888; }
 
-        .hebrew {
-            font-family: serif; font-size: 1.3rem; color: #888; letter-spacing: 1px; margin-bottom: 20px; display: block;
-        }
-
-        .parents {
-            font-family: 'Italiana', serif; font-size: 1.1rem; line-height: 1.8; color: #444; margin: 30px 0;
-            border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding: 20px 0;
-        }
-
-        .dedication {
-            font-size: 0.85rem; font-style: italic; color: #999; margin-top: 40px; line-height: 1.6;
-        }
-
-        /* --- BOUTONS --- */
-        .btn {
-            display: inline-block; margin-top: 20px;
-            padding: 12px 30px;
-            border: 1px solid #1a1a1a;
-            color: #1a1a1a; text-decoration: none; text-transform: uppercase;
-            font-size: 0.75rem; letter-spacing: 2px;
-            transition: all 0.4s ease;
-            background: transparent;
-        }
-        .btn:hover { background: #E69DB3; border-color: #E69DB3; color: white; }
-
-        /* --- ANIMATIONS --- */
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s ease; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        /* --- FORMULAIRE --- */
-        input, textarea {
+        /* --- FORMULAIRE STYLE COUTURE --- */
+        .rsvp-container { max-width: 600px; margin: 0 auto; text-align: left; }
+        
+        .input-group { margin-bottom: 40px; position: relative; }
+        
+        /* Champs de texte : Juste une ligne */
+        input[type="text"], textarea {
             width: 100%; padding: 10px 0; border: none; border-bottom: 1px solid #ccc;
-            font-family: 'Jost', sans-serif; font-size: 1rem; margin-bottom: 30px;
-            background: transparent; outline: none; transition: 0.3s;
+            font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #111;
+            background: transparent; outline: none; transition: 0.4s; border-radius: 0;
         }
-        input:focus, textarea:focus { border-bottom-color: #E69DB3; }
-        
-        .radio-wrapper { display: flex; justify-content: center; gap: 40px; margin-bottom: 30px; }
-        .radio-wrapper label { cursor: pointer; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;}
-        
-        button {
-            background: #1a1a1a; color: white; border: none; padding: 15px 40px;
-            text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; cursor: pointer;
-            transition: 0.4s;
-        }
-        button:hover { background: #E69DB3; }
+        input:focus, textarea:focus { border-bottom: 1px solid #000; }
+        input::placeholder, textarea::placeholder { color: #ccc; font-style: italic; }
 
-        @keyframes fadeInLoad { to { opacity: 1; } }
+        /* Boutons Radio TRANSFORMÉS en BOUTONS CHICS */
+        .radio-title {
+            font-family: 'Montserrat', sans-serif; font-size: 0.7rem; text-transform: uppercase;
+            letter-spacing: 2px; display: block; margin-bottom: 15px; color: #888;
+        }
+        
+        .radio-options { display: flex; gap: 10px; }
+        
+        /* On cache le vrai bouton radio moche */
+        .radio-options input[type="radio"] { display: none; }
+        
+        /* On style le label comme un bouton */
+        .radio-options label {
+            flex: 1; text-align: center; padding: 15px; border: 1px solid #ddd;
+            font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase;
+            cursor: pointer; transition: 0.3s; letter-spacing: 1px; color: #aaa;
+        }
+        
+        /* Quand c'est coché */
+        .radio-options input[type="radio"]:checked + label {
+            background-color: #111; color: white; border-color: #111;
+        }
+
+        /* Bouton Envoyer */
+        .submit-btn {
+            width: 100%; padding: 20px; background-color: #111; color: white; border: none;
+            font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase;
+            letter-spacing: 3px; cursor: pointer; transition: 0.4s; margin-top: 20px;
+        }
+        .submit-btn:hover { background-color: #333; }
+
+        /* Hébreu */
+        .hebrew { font-family: serif; font-size: 1.2rem; color: #aaa; margin: 10px 0 30px 0; display: block; letter-spacing: 2px; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
 
         @media (max-width: 768px) {
-            .hero-names { font-size: 3.8rem; }
-            .inner-frame { padding: 40px 15px; border: none; }
-            .white-section { padding: 0; }
-            .logo-mk { font-size: 2rem; }
-            h2 { font-size: 1.8rem; }
+            .hero-names { font-size: 3.5rem; }
+            h2 { font-size: 2.2rem; }
+            .white-section { padding: 80px 20px; }
         }
     </style>
 </head>
 <body>
 
     <div class="parallax-container">
-        <img src="photo1.jpeg" alt="Accueil Mariage">
+        <img src="photo1.jpeg" alt="Hero">
         <div class="overlay"></div>
         <div class="hero-content">
             <div class="hero-names">Mélanie & Kévin</div>
             <div class="hero-date">25 . 05 . 2026</div>
-            <div style="margin-top: 60px; font-size: 2rem; animation: bounce 2s infinite; opacity: 0.8;">↓</div>
+            <div style="margin-top: 50px; font-size: 1.5rem; animation: bounce 2s infinite;">↓</div>
         </div>
     </div>
 
     <section class="white-section">
-        <div class="inner-frame reveal">
-            <span class="logo-mk">MK</span>
+        <span class="mk-monogram">MK</span>
+        
+        <h2>La Mairie</h2>
+        <span class="subtitle">Se diront "Oui"</span>
+
+        <div class="info-block">
+            <span class="time-location">À 14H00 PRÉCISES</span>
+            <div class="venue">Mairie de Levallois-Perret</div>
+            <div class="address">1 Place de la République<br>92300 Levallois-Perret</div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="info-block">
+            <span class="time-location">SUIVI D'UN HENNÉ</span>
+            <div class="venue">Pavillons des Fêtes</div>
+            <div class="address">1 Place de Verdun, Levallois-Perret<br><span style="font-size:0.9rem;">(5 min à pied)</span></div>
+        </div>
+
+        <a href="https://waze.com/ul?q=Mairie%20de%20Levallois-Perret" target="_blank" class="btn-waze">Itinéraire Waze</a>
+    </section>
+
+    <div class="parallax-container">
+        <img src="photo2.jpeg" alt="Transition">
+        <div class="overlay"></div>
+    </div>
+
+    <section class="white-section">
+        <span class="mk-monogram">MK</span>
+        <span class="hebrew">‎מלאני רחל & קווין ישראל</span>
+
+        <h2>Houppa & Soirée</h2>
+
+        <div class="info-block" style="font-family:'Cormorant Garamond'; font-size:1.1rem; line-height:1.8; color:#444;">
+            Daisy Mamou<br>Lydia & Elias Azoura<br>Véronique & James Azoura<br>Maguy & Joseph Zana
+        </div>
+
+        <p style="font-style:italic; color:#888; margin-bottom:30px;">Vous prient de bien vouloir assister à la cérémonie religieuse</p>
+
+        <div class="info-block">
+            <span class="time-location">LUNDI 25 MAI 2026 — 17H30 PRÉCISES</span>
+            <div class="venue">Salle des Pyramides</div>
+            <div class="address">La Marquise<br>16 avenue de Saint Germain, Le Port Marly</div>
+        </div>
+
+        <a href="https://waze.com/ul?q=Les%20Pyramides%20Le%20Port-Marly" target="_blank" class="btn-waze">Itinéraire Waze</a>
+
+        <div style="margin-top: 60px; font-size: 0.9rem; color: #aaa; font-style: italic; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+            Une pensée très émue pour nos grands-parents Élie Mamou, Jacques & Germaine Habib, Saidou Edmond Benmoussa & Germaine Benmoussa, Gaston Israel & Emilie Zana qui nous manqueront tant en ce jour unique.<br>Que vos bénédictions illuminent notre vie.
+        </div>
+    </section>
+
+    <div class="parallax-container">
+        <img src="photo3.jpeg" alt="Transition">
+        <div class="overlay"></div>
+    </div>
+
+    <section class="white-section">
+        <span class="mk-monogram">RSVP</span>
+        <h2>Confirmation</h2>
+        <p style="color:#666; margin-bottom:50px; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic;">
+            Merci de confirmer votre présence dès réception.
+        </p>
+
+        <form class="rsvp-container" action="mailto:melanie.kevin@gmail.com" method="post" enctype="text/plain">
             
-            <h2>La Mairie</h2>
-            <span class="action-text">Se diront « Oui »</span>
-            
-            <div class="details-block">
-                <span class="time">À 14H00 PRÉCISES</span>
-                <div class="place">
-                    Mairie de Levallois-Perret<br>
-                    1 Place de la République<br>92300 Levallois-Perret
+            <div class="input-group">
+                <input type="text" name="nom" required placeholder="Vos Noms & Prénoms">
+            </div>
+
+            <div class="input-group">
+                <span class="radio-title">Serez-vous présents à la Mairie ?</span>
+                <div class="radio-options">
+                    <input type="radio" id="mairie-oui" name="mairie" value="Oui" required>
+                    <label for="mairie-oui">Présent</label>
+
+                    <input type="radio" id="mairie-non" name="mairie" value="Non" required>
+                    <label for="mairie-non">Absent</label>
                 </div>
             </div>
 
-            <div style="font-size: 1.5rem; color:#E69DB3; margin: 20px 0;">~</div>
+            <div class="input-group">
+                <span class="radio-title">Serez-vous présents à la Houppa ?</span>
+                <div class="radio-options">
+                    <input type="radio" id="houppa-oui" name="houppa" value="Oui" required>
+                    <label for="houppa-oui">Présent</label>
 
-            <div class="details-block">
-                <p style="font-size: 0.95rem; margin-bottom:10px;">Un henné suivra en l’honneur du mariage civil</p>
-                <div class="place">
-                    <strong>Aux Pavillons des fêtes</strong><br>
-                    1 Place de Verdun, Levallois-Perret<br>
-                    <span style="font-style: italic; color:#888; font-size:0.8rem; text-transform:none;">(5 min à pied)</span>
+                    <input type="radio" id="houppa-non" name="houppa" value="Non" required>
+                    <label for="houppa-non">Absent</label>
                 </div>
             </div>
 
-            <a href="https://waze.com/ul?q=Mairie%20de%20Levallois-Perret" target="_blank" class="btn">Itinéraire Waze</a>
-        </div>
+            <div class="input-group">
+                <textarea name="message" rows="1" placeholder="Un message pour les mariés..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Confirmer ma présence</button>
+        </form>
     </section>
 
     <div class="parallax-container">
-        <img src="photo2.jpeg" alt="Couple">
+        <img src="photo4.png" alt="Final">
         <div class="overlay"></div>
     </div>
-
-    <section class="white-section">
-        <div class="inner-frame reveal">
-            <span class="logo-mk">MK</span>
-
-            <span class="hebrew">‎מלאני רחל & קווין ישראל</span>
-
-            <h2>Houppa & Soirée</h2>
-
-            <div class="parents">
-                Daisy Mamou<br>
-                Lydia & Elias Azoura<br>
-                Véronique & James Azoura<br>
-                Maguy & Joseph Zana
-            </div>
-
-            <p style="font-style: italic; color:#666; margin-bottom:30px;">
-                Vous prient de bien vouloir assister à la cérémonie religieuse qui sera célébrée le
-            </p>
-
-            <div class="details-block">
-                <span class="time" style="font-size: 1.5rem; color:#E69DB3;">LUNDI 25 MAI 2026</span>
-                <span class="time">À 17H30 PRÉCISES</span>
-                <br>
-                <div class="place">
-                    <strong>Salle des Pyramides - La Marquise</strong><br>
-                    16 avenue de Saint Germain<br>
-                    78560 Le Port Marly
-                </div>
-            </div>
-
-            <a href="https://waze.com/ul?q=Les%20Pyramides%20Le%20Port-Marly" target="_blank" class="btn">Itinéraire Waze</a>
-
-            <div class="dedication">
-                Une pensée très émue pour nos grands-parents Élie Mamou, Jacques & Germaine Habib, Saidou Edmond Benmoussa & Germaine Benmoussa, Gaston Israel & Emilie Zana qui nous manqueront tant en ce jour unique.<br><br>
-                Que vos bénédictions illuminent notre vie.
-            </div>
-        </div>
-    </section>
-
-    <div class="parallax-container">
-        <img src="photo3.jpeg" alt="Décoration">
-        <div class="overlay"></div>
-    </div>
-
-    <section class="white-section">
-        <div class="inner-frame reveal">
-            <h2>Votre Réponse</h2>
-            <p style="color:#666; font-style:italic; margin-bottom:40px;">Merci de confirmer avant le 1er Mai.</p>
-
-            <form class="rsvp-form" action="mailto:melanie.kevin@gmail.com" method="post" enctype="text/plain">
-                <input type="text" name="nom" required placeholder="Noms & Prénoms">
-                
-                <p style="font-size:0.9rem; font-weight:500; text-transform:uppercase; margin-bottom:15px; color:#111;">Présence à la Mairie ?</p>
-                <div class="radio-wrapper">
-                    <label><input type="radio" name="mairie" value="Oui"> OUI</label>
-                    <label><input type="radio" name="mairie" value="Non"> NON</label>
-                </div>
-
-                <p style="font-size:0.9rem; font-weight:500; text-transform:uppercase; margin-bottom:15px; color:#111;">Présence à la Houppa ?</p>
-                <div class="radio-wrapper">
-                    <label><input type="radio" name="houppa" value="Oui"> OUI</label>
-                    <label><input type="radio" name="houppa" value="Non"> NON</label>
-                </div>
-
-                <input type="text" name="message" placeholder="Un petit mot pour les mariés...">
-
-                <button type="submit">Confirmer</button>
-            </form>
-        </div>
-    </section>
-
-    <div class="parallax-container">
-        <img src="photo4.jpeg" alt="Final">
-        <div class="overlay"></div>
-    </div>
-
-    <script>
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        reveal();
-    </script>
 
 </body>
 </html>
