@@ -17,18 +17,20 @@
         body { 
             font-family: 'Montserrat', sans-serif; 
             color: #1a1a1a; 
-            background-color: #fcfcfc;
-            /* IMAGE DE FOND GÉNÉRALE */
+            background-color: #fcfcfc; 
+            
+            /* FOND GÉNÉRAL DU SITE */
             background-image: url('fond-page.png');
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
+            
             overflow-x: hidden;
             font-weight: 300;
             letter-spacing: 0.5px;
         }
 
-        /* --- PARALLAXE STICKY (Pour les images du milieu) --- */
+        /* --- PARALLAXE STICKY --- */
         .parallax-container {
             position: sticky; top: 0;
             height: 100vh; height: 100dvh;
@@ -44,17 +46,18 @@
             background: rgba(0,0,0,0.2); z-index: 0;
         }
 
-        /* --- C'EST ICI LA CORRECTION POUR LA PHOTO 4 --- */
+        /* --- PHOTO 4 (CORRECTION DÉFINITIVE) --- */
         .final-container {
-            position: relative; /* IMPORTANT : Pas sticky, juste normal */
-            z-index: 20; /* Au-dessus de tout */
+            position: relative; /* Doit être RELATIVE pour s'afficher à la fin */
+            z-index: 20; 
             height: 100vh;
             width: 100%;
             overflow: hidden;
             display: block;
+            background-color: #fff; /* Sécurité si l'image ne charge pas */
         }
         .final-container img {
-            width: 100%; height: 100%; object-fit: cover; display: block;
+            width: 100%; height: 100%; object-fit: cover;
         }
 
         /* --- HERO --- */
@@ -81,49 +84,43 @@
             z-index: 10;
             padding: 100px 20px; 
             text-align: center;
-            background: transparent; 
+            
+            /* ICI : ON APPLIQUE L'IMAGE DE FOND SUR LES SECTIONS AUSSI */
+            background-image: url('fond-page.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            
+            /* Important : rend le fond opaque pour cacher les photos qui scrollent derrière */
+            background-color: #fcfcfc; 
+            
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.05);
         }
 
-        /* --- LOGO IMAGE --- */
-        .section-logo-img {
-            width: 120px; 
-            height: auto;
-            margin-bottom: 40px;
-            display: inline-block;
-        }
+        .section-logo-img { width: 120px; height: auto; margin-bottom: 40px; display: inline-block; }
 
         /* --- TYPOGRAPHIE --- */
         h2 {
-            font-family: 'Cormorant Garamond', serif; 
-            font-size: 3.2rem; 
-            text-transform: uppercase;
-            font-weight: 300; 
-            letter-spacing: 6px; 
-            margin-bottom: 15px; 
-            color: #000;
+            font-family: 'Cormorant Garamond', serif; font-size: 3.2rem; 
+            text-transform: uppercase; font-weight: 300; letter-spacing: 6px; 
+            margin-bottom: 15px; color: #000;
         }
 
         .subtitle {
-            font-family: 'Pinyon Script', cursive; 
-            font-size: 2.8rem; color: #666;
+            font-family: 'Pinyon Script', cursive; font-size: 2.8rem; color: #666;
             margin-bottom: 50px; display: block;
         }
 
         .info-block { margin-bottom: 50px; }
         
         .time-location {
-            font-family: 'Montserrat', sans-serif; 
-            font-size: 0.75rem; text-transform: uppercase;
-            letter-spacing: 3px; font-weight: 500; 
-            margin-bottom: 15px; color: #888;
-            display: block;
+            font-family: 'Montserrat', sans-serif; font-size: 0.75rem; text-transform: uppercase;
+            letter-spacing: 3px; font-weight: 500; margin-bottom: 15px; color: #888; display: block;
         }
         
         .venue {
-            font-family: 'Cormorant Garamond', serif; 
-            font-size: 2rem; 
-            font-weight: 500; color: #111; 
-            line-height: 1.2; margin-bottom: 10px;
+            font-family: 'Cormorant Garamond', serif; font-size: 2rem; 
+            font-weight: 500; color: #111; line-height: 1.2; margin-bottom: 10px;
         }
         
         .address {
@@ -132,29 +129,27 @@
         }
 
         .parents-list {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: #444;
-            margin-bottom: 30px;
+            font-family: 'Cormorant Garamond', serif; font-size: 1.2rem;
+            line-height: 1.8; color: #444; margin-bottom: 30px;
         }
 
-        .henne-box {
-            border: 1px solid rgba(0,0,0,0.1);
-            padding: 20px; margin: 30px auto; display: inline-block;
+        /* --- PARENTS EN 2 COLONNES --- */
+        .parents-container {
+            display: flex; justify-content: center; gap: 60px; 
+            margin-bottom: 40px; text-align: center;
         }
-        .henne-highlight { font-weight: 600; text-transform: uppercase; color: #111; }
+        .parents-column {
+            font-family: 'Cormorant Garamond', serif; font-size: 1.2rem;
+            line-height: 1.8; color: #444;
+        }
 
         .divider { width: 1px; height: 70px; background: #bbb; margin: 50px auto; opacity: 0.4; }
 
         .btn-waze {
             display: inline-block; text-decoration: none;
             font-family: 'Montserrat', sans-serif; font-size: 0.7rem; text-transform: uppercase;
-            letter-spacing: 3px; color: #111; 
-            border: 1px solid #111; 
-            padding: 12px 30px; 
-            transition: 0.4s;
-            margin-top: 20px;
+            letter-spacing: 3px; color: #111; border: 1px solid #111; 
+            padding: 12px 30px; transition: 0.4s; margin-top: 20px;
         }
         .btn-waze:hover { background-color: #111; color: white; }
 
@@ -207,6 +202,7 @@
             h2 { font-size: 2.2rem; letter-spacing: 3px; }
             .white-section { padding: 80px 20px; }
             .venue { font-size: 1.6rem; }
+            .parents-container { flex-direction: column; gap: 20px; }
         }
     </style>
 </head>
@@ -256,8 +252,15 @@
 
         <h2>Houppa & Soirée</h2>
 
-        <div class="parents-list">
-            Daisy Mamou<br>Lydia & Elias Azoura<br>Véronique & James Azoura<br>Maguy & Joseph Zana
+        <div class="parents-container">
+            <div class="parents-column">
+                Daisy Mamou<br>
+                Lydia & Elias Azoura
+            </div>
+            <div class="parents-column">
+                Véronique & James Azoura<br>
+                Maguy & Joseph Zana
+            </div>
         </div>
 
         <p style="font-style:italic; color:#666; margin-bottom:40px; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem;">
