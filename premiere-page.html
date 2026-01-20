@@ -17,21 +17,17 @@
         body { 
             font-family: 'Montserrat', sans-serif; 
             color: #1a1a1a; 
-            background-color: #fcfcfc;
-            
-            /* FOND GÉNÉRAL */
+            background-color: #fcfcfc; 
             background-image: url('fond-page.png');
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
-            
             overflow-x: hidden;
-            /* Changement ici : 500 au lieu de 300 pour un texte plus présent */
             font-weight: 500; 
             letter-spacing: 0.5px;
         }
 
-        /* --- PARALLAXE --- */
+        /* --- PARALLAXE STICKY --- */
         .parallax-container {
             position: sticky; top: 0;
             height: 100vh; height: 100dvh;
@@ -55,7 +51,7 @@
             width: 100%;
             overflow: hidden;
             display: block;
-            background-color: #fff;
+            background-color: #fff; 
         }
         .final-container img {
             width: 100%; height: 100%; object-fit: cover;
@@ -71,12 +67,10 @@
             font-size: 6rem; 
             text-shadow: 0 5px 20px rgba(0,0,0,0.4); margin-bottom: 15px;
             line-height: 1.1;
-            /* Un peu plus épais pour le script */
             font-weight: 400; 
         }
         .hero-date {
             font-family: 'Cormorant Garamond', serif; 
-            /* Date plus grasse */
             font-size: 1.3rem; letter-spacing: 8px; font-weight: 700;
             text-transform: uppercase; border-top: 2px solid rgba(255,255,255,0.9); 
             border-bottom: 2px solid rgba(255,255,255,0.9); padding: 15px 0; display: inline-block;
@@ -88,95 +82,106 @@
             z-index: 10;
             padding: 100px 20px; 
             text-align: center;
-            
-            /* FOND IMAGE SUR LES SECTIONS */
             background-image: url('fond-page.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-color: #fcfcfc; 
-            
             box-shadow: 0 -10px 40px rgba(0,0,0,0.08);
         }
 
-        /* --- LOGO AGRANDI --- */
-        .section-logo-img {
-            width: 280px; /* BEAUCOUP PLUS GRAND */
+        /* LOGO */
+        .section-logo-img { 
+            width: 280px; 
+            height: auto; 
+            margin-bottom: 40px; 
+            display: inline-block; 
+        }
+
+        /* --- IMAGE HEBRAIQUE (Remontée ENCORE PLUS) --- */
+        .hebrew-phrase-img {
+            display: block;
+            /* Marge négative augmentée à -65px */
+            margin: -65px auto 30px auto; 
+            max-width: 90%;
+            width: 400px; 
             height: auto;
-            margin-bottom: 40px;
-            display: inline-block;
         }
 
-        /* --- TYPOGRAPHIE RENFORCÉE --- */
+        /* --- TYPOGRAPHIE --- */
         h2 {
-            font-family: 'Cormorant Garamond', serif; 
-            font-size: 3.2rem; 
-            text-transform: uppercase;
-            /* Titres plus gras */
-            font-weight: 600; 
-            letter-spacing: 5px; 
-            margin-bottom: 15px; 
-            color: #000;
+            font-family: 'Cormorant Garamond', serif; font-size: 3.2rem; 
+            text-transform: uppercase; font-weight: 600; letter-spacing: 6px; 
+            margin-bottom: 15px; color: #000;
         }
 
-        .subtitle {
-            font-family: 'Pinyon Script', cursive; 
-            font-size: 3rem; color: #444; /* Couleur un peu plus foncée */
-            margin-bottom: 50px; display: block;
+        .names-script {
+            font-family: 'Pinyon Script', cursive; font-size: 4.5rem; color: #111;
+            margin: 10px 0 20px 0; line-height: 1.1;
+        }
+
+        .action-text {
+            font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.8rem;
+            color: #444; margin-bottom: 40px;
         }
 
         .info-block { margin-bottom: 50px; }
         
         .time-location {
-            font-family: 'Montserrat', sans-serif; 
-            font-size: 0.8rem; text-transform: uppercase;
-            /* Label plus gras */
-            letter-spacing: 3px; font-weight: 600; 
-            margin-bottom: 15px; color: #555; /* Plus foncé pour lisibilité */
-            display: block;
+            font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase;
+            letter-spacing: 3px; font-weight: 600; margin-bottom: 15px; color: #555; display: block;
         }
         
         .venue {
-            font-family: 'Cormorant Garamond', serif; 
-            font-size: 2.2rem; 
-            /* Lieu plus gras */
-            font-weight: 700; color: #111; 
-            line-height: 1.2; margin-bottom: 10px;
+            font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; 
+            font-weight: 700; color: #111; line-height: 1.2; margin-bottom: 10px;
         }
         
         .address {
             font-style: italic; font-family: 'Cormorant Garamond', serif; 
-            /* Adresse plus visible */
             font-size: 1.4rem; color: #333; font-weight: 500;
         }
 
-        .parents-list {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem;
-            line-height: 1.8;
-            color: #222; /* Noir doux */
-            margin-bottom: 30px;
-            font-weight: 600;
+        /* PARENTS EN COLONNES */
+        .parents-columns-container {
+            display: flex; justify-content: center; gap: 40px; margin-bottom: 25px;
+        }
+        .parents-col {
+            font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
+            line-height: 1.6; color: #222; font-weight: 600; text-align: center;
         }
 
-        /* --- PARENTS EN 2 COLONNES --- */
-        .parents-container {
-            display: flex; justify-content: center; gap: 60px; 
-            margin-bottom: 40px; text-align: center;
-        }
-        .parents-column {
-            font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
-            line-height: 1.8; color: #222; font-weight: 600;
+        .invitation-phrase-standalone {
+            display: block; font-family: 'Cormorant Garamond', serif; font-weight: 500;
+            font-style: italic; font-size: 1.3rem; color: #444; margin-bottom: 60px;
         }
 
-        .divider { width: 1px; height: 70px; background: #888; margin: 50px auto; opacity: 0.6; }
+        .couple-block-new { margin-bottom: 60px; }
+        .couple-names-fr {
+            font-family: 'Pinyon Script', cursive; font-size: 4.5rem; color: #111; line-height: 1; margin-bottom: 15px;
+        }
+        .couple-names-he {
+            font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: #555; font-weight: 500;
+        }
+
+        /* DATE SEPARATOR */
+        .date-separator {
+            display: flex; align-items: center; justify-content: center;
+            margin: 35px auto; width: 100%; max-width: 500px;
+        }
+        .line { height: 1px; background-color: #111; flex-grow: 1; opacity: 0.2; }
+        .date-text {
+            font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; margin: 0 20px; color: #111;
+        }
+
+        .divider { width: 1px; height: 70px; background: #bbb; margin: 50px auto; opacity: 0.4; }
 
         .btn-waze {
             display: inline-block; text-decoration: none;
-            font-family: 'Montserrat', sans-serif; font-size: 0.75rem; text-transform: uppercase;
-            letter-spacing: 3px; color: #111; border: 1.5px solid #111; /* Bordure un peu plus épaisse */
-            padding: 14px 35px; transition: 0.4s; margin-top: 20px;
-            font-weight: 700; /* Gras */
+            font-family: 'Montserrat', sans-serif; font-size: 0.7rem; text-transform: uppercase;
+            letter-spacing: 3px; color: #111; border: 1px solid #111; 
+            padding: 12px 30px; transition: 0.4s; margin-top: 20px; font-weight: 700;
         }
         .btn-waze:hover { background-color: #111; color: white; }
 
@@ -186,27 +191,24 @@
         
         input[type="text"], input[type="number"], textarea {
             width: 100%; padding: 15px 0; border: none; 
-            border-bottom: 1.5px solid #999; /* Ligne plus visible */
-            font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: #111;
-            background: transparent; outline: none; transition: 0.4s; border-radius: 0;
-            font-weight: 600; /* Texte saisi plus gras */
+            border-bottom: 1px solid #ccc;
+            font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: #111;
+            background: transparent; outline: none; transition: 0.4s; border-radius: 0; font-weight: 600;
         }
-        input:focus, textarea:focus { border-bottom: 2px solid #000; }
-        input::placeholder, textarea::placeholder { color: #777; font-style: italic; font-size: 1.3rem; font-weight: 400; }
+        input:focus, textarea:focus { border-bottom: 1px solid #000; }
+        input::placeholder, textarea::placeholder { color: #bbb; font-style: italic; font-size: 1.2rem; font-weight: 400; }
 
         .radio-title {
-            font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase;
-            letter-spacing: 2px; display: block; margin-bottom: 20px; color: #222; text-align: center;
-            font-weight: 700; /* Titre radio gras */
+            font-family: 'Montserrat', sans-serif; font-size: 0.7rem; text-transform: uppercase;
+            letter-spacing: 2px; display: block; margin-bottom: 20px; color: #444; text-align: center; font-weight: 700;
         }
         .radio-options { display: flex; gap: 15px; justify-content: center; }
         .radio-options input[type="radio"] { display: none; }
         .radio-options label {
-            min-width: 120px; text-align: center; padding: 12px; border: 1px solid #999;
-            font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase;
-            cursor: pointer; transition: 0.3s; letter-spacing: 2px; color: #444;
-            background: rgba(255,255,255,0.6);
-            font-weight: 600; /* Texte bouton gras */
+            min-width: 120px; text-align: center; padding: 12px; border: 1px solid #ddd;
+            font-family: 'Montserrat', sans-serif; font-size: 0.75rem; text-transform: uppercase;
+            cursor: pointer; transition: 0.3s; letter-spacing: 2px; color: #888;
+            background: rgba(255,255,255,0.8); font-weight: 600;
         }
         .radio-options input[type="radio"]:checked + label {
             background-color: #111; color: white; border-color: #111;
@@ -217,12 +219,9 @@
         .submit-btn {
             width: 100%; padding: 25px; background-color: #111; color: white; border: none;
             font-family: 'Montserrat', sans-serif; font-size: 0.9rem; text-transform: uppercase;
-            letter-spacing: 4px; cursor: pointer; transition: 0.4s; margin-top: 30px;
-            font-weight: 700;
+            letter-spacing: 4px; cursor: pointer; transition: 0.4s; margin-top: 30px; font-weight: 700;
         }
         .submit-btn:hover { background-color: #333; letter-spacing: 6px; }
-
-        .hebrew { font-family: serif; font-size: 1.5rem; color: #666; margin: 10px 0 30px 0; display: block; letter-spacing: 1px; font-weight: 500; }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
@@ -232,11 +231,11 @@
             .hero-names { font-size: 4rem; }
             h2 { font-size: 2.2rem; letter-spacing: 3px; }
             .white-section { padding: 80px 20px; }
-            .venue { font-size: 1.8rem; }
-            .parents-container { flex-direction: column; gap: 20px; }
-            
-            /* Logo un peu moins géant sur mobile pour pas tout casser */
-            .section-logo-img { width: 200px; } 
+            .venue { font-size: 1.6rem; }
+            .couple-names-fr { font-size: 3.5rem; }
+            .section-logo-img { width: 160px; } 
+            .hebrew-phrase-img { width: 300px; margin-top: -30px; }
+            .parents-columns-container { flex-direction: column; gap: 15px; }
         }
     </style>
 </head>
@@ -255,8 +254,16 @@
     <section class="white-section">
         <img src="logo.png" alt="Logo" class="section-logo-img">
         
-        <h2>La Mairie</h2>
-        <span class="subtitle">Se diront "Oui"</span>
+        <h2>Cérémonie Civile</h2>
+        
+        <div class="names-script">Mélanie & Kévin</div>
+        <div class="action-text">Se diront "Oui"</div>
+
+        <div class="date-separator">
+            <span class="line"></span>
+            <span class="date-text">Lundi 25 Mai 2026</span>
+            <span class="line"></span>
+        </div>
 
         <div class="info-block">
             <span class="time-location">À 14H00 PRÉCISES</span>
@@ -264,12 +271,13 @@
             <div class="address">1 Place de la République<br>92300 Levallois-Perret</div>
         </div>
 
-        <div class="divider"></div>
-
         <div class="info-block">
-            <span class="time-location">SUIVI D'UN HENNÉ</span>
+            <span class="time-location" style="margin-top: 40px; display: block;">SUIVI D'UN HENNÉ</span>
             <div class="venue">Pavillons des Fêtes</div>
-            <div class="address">1 Place de Verdun, Levallois-Perret<br><span style="font-size:0.9rem;">(5 min à pied)</span></div>
+            <div class="address">
+                1 Place de Verdun, Levallois-Perret<br>
+                <span style="font-size: 1.1rem; font-style: italic;">(5 min à pied)</span>
+            </div>
         </div>
 
         <a href="https://waze.com/ul?q=Mairie%20de%20Levallois-Perret" target="_blank" class="btn-waze">Itinéraire Waze</a>
@@ -282,27 +290,32 @@
 
     <section class="white-section">
         <img src="logo.png" alt="Logo" class="section-logo-img">
-        <span class="hebrew">‎מלאני רחל & קווין ישראל</span>
+        <img src="hebreu.png" alt="Phrase Hébraïque" class="hebrew-phrase-img">
 
         <h2>Houppa & Soirée</h2>
 
-        <div class="parents-container">
-            <div class="parents-column">
+        <div class="parents-columns-container">
+            <div class="parents-col">
                 Daisy Mamou<br>
                 Lydia & Elias Azoura
             </div>
-            <div class="parents-column">
+            <div class="parents-col">
                 Véronique & James Azoura<br>
                 Maguy & Joseph Zana
             </div>
         </div>
 
-        <p style="font-style:italic; color:#444; margin-bottom:40px; font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 500;">
-            Vous prient de bien vouloir assister à la cérémonie religieuse
-        </p>
+        <span class="invitation-phrase-standalone">
+            Remercient Hachem de vous convier au mariage de leurs enfants et petits enfants
+        </span>
+
+        <div class="couple-block-new">
+            <div class="couple-names-fr">Mélanie & Kevin</div>
+            <div class="couple-names-he">‎מלאני רחל & קווין ישראל</div>
+        </div>
 
         <div class="info-block">
-            <span class="time-location">LUNDI 25 MAI 2026 — 17H30 PRÉCISES</span>
+            <span class="time-location">Le LUNDI 25 MAI 2026 — 17H30 PRÉCISES</span>
             <div class="venue">Salle des Pyramides</div>
             <div class="address">La Marquise<br>16 avenue de Saint Germain, Le Port Marly</div>
         </div>
@@ -341,7 +354,6 @@
                     <input type="radio" id="mairie-non" name="mairie" value="Non" required onclick="toggleGuestInput('mairie-guests', false)">
                     <label for="mairie-non">Absent</label>
                 </div>
-                
                 <div id="mairie-guests" class="guest-input">
                     <input type="number" name="nb_mairie" placeholder="Nombre de personnes (Mairie)" min="1">
                 </div>
@@ -356,7 +368,6 @@
                     <input type="radio" id="houppa-non" name="houppa" value="Non" required onclick="toggleGuestInput('houppa-guests', false)">
                     <label for="houppa-non">Absent</label>
                 </div>
-
                 <div id="houppa-guests" class="guest-input">
                     <input type="number" name="nb_houppa" placeholder="Nombre de personnes (Houppa)" min="1">
                 </div>
