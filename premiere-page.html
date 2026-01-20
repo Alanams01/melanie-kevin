@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mélanie & Kévin - Invitation</title>
+    <title>Mélanie & Kévin - L'Union</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +22,7 @@
             font-weight: 300;
         }
 
-        /* --- PARALLAXE STICKY (Compatible Mobile) --- */
+        /* --- PARALLAXE STICKY --- */
         .parallax-container {
             position: sticky; top: 0;
             height: 100vh; height: 100dvh;
@@ -53,7 +53,7 @@
             border-bottom: 1px solid rgba(255,255,255,0.7); padding: 12px 0; display: inline-block;
         }
 
-        /* --- SECTIONS BLANCHES (Style Éditorial) --- */
+        /* --- SECTIONS BLANCHES --- */
         .white-section {
             position: relative; background-color: #fff; z-index: 10;
             padding: 100px 20px; text-align: center;
@@ -64,7 +64,7 @@
         .mk-monogram {
             font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600;
             letter-spacing: -2px; margin-bottom: 40px; display: inline-block;
-            border: 1px solid #111; padding: 10px 15px; /* Le petit carré chic */
+            border: 1px solid #111; padding: 10px 15px;
         }
 
         h2 {
@@ -96,7 +96,6 @@
 
         .divider { width: 1px; height: 60px; background: #ddd; margin: 40px auto; }
 
-        /* --- BOUTON WAZE PRO --- */
         .btn-waze {
             display: inline-block; text-decoration: none;
             font-family: 'Montserrat', sans-serif; font-size: 0.7rem; text-transform: uppercase;
@@ -110,8 +109,8 @@
         
         .input-group { margin-bottom: 40px; position: relative; }
         
-        /* Champs de texte : Juste une ligne */
-        input[type="text"], textarea {
+        /* Champs Texte */
+        input[type="text"], input[type="number"], textarea {
             width: 100%; padding: 10px 0; border: none; border-bottom: 1px solid #ccc;
             font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #111;
             background: transparent; outline: none; transition: 0.4s; border-radius: 0;
@@ -119,7 +118,7 @@
         input:focus, textarea:focus { border-bottom: 1px solid #000; }
         input::placeholder, textarea::placeholder { color: #ccc; font-style: italic; }
 
-        /* Boutons Radio TRANSFORMÉS en BOUTONS CHICS */
+        /* Boutons Radio Stylisés */
         .radio-title {
             font-family: 'Montserrat', sans-serif; font-size: 0.7rem; text-transform: uppercase;
             letter-spacing: 2px; display: block; margin-bottom: 15px; color: #888;
@@ -127,19 +126,23 @@
         
         .radio-options { display: flex; gap: 10px; }
         
-        /* On cache le vrai bouton radio moche */
         .radio-options input[type="radio"] { display: none; }
         
-        /* On style le label comme un bouton */
         .radio-options label {
             flex: 1; text-align: center; padding: 15px; border: 1px solid #ddd;
             font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase;
             cursor: pointer; transition: 0.3s; letter-spacing: 1px; color: #aaa;
         }
         
-        /* Quand c'est coché */
         .radio-options input[type="radio"]:checked + label {
             background-color: #111; color: white; border-color: #111;
+        }
+
+        /* Champs cachés (Nombre de personnes) */
+        .guest-input {
+            display: none; /* Caché par défaut */
+            margin-top: 20px;
+            animation: slideDown 0.5s ease forwards;
         }
 
         /* Bouton Envoyer */
@@ -150,10 +153,10 @@
         }
         .submit-btn:hover { background-color: #333; }
 
-        /* Hébreu */
         .hebrew { font-family: serif; font-size: 1.2rem; color: #aaa; margin: 10px 0 30px 0; display: block; letter-spacing: 2px; }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
 
         @media (max-width: 768px) {
@@ -249,22 +252,30 @@
             <div class="input-group">
                 <span class="radio-title">Serez-vous présents à la Mairie ?</span>
                 <div class="radio-options">
-                    <input type="radio" id="mairie-oui" name="mairie" value="Oui" required>
+                    <input type="radio" id="mairie-oui" name="mairie" value="Oui" required onclick="toggleGuestInput('mairie-guests', true)">
                     <label for="mairie-oui">Présent</label>
 
-                    <input type="radio" id="mairie-non" name="mairie" value="Non" required>
+                    <input type="radio" id="mairie-non" name="mairie" value="Non" required onclick="toggleGuestInput('mairie-guests', false)">
                     <label for="mairie-non">Absent</label>
+                </div>
+                
+                <div id="mairie-guests" class="guest-input">
+                    <input type="number" name="nb_mairie" placeholder="Nombre de personnes (Mairie)" min="1">
                 </div>
             </div>
 
             <div class="input-group">
                 <span class="radio-title">Serez-vous présents à la Houppa ?</span>
                 <div class="radio-options">
-                    <input type="radio" id="houppa-oui" name="houppa" value="Oui" required>
+                    <input type="radio" id="houppa-oui" name="houppa" value="Oui" required onclick="toggleGuestInput('houppa-guests', true)">
                     <label for="houppa-oui">Présent</label>
 
-                    <input type="radio" id="houppa-non" name="houppa" value="Non" required>
+                    <input type="radio" id="houppa-non" name="houppa" value="Non" required onclick="toggleGuestInput('houppa-guests', false)">
                     <label for="houppa-non">Absent</label>
+                </div>
+
+                <div id="houppa-guests" class="guest-input">
+                    <input type="number" name="nb_houppa" placeholder="Nombre de personnes (Houppa)" min="1">
                 </div>
             </div>
 
@@ -280,6 +291,22 @@
         <img src="photo4.png" alt="Final">
         <div class="overlay"></div>
     </div>
+
+    <script>
+        function toggleGuestInput(elementId, show) {
+            var element = document.getElementById(elementId);
+            var input = element.querySelector('input');
+            
+            if (show) {
+                element.style.display = 'block';
+                input.setAttribute('required', 'required'); // Devient obligatoire
+            } else {
+                element.style.display = 'none';
+                input.removeAttribute('required'); // N'est plus obligatoire
+                input.value = ''; // On efface la valeur si on change d'avis
+            }
+        }
+    </script>
 
 </body>
 </html>
