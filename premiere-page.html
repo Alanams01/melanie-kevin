@@ -57,7 +57,7 @@
             width: 100%; height: 100%; object-fit: cover;
         }
 
-        /* --- HERO (Desktop) --- */
+        /* --- HERO --- */
         .hero-content {
             position: relative; z-index: 2; text-align: center; color: white;
             animation: fadeIn 1.5s ease-out;
@@ -66,7 +66,8 @@
             font-family: 'Pinyon Script', cursive; 
             font-size: 6rem; 
             text-shadow: 0 5px 20px rgba(0,0,0,0.4); margin-bottom: 15px;
-            line-height: 1.1; font-weight: 400; 
+            line-height: 1.1;
+            font-weight: 400; 
         }
         .hero-date {
             font-family: 'Cormorant Garamond', serif; 
@@ -75,50 +76,72 @@
             border-bottom: 2px solid rgba(255,255,255,0.9); padding: 15px 0; display: inline-block;
         }
 
-        /* --- SECTIONS TEXTE (Desktop) --- */
+        /* --- SECTIONS TEXTE --- */
         .white-section {
-            position: relative; z-index: 10; padding: 100px 20px; text-align: center;
-            background-image: url('fond-page.png'); background-size: cover;
-            background-position: center; background-repeat: no-repeat;
-            background-color: #fcfcfc; box-shadow: 0 -10px 40px rgba(0,0,0,0.08);
+            position: relative; 
+            z-index: 10;
+            padding: 100px 20px; 
+            text-align: center;
+            background-image: url('fond-page.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #fcfcfc; 
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.08);
         }
 
-        /* LOGO & IMAGES (Desktop) */
-        .section-logo-img { width: 280px; height: auto; margin-bottom: 40px; display: inline-block; }
+        /* LOGO */
+        .section-logo-img { 
+            width: 280px; 
+            height: auto; 
+            margin-bottom: 40px; 
+            display: inline-block; 
+        }
+
+        /* --- IMAGE HEBRAIQUE --- */
         .hebrew-phrase-img {
-            display: block; margin: -50px auto 30px auto; 
-            max-width: 90%; width: 400px; height: auto;
+            display: block;
+            margin: -65px auto 30px auto; 
+            max-width: 90%;
+            width: 400px; 
+            height: auto;
         }
 
-        /* --- TYPOGRAPHIE (Desktop) --- */
+        /* --- TYPOGRAPHIE --- */
         h2 {
             font-family: 'Cormorant Garamond', serif; font-size: 3.2rem; 
             text-transform: uppercase; font-weight: 600; letter-spacing: 6px; 
             margin-bottom: 15px; color: #000;
         }
+
         .names-script {
             font-family: 'Pinyon Script', cursive; font-size: 4.5rem; color: #111;
             margin: 10px 0 20px 0; line-height: 1.1;
         }
+
         .action-text {
             font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.8rem;
             color: #444; margin-bottom: 40px;
         }
+
         .info-block { margin-bottom: 50px; }
+        
         .time-location {
             font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase;
             letter-spacing: 3px; font-weight: 600; margin-bottom: 15px; color: #555; display: block;
         }
+        
         .venue {
             font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; 
             font-weight: 700; color: #111; line-height: 1.2; margin-bottom: 10px;
         }
+        
         .address {
             font-style: italic; font-family: 'Cormorant Garamond', serif; 
             font-size: 1.4rem; color: #333; font-weight: 500;
         }
 
-        /* PARENTS (Desktop) */
+        /* PARENTS EN COLONNES */
         .parents-columns-container {
             display: flex; justify-content: center; gap: 40px; margin-bottom: 25px;
         }
@@ -126,21 +149,26 @@
             font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
             line-height: 1.6; color: #222; font-weight: 600; text-align: center;
         }
+
         .invitation-phrase-standalone {
             display: block; font-family: 'Cormorant Garamond', serif; font-weight: 500;
-            font-style: italic; font-size: 1.3rem; color: #444; margin-bottom: 60px;
+            font-style: italic; font-size: 1.3rem; color: #444; margin-bottom: 40px;
+        }
+        
+        .honor-phrase {
+            display: block; font-family: 'Cormorant Garamond', serif; 
+            font-size: 1.3rem; color: #444; margin-top: 10px; margin-bottom: 40px; line-height: 1.6;
         }
 
-        /* COUPLE (Desktop) */
-        .couple-block-new { margin-bottom: 60px; }
+        .couple-block-new { margin-bottom: 20px; }
         .couple-names-fr {
-            font-family: 'Pinyon Script', cursive; font-size: 4.5rem; color: #111; line-height: 1; margin-bottom: 15px;
+            font-family: 'Pinyon Script', cursive; font-size: 4.5rem; color: #111; line-height: 1; margin-bottom: 10px;
         }
         .couple-names-he {
-            font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: #555; font-weight: 500;
+            font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: #555; font-weight: 500;
         }
 
-        /* DIVERS (Desktop) */
+        /* DATE SEPARATOR */
         .date-separator {
             display: flex; align-items: center; justify-content: center;
             margin: 35px auto; width: 100%; max-width: 500px;
@@ -150,7 +178,9 @@
             font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 700;
             text-transform: uppercase; letter-spacing: 2px; margin: 0 20px; color: #111;
         }
+
         .divider { width: 1px; height: 70px; background: #bbb; margin: 50px auto; opacity: 0.4; }
+
         .btn-waze {
             display: inline-block; text-decoration: none;
             font-family: 'Montserrat', sans-serif; font-size: 0.7rem; text-transform: uppercase;
@@ -158,87 +188,81 @@
             padding: 12px 30px; transition: 0.4s; margin-top: 20px; font-weight: 700;
         }
         .btn-waze:hover { background-color: #111; color: white; }
+
+        /* PIED DE PAGE GP (Avec fond blanc renforcé) */
+        .footer-text-box {
+            margin-top: 80px; padding: 40px;
+            background-color: rgba(255,255,255,0.9); /* Fond presque opaque pour lisibilité */
+            border-radius: 4px; display: inline-block;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
         .footer-text {
-            margin-top: 80px; font-size: 1.1rem; color: #555; font-family: 'Cormorant Garamond', serif; 
-            font-style: italic; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6; font-weight: 500;
+            font-size: 1.1rem; color: #444; font-family: 'Cormorant Garamond', serif; 
+            font-style: italic; max-width: 700px; margin: 0 auto; line-height: 1.6; font-weight: 600;
         }
 
-        /* --- FORMULAIRE (Desktop) --- */
-        .rsvp-container { max-width: 600px; margin: 0 auto; text-align: left; }
+        /* --- FORMULAIRE --- */
+        .rsvp-container { max-width: 600px; margin: 0 auto; text-align: left; transition: opacity 0.5s ease; }
         .input-group { margin-bottom: 45px; position: relative; }
+        
+        .form-label-styled {
+            font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; 
+            color: #111; margin-bottom: 10px; display: block; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+        }
+
         input[type="text"], input[type="number"], textarea {
-            width: 100%; padding: 15px 0; border: none; border-bottom: 1px solid #ccc;
+            width: 100%; padding: 15px 10px; 
+            border: none; border-bottom: 2px solid #ddd;
             font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: #111;
-            background: transparent; outline: none; transition: 0.4s; border-radius: 0; font-weight: 600;
+            background: rgba(255,255,255,0.3); outline: none; transition: 0.4s; border-radius: 4px 4px 0 0; font-weight: 600;
         }
-        input:focus, textarea:focus { border-bottom: 1px solid #000; }
-        input::placeholder, textarea::placeholder { color: #bbb; font-style: italic; font-size: 1.2rem; font-weight: 400; }
+        input:focus, textarea:focus { border-bottom: 2px solid #111; background: rgba(255,255,255,0.8); }
+        input::placeholder, textarea::placeholder { color: #999; font-style: italic; font-size: 1.2rem; font-weight: 400; }
+
         .radio-title {
-            font-family: 'Montserrat', sans-serif; font-size: 0.7rem; text-transform: uppercase;
-            letter-spacing: 2px; display: block; margin-bottom: 20px; color: #444; text-align: center; font-weight: 700;
+            font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase;
+            letter-spacing: 2px; display: block; margin-bottom: 20px; color: #222; text-align: center; font-weight: 700;
         }
-        .radio-options { display: flex; gap: 15px; justify-content: center; }
+        .radio-options { display: flex; gap: 20px; justify-content: center; }
         .radio-options input[type="radio"] { display: none; }
         .radio-options label {
-            min-width: 120px; text-align: center; padding: 12px; border: 1px solid #ddd;
-            font-family: 'Montserrat', sans-serif; font-size: 0.75rem; text-transform: uppercase;
-            cursor: pointer; transition: 0.3s; letter-spacing: 2px; color: #888;
-            background: rgba(255,255,255,0.8); font-weight: 600;
+            min-width: 130px; text-align: center; padding: 15px; border: 1px solid #bbb;
+            font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase;
+            cursor: pointer; transition: 0.3s; letter-spacing: 2px; color: #555;
+            background: rgba(255,255,255,0.5); font-weight: 600;
         }
-        .radio-options input[type="radio"]:checked + label { background-color: #111; color: white; border-color: #111; }
-        .guest-input { display: none; margin-top: 25px; animation: slideDown 0.6s ease cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+        .radio-options input[type="radio"]:checked + label { 
+            background-color: #111; color: white; border-color: #111; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .guest-input { display: none; margin-top: 25px; animation: slideDown 0.6s ease; }
+        
         .submit-btn {
-            width: 100%; padding: 25px; background-color: #111; color: white; border: none;
+            width: 100%; padding: 20px; background-color: #111; color: white; border: none;
             font-family: 'Montserrat', sans-serif; font-size: 0.9rem; text-transform: uppercase;
-            letter-spacing: 4px; cursor: pointer; transition: 0.4s; margin-top: 30px; font-weight: 700;
+            letter-spacing: 4px; cursor: pointer; transition: 0.4s; margin-top: 20px; font-weight: 700;
+            border: 1px solid #111;
         }
-        .submit-btn:hover { background-color: #333; letter-spacing: 6px; }
+        .submit-btn:hover { background-color: transparent; color: #111; }
+
+        /* SUCCES MESSAGE */
+        #success-message { display: none; padding: 50px 20px; animation: fadeIn 1s ease; }
+        .mazal-tov { font-family: 'Pinyon Script', cursive; font-size: 5rem; color: #111; margin-bottom: 20px; }
+        .success-text { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: #444; font-style: italic; }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
 
-        /* =========================================
-           --- MEDIA QUERY MOBILE (IMPORTANTE) ---
-           ========================================= */
         @media (max-width: 768px) {
-            /* Réduction des espacements globaux */
-            .white-section { padding: 60px 15px; }
-            .info-block, .couple-block-new, .invitation-phrase-standalone { margin-bottom: 35px; }
-            .divider { margin: 35px auto; height: 50px; }
-            .footer-text { margin-top: 40px; font-size: 0.9rem; }
-
-            /* Réduction drastique des tailles de police */
             .hero-names { font-size: 3.8rem; }
-            .hero-date { font-size: 1rem; letter-spacing: 4px; }
-            h2 { font-size: 1.8rem; letter-spacing: 3px; }
+            h2 { font-size: 1.8rem; }
             .names-script, .couple-names-fr { font-size: 2.8rem; }
-            .action-text { font-size: 1.2rem; margin-bottom: 25px; }
-            .venue { font-size: 1.5rem; }
-            .address, .time-location { font-size: 0.9rem; }
-            .date-text { font-size: 0.9rem; letter-spacing: 1px; }
-            .invitation-phrase-standalone { font-size: 1.1rem; margin-bottom: 40px; }
-            .couple-names-he { font-size: 1.4rem; }
-            .rsvp-confirmation-text { font-size: 1.2rem; }
-
-            /* Ajustement des images sur mobile */
-            .section-logo-img { width: 150px; margin-bottom: 25px; }
-            /* Image hébraïque remontée encore plus sur mobile */
-            .hebrew-phrase-img { width: 260px; margin-top: -75px; margin-bottom: 20px; }
-
-            /* --- PARENTS CÔTE À CÔTE SUR MOBILE --- */
-            .parents-columns-container {
-                flex-direction: row; /* Force la ligne même sur mobile */
-                gap: 10px; /* Espace réduit entre les colonnes */
-                justify-content: space-around; /* Répartit l'espace */
-                margin-bottom: 20px;
-            }
-            .parents-col {
-                /* Police BEAUCOUP plus petite pour tenir sur une ligne */
-                font-size: 0.85rem; 
-                line-height: 1.4;
-                flex: 1; /* Largeur équitable */
-            }
+            .section-logo-img { width: 150px; } 
+            .hebrew-phrase-img { width: 260px; margin-top: -75px; }
+            .parents-columns-container { flex-direction: row; gap: 10px; }
+            .parents-col { font-size: 0.85rem; flex: 1; }
+            .mazal-tov { font-size: 3.5rem; }
         }
     </style>
 </head>
@@ -264,7 +288,7 @@
 
         <div class="date-separator">
             <span class="line"></span>
-            <span class="date-text">Lundi 25 Mai 2026</span>
+            <span class="date-text">Mercredi 20 Mai 2026</span>
             <span class="line"></span>
         </div>
 
@@ -275,11 +299,11 @@
         </div>
 
         <div class="info-block">
-            <span class="time-location" style="margin-top: 40px; display: block;">SUIVI D'UN HENNÉ</span>
+            <span class="time-location" style="margin-top: 40px; display: block;">SUIVI D'UN AFTER HENNÉ</span>
             <div class="venue">Pavillons des Fêtes</div>
             <div class="address">
                 1 Place de Verdun, Levallois-Perret<br>
-                <span style="font-size: 0.9em; font-style: italic;">(5 min à pied)</span>
+                <span style="font-size: 1.1rem; font-style: italic;">(5 min à pied)</span>
             </div>
         </div>
 
@@ -314,19 +338,29 @@
 
         <div class="couple-block-new">
             <div class="couple-names-fr">Mélanie & Kevin</div>
-            <div class="couple-names-he">‎מלאני רחל & קווין ישראל</div>
+            <div class="couple-names-he">‎רחל & ישראל</div>
         </div>
 
+        <span class="honor-phrase">
+            et seront honorés de votre présence à la cérémonie religieuse qui sera célébrée le<br>
+            Lundi 25 mai 2026 à 17h30 précises
+        </span>
+
         <div class="info-block">
-            <span class="time-location">Le LUNDI 25 MAI 2026 — 17H30 PRÉCISES</span>
             <div class="venue">Salle des Pyramides</div>
             <div class="address">La Marquise<br>16 avenue de Saint Germain, Le Port Marly</div>
         </div>
 
+        <div class="address" style="margin-bottom: 30px; font-size: 1.3rem;">
+            La cérémonie religieuse sera suivie d’une réception
+        </div>
+
         <a href="https://waze.com/ul?q=Les%20Pyramides%20Le%20Port-Marly" target="_blank" class="btn-waze">Itinéraire Waze</a>
 
-        <div class="footer-text">
-            Une pensée très émue pour nos grands-parents Élie Mamou, Jacques & Germaine Habib, Saidou Edmond Benmoussa & Germaine Benmoussa, Gaston Israel & Emilie Zana qui nous manqueront tant en ce jour unique.<br>Que vos bénédictions illuminent notre vie.
+        <div class="footer-text-box">
+            <div class="footer-text">
+                Une pensée très émue pour nos grands-parents Élie Mamou, Jacques & Germaine Habib, Saidou Edmond Benmoussa & Germaine Benmoussa, Gaston Israel & Emilie Zana qui nous manqueront tant en ce jour unique.<br>Que vos bénédictions illuminent notre vie.
+            </div>
         </div>
     </section>
 
@@ -337,51 +371,61 @@
 
     <section class="white-section">
         <img src="logo.png" alt="Logo" class="section-logo-img">
-        <h2>Confirmation</h2>
-        <p class="rsvp-confirmation-text" style="color:#444; margin-bottom:60px; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-style: italic; font-weight: 600;">
-            Merci de confirmer votre présence dès réception.
-        </p>
+        
+        <div id="success-message">
+            <div class="mazal-tov">Mazal Tov !</div>
+            <p class="success-text">Votre réponse a bien été envoyée aux mariés.</p>
+        </div>
 
-        <form class="rsvp-container" action="mailto:melanie.kevin@gmail.com" method="post" enctype="text/plain">
-            
-            <div class="input-group">
-                <input type="text" name="nom" required placeholder="Vos Noms & Prénoms">
-            </div>
+        <div id="rsvp-section-content">
+            <h2>Confirmation</h2>
+            <p style="color:#444; margin-bottom:60px; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-style: italic; font-weight: 600;">
+                Merci de confirmer votre présence dès réception.
+            </p>
 
-            <div class="input-group">
-                <span class="radio-title">Serez-vous présents à la Mairie ?</span>
-                <div class="radio-options">
-                    <input type="radio" id="mairie-oui" name="mairie" value="Oui" required onclick="toggleGuestInput('mairie-guests', true)">
-                    <label for="mairie-oui">Présent</label>
-
-                    <input type="radio" id="mairie-non" name="mairie" value="Non" required onclick="toggleGuestInput('mairie-guests', false)">
-                    <label for="mairie-non">Absent</label>
+            <form id="rsvpForm" class="rsvp-container" onsubmit="handleFormSubmit(event)">
+                
+                <div class="input-group">
+                    <span class="form-label-styled">Qui êtes-vous ?</span>
+                    <input type="text" name="nom" required placeholder="Noms & Prénoms des invités">
                 </div>
-                <div id="mairie-guests" class="guest-input">
-                    <input type="number" name="nb_mairie" placeholder="Nombre de personnes (Mairie)" min="1">
+
+                <div class="input-group">
+                    <span class="radio-title">Serez-vous présents à la Mairie ?</span>
+                    <div class="radio-options">
+                        <input type="radio" id="mairie-oui" name="mairie" value="Oui" required onclick="toggleGuestInput('mairie-guests', true)">
+                        <label for="mairie-oui">Présent</label>
+
+                        <input type="radio" id="mairie-non" name="mairie" value="Non" required onclick="toggleGuestInput('mairie-guests', false)">
+                        <label for="mairie-non">Absent</label>
+                    </div>
+                    <div id="mairie-guests" class="guest-input">
+                        <input type="number" name="nb_mairie" placeholder="Nombre de personnes (Mairie)" min="1">
+                    </div>
                 </div>
-            </div>
 
-            <div class="input-group">
-                <span class="radio-title">Serez-vous présents à la Houppa ?</span>
-                <div class="radio-options">
-                    <input type="radio" id="houppa-oui" name="houppa" value="Oui" required onclick="toggleGuestInput('houppa-guests', true)">
-                    <label for="houppa-oui">Présent</label>
+                <div class="input-group">
+                    <span class="radio-title">Serez-vous présents à la Houppa ?</span>
+                    <div class="radio-options">
+                        <input type="radio" id="houppa-oui" name="houppa" value="Oui" required onclick="toggleGuestInput('houppa-guests', true)">
+                        <label for="houppa-oui">Présent</label>
 
-                    <input type="radio" id="houppa-non" name="houppa" value="Non" required onclick="toggleGuestInput('houppa-guests', false)">
-                    <label for="houppa-non">Absent</label>
+                        <input type="radio" id="houppa-non" name="houppa" value="Non" required onclick="toggleGuestInput('houppa-guests', false)">
+                        <label for="houppa-non">Absent</label>
+                    </div>
+                    <div id="houppa-guests" class="guest-input">
+                        <input type="number" name="nb_houppa" placeholder="Nombre de personnes (Houppa)" min="1">
+                    </div>
                 </div>
-                <div id="houppa-guests" class="guest-input">
-                    <input type="number" name="nb_houppa" placeholder="Nombre de personnes (Houppa)" min="1">
+
+                <div class="input-group">
+                    <span class="form-label-styled">Un petit mot ?</span>
+                    <textarea name="message" rows="2" placeholder="Laissez un message aux mariés..." required></textarea>
                 </div>
-            </div>
 
-            <div class="input-group">
-                <textarea name="message" rows="1" placeholder="Un message pour les mariés..."></textarea>
-            </div>
-
-            <button type="submit" class="submit-btn">Confirmer ma présence</button>
-        </form>
+                <button type="submit" class="submit-btn">Confirmer ma présence</button>
+            </form>
+        </div>
     </section>
 
     <div class="final-container">
@@ -393,7 +437,6 @@
         function toggleGuestInput(elementId, show) {
             var element = document.getElementById(elementId);
             var input = element.querySelector('input');
-            
             if (show) {
                 element.style.display = 'block';
                 input.setAttribute('required', 'required');
@@ -402,6 +445,17 @@
                 input.removeAttribute('required');
                 input.value = '';
             }
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            var formSection = document.getElementById('rsvp-section-content');
+            var successMessage = document.getElementById('success-message');
+            formSection.style.opacity = '0';
+            setTimeout(function() {
+                formSection.style.display = 'none';
+                successMessage.style.display = 'block';
+            }, 500);
         }
     </script>
 
