@@ -1,564 +1,1149 @@
 <!DOCTYPE html>
+
 <html lang="fr">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Mélanie & Kévin - L'Union</title>
+
     
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
 
+
+
     <style>
+
         /* --- RESET --- */
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
         html { scroll-behavior: smooth; }
+
         
+
         body { 
+
             font-family: 'Montserrat', sans-serif; 
+
             color: #1a1a1a; 
+
             background-color: #fcfcfc; 
+
             background-image: url('fond-page.png');
+
             background-size: cover;
+
             background-attachment: fixed;
+
             background-position: center;
+
             overflow-x: hidden;
+
             font-weight: 500; 
+
             letter-spacing: 0.5px;
+
         }
+
+
 
         /* --- PARALLAXE STICKY --- */
+
         .parallax-container {
+
             position: sticky; top: 0;
+
             height: 100vh; height: 100dvh;
+
             width: 100%; overflow: hidden; z-index: 1;
+
             display: flex; justify-content: center; align-items: center;
+
         }
+
         .parallax-container img {
+
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+
             object-fit: cover; z-index: -1;
+
         }
+
         .overlay {
+
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+
             background: rgba(0,0,0,0.2); z-index: 0;
+
         }
+
+
 
         /* --- PHOTO 4 (FIN) --- */
+
         .final-container {
+
             position: relative; 
+
             z-index: 20; 
+
             height: 100vh;
+
             width: 100%;
+
             overflow: hidden;
+
             display: block;
+
             background-color: #fff; 
+
         }
+
         .final-container img {
+
             width: 100%; height: 100%; object-fit: cover;
+
         }
+
+
 
         /* --- HERO --- */
+
         .hero-content {
+
             position: relative; z-index: 2; text-align: center; color: white;
+
             animation: fadeIn 1.5s ease-out;
+
         }
+
         .hero-names {
+
             font-family: 'Pinyon Script', cursive; 
+
             font-size: 6rem; 
+
             text-shadow: 0 5px 20px rgba(0,0,0,0.4); margin-bottom: 15px;
+
             line-height: 1.1;
+
             font-weight: 400; 
+
             color: #D4AF37; /* Prénoms en doré */
+
         }
+
         .hero-date {
+
             font-family: 'Cormorant Garamond', serif; 
+
             font-size: 1.3rem; letter-spacing: 8px; font-weight: 700;
+
             text-transform: uppercase; border-top: 2px solid rgba(255,255,255,0.9); 
+
             border-bottom: 2px solid rgba(255,255,255,0.9); padding: 15px 0; display: inline-block;
+
         }
+
+
 
         /* --- SECTIONS TEXTE --- */
+
         .white-section {
+
             position: relative; 
+
             z-index: 10;
+
             padding: 100px 20px; 
+
             text-align: center;
+
             background-image: url('fond-page.png');
+
             background-size: cover;
+
             background-position: center;
+
             background-repeat: no-repeat;
+
             background-color: #fcfcfc; 
+
             box-shadow: 0 -10px 40px rgba(0,0,0,0.08);
+
         }
+
+
 
         /* LOGO */
+
         .section-logo-img { 
+
             width: 280px; 
+
             height: auto; 
+
             margin-bottom: 40px; 
+
             display: inline-block; 
+
         }
+
+
 
         /* --- IMAGE HEBRAIQUE --- */
+
         .hebrew-phrase-img {
+
             display: block;
+
             margin: -65px auto 30px auto; 
+
             max-width: 90%;
+
             width: 400px; 
+
             height: auto;
+
         }
+
+
 
         /* --- TYPOGRAPHIE --- */
+
         h2 {
+
             font-family: 'Cormorant Garamond', serif; font-size: 3.2rem; 
+
             text-transform: uppercase; font-weight: 600; letter-spacing: 6px; 
+
             margin-bottom: 15px; color: #000;
+
         }
+
+
 
         .names-script {
+
             font-family: 'Pinyon Script', cursive; font-size: 4.5rem; 
+
             color: #D4AF37; /* Prénoms en doré */
+
             margin: 10px 0 20px 0; line-height: 1.1;
+
         }
+
+
 
         .action-text {
+
             font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.8rem;
+
             color: #444; margin-bottom: 40px;
+
         }
+
+
 
         .info-block { margin-bottom: 50px; }
+
         
+
         .time-location {
+
             font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase;
+
             letter-spacing: 3px; font-weight: 600; margin-bottom: 15px; color: #555; display: block;
+
         }
+
         
+
         .venue {
+
             font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; 
+
             font-weight: 700; color: #111; line-height: 1.2; margin-bottom: 10px;
+
         }
+
         
+
         .address {
+
             font-style: italic; font-family: 'Cormorant Garamond', serif; 
+
             font-size: 1.4rem; color: #333; font-weight: 500;
+
         }
+
+
 
         /* PARENTS EN COLONNES */
+
         .parents-columns-container {
+
             display: flex; justify-content: center; gap: 40px; margin-bottom: 25px;
+
             align-items: flex-start; 
+
         }
+
         .parents-col {
+
             font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
+
             line-height: 1.6; color: #222; font-weight: 600; text-align: center;
+
             flex: 1;
+
         }
+
+
 
         .invitation-phrase-standalone {
+
             display: block; font-family: 'Cormorant Garamond', serif; font-weight: 500;
+
             font-style: italic; font-size: 1.3rem; color: #444; margin-bottom: 40px;
+
         }
+
         
+
         .honor-phrase {
+
             display: block; font-family: 'Cormorant Garamond', serif; 
+
             font-size: 1.3rem; color: #444; margin-top: 10px; margin-bottom: 40px; line-height: 1.6;
+
         }
+
+
 
         /* DATE 25 MAI EN GROS */
+
         .big-date {
+
             font-size: 1.8em; 
+
             font-weight: 700; 
+
             color: #000;
+
         }
+
+
 
         .couple-block-new { margin-bottom: 20px; }
+
         .couple-names-fr {
+
             font-family: 'Pinyon Script', cursive; font-size: 4.5rem; 
+
             color: #D4AF37; /* Prénoms en doré */
+
             line-height: 1; margin-bottom: 10px;
-        }
-        .couple-names-he {
-            font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: #555; font-weight: 500;
-        }
-        .hebrew-date-text {
-            font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: #666; margin-top: 5px;
+
         }
 
+        .couple-names-he {
+
+            font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: #555; font-weight: 500;
+
+        }
+
+        .hebrew-date-text {
+
+            font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: #666; margin-top: 5px;
+
+        }
+
+
+
         /* DATE SEPARATOR */
+
         .date-separator {
+
             display: flex; align-items: center; justify-content: center;
+
             margin: 35px auto; width: 100%; max-width: 500px;
+
         }
+
         .line { height: 1px; background-color: #111; flex-grow: 1; opacity: 0.2; }
+
         .date-text {
+
             font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 700;
+
             text-transform: uppercase; letter-spacing: 2px; margin: 0 20px; color: #111;
+
         }
+
+
 
         .divider { width: 1px; height: 70px; background: #bbb; margin: 50px auto; opacity: 0.4; }
 
+
+
         .btn-waze {
+
             display: inline-block; text-decoration: none;
+
             font-family: 'Montserrat', sans-serif; font-size: 0.7rem; text-transform: uppercase;
+
             letter-spacing: 3px; color: #111; border: 1px solid #111; 
+
             padding: 12px 30px; transition: 0.4s; margin-top: 20px; font-weight: 700;
+
         }
+
         .btn-waze:hover { background-color: #111; color: white; }
 
+
+
         /* BOUTON MUSIQUE FLOTTANT */
+
         .music-btn {
+
             position: fixed;
+
             bottom: 20px;
+
             right: 20px;
+
             z-index: 1000;
+
             width: 50px;
+
             height: 50px;
+
             background-color: #fff;
+
             border: 1px solid #111;
+
             border-radius: 50%;
+
             display: flex;
+
             justify-content: center;
+
             align-items: center;
+
             cursor: pointer;
+
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+
             transition: 0.3s;
+
         }
+
         .music-btn:hover { transform: scale(1.1); }
+
         .music-icon { font-size: 20px; }
 
+
+
         /* PIED DE PAGE GP */
+
         .footer-text-box {
+
             margin-top: 80px; padding: 40px;
+
             background-color: rgba(255,255,255,0.9); 
+
             border-radius: 4px; display: inline-block;
+
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+
         }
+
         .footer-text {
+
             font-size: 1.1rem; color: #444; font-family: 'Cormorant Garamond', serif; 
+
             font-style: italic; max-width: 700px; margin: 0 auto; line-height: 1.6; font-weight: 600;
+
         }
+
+
 
         /* --- FORMULAIRE --- */
+
         .rsvp-container { max-width: 600px; margin: 0 auto; text-align: left; transition: opacity 0.5s ease; }
+
         .input-group { margin-bottom: 45px; position: relative; }
+
         
+
         .form-label-styled {
+
             font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; 
+
             color: #111; margin-bottom: 10px; display: block; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+
         }
+
+
 
         input[type="text"], input[type="number"], textarea {
+
             width: 100%; padding: 15px 10px; 
+
             border: none; border-bottom: 2px solid #ddd;
+
             font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: #111;
+
             background: rgba(255,255,255,0.3); outline: none; transition: 0.4s; border-radius: 4px 4px 0 0; font-weight: 600;
+
         }
+
         input:focus, textarea:focus { border-bottom: 2px solid #111; background: rgba(255,255,255,0.8); }
+
         input::placeholder, textarea::placeholder { color: #999; font-style: italic; font-size: 1.2rem; font-weight: 400; }
 
+
+
         .radio-title {
+
             font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase;
+
             letter-spacing: 2px; display: block; margin-bottom: 20px; color: #222; text-align: center; font-weight: 700;
+
         }
+
         .radio-options { display: flex; gap: 20px; justify-content: center; }
+
         .radio-options input[type="radio"] { display: none; }
+
         .radio-options label {
+
             min-width: 130px; text-align: center; padding: 15px; border: 1px solid #bbb;
+
             font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase;
+
             cursor: pointer; transition: 0.3s; letter-spacing: 2px; color: #555;
+
             background: rgba(255,255,255,0.5); font-weight: 600;
+
         }
+
         .radio-options input[type="radio"]:checked + label { 
+
             background-color: #E69DB3; /* Couleur ROSE au clic */
+
             color: white; border-color: #E69DB3; box-shadow: 0 5px 15px rgba(230, 157, 179, 0.4);
+
         }
+
+
 
         .guest-input { display: none; margin-top: 25px; animation: slideDown 0.6s ease; }
+
         
+
         .submit-btn {
+
             width: 100%; padding: 20px; background-color: #111; color: white; border: none;
+
             font-family: 'Montserrat', sans-serif; font-size: 0.9rem; text-transform: uppercase;
+
             letter-spacing: 4px; cursor: pointer; transition: 0.4s; margin-top: 20px; font-weight: 700;
+
             border: 1px solid #111;
+
         }
+
         .submit-btn:hover { background-color: transparent; color: #111; }
 
+
+
         #success-message { display: none; padding: 50px 20px; animation: fadeIn 1s ease; }
+
         .mazal-tov { font-family: 'Pinyon Script', cursive; font-size: 5rem; color: #111; margin-bottom: 20px; }
+
         .success-text { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: #444; font-style: italic; }
 
-        /* CSS POUR LE LECTEUR YOUTUBE CACHÉ */
+
+
+        /* --- CORRECTION YOUTUBE : On ne le cache pas, on le rend transparent --- */
+
         #youtube-player {
+
             position: fixed;
-            top: -9999px;
-            left: -9999px;
-            visibility: hidden;
+
+            top: 0;
+
+            left: 0;
+
+            width: 1px;
+
+            height: 1px;
+
+            opacity: 0.01; /* Quasi invisible mais "là" pour le navigateur */
+
+            z-index: -1;
+
             pointer-events: none;
+
         }
+
+
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
         @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
 
+
+
         @media (max-width: 768px) {
+
             .hero-names { font-size: 3.8rem; }
+
             h2 { font-size: 1.8rem; }
+
             .names-script, .couple-names-fr { font-size: 2.8rem; }
+
             .section-logo-img { width: 150px; } 
+
             .hebrew-phrase-img { width: 260px; margin-top: -75px; }
+
             
+
             /* PARENTS COTE A COTE MOBILE */
+
             .parents-columns-container { flex-direction: row; gap: 10px; }
+
             .parents-col { font-size: 0.85rem; flex: 1; }
+
             
+
             .mazal-tov { font-size: 3.5rem; }
+
         }
+
     </style>
+
 </head>
+
 <body>
+
+
 
     <div id="youtube-player"></div>
 
+
+
     <div class="music-btn" onclick="toggleMusic()">
+
         <span id="musicIcon" class="music-icon">🎵</span>
+
     </div>
+
+
 
     <div class="parallax-container">
+
         <img src="photo1.jpeg" alt="Hero">
+
         <div class="overlay"></div>
+
         <div class="hero-content">
+
             <div class="hero-names">Mélanie & Kévin</div>
+
             <div class="hero-date">25 . 05 . 2026</div>
+
             <div style="margin-top: 60px; font-size: 1.5rem; animation: bounce 2s infinite; opacity: 0.8;">↓</div>
+
         </div>
+
     </div>
 
+
+
     <section class="white-section">
+
         <img src="logo.png" alt="Logo" class="section-logo-img">
+
         
+
         <h2>Cérémonie Civile</h2>
+
         
+
         <div class="names-script">Mélanie & Kévin</div>
+
         <div class="action-text">Se diront "Oui"</div>
 
+
+
         <div class="date-separator">
+
             <span class="line"></span>
+
             <span class="date-text">Mercredi 20 Mai 2026</span>
+
             <span class="line"></span>
+
         </div>
 
+
+
         <div class="info-block">
+
             <span class="time-location">À 14H00 PRÉCISES</span>
+
             <div class="venue">Mairie de Levallois-Perret</div>
+
             <div class="address">1 Place de la République<br>92300 Levallois-Perret</div>
+
         </div>
 
+
+
         <div class="info-block">
+
             <span class="time-location" style="margin-top: 40px; display: block;">SUIVI D'UN AFTER HENNÉ</span>
+
             <div class="venue">Pavillons des Fêtes</div>
+
             <div class="address">
+
                 1 Place de Verdun, Levallois-Perret<br>
+
                 <span style="font-size: 1.1rem; font-style: italic;">(5 min à pied)</span>
+
             </div>
+
         </div>
+
+
 
         <a href="https://waze.com/ul?q=Mairie%20de%20Levallois-Perret" target="_blank" class="btn-waze">Itinéraire Waze</a>
+
     </section>
 
+
+
     <div class="parallax-container">
+
         <img src="photo2.jpeg" alt="Transition">
+
         <div class="overlay"></div>
+
     </div>
 
+
+
     <section class="white-section">
+
         <img src="logo.png" alt="Logo" class="section-logo-img">
+
         <img src="hebreu.png" alt="Phrase Hébraïque" class="hebrew-phrase-img">
+
+
 
         <h2>Houppa & Soirée</h2>
 
+
+
         <div class="parents-columns-container">
+
             <div class="parents-col" style="text-align: right; padding-right: 10px; border-right: 1px solid #ddd;">
+
                 Daisy Mamou<br>
+
                 Lydia & Elias Azoura<br>
+
                 Véronique & James Azoura
+
             </div>
+
             <div class="parents-col" style="text-align: left; padding-left: 10px;">
+
                 <br> Maguy & Joseph Zana
+
             </div>
+
         </div>
+
+
 
         <span class="invitation-phrase-standalone">
+
             Remercient Hachem de vous convier au mariage de leurs enfants et petits enfants
+
         </span>
+
+
 
         <div class="couple-block-new">
+
             <div class="couple-names-fr">Mélanie & Kévin</div>
+
             <div class="couple-names-he">‎רחל & ישראל</div>
+
             <div class="hebrew-date-text">6 Sivan 5786</div>
+
         </div>
+
+
 
         <span class="honor-phrase">
+
             et seront honorés de votre présence à la cérémonie religieuse qui sera célébrée le<br>
+
             Lundi <span class="big-date">25</span> mai 2026 à 17h30 précises
+
         </span>
 
+
+
         <div class="info-block">
+
             <div class="venue">Salle des Pyramides</div>
+
             <div class="address">La Marquise<br>16 avenue de Saint Germain, Le Port Marly</div>
+
         </div>
 
+
+
         <div class="address" style="margin-bottom: 30px; font-size: 1.3rem;">
+
             La cérémonie religieuse sera suivie d’une réception dans la Salle la Marquise
+
         </div>
+
+
 
         <a href="https://waze.com/ul?q=Les%20Pyramides%20Le%20Port-Marly" target="_blank" class="btn-waze">Itinéraire Waze</a>
 
+
+
         <div class="footer-text-box">
+
             <div class="footer-text">
+
                 Une pensée très émue pour nos grands-parents Élie Mamou, Jacques & Germaine Habib, Saidou Edmond Benmoussa & Germaine Benmoussa, Gaston Israel & Emilie Zana qui nous manqueront tant en ce jour unique.<br>Que vos bénédictions illuminent notre vie.
+
             </div>
+
         </div>
+
     </section>
+
+
 
     <div class="parallax-container">
+
         <img src="photo3.jpeg" alt="Transition">
+
         <div class="overlay"></div>
+
     </div>
+
+
 
     <section class="white-section">
+
         <img src="logo.png" alt="Logo" class="section-logo-img">
+
         
+
         <div id="success-message">
+
             <div class="mazal-tov">Mazal Tov !</div>
+
             <p class="success-text">Votre réponse a bien été envoyée aux mariés.</p>
+
         </div>
+
+
 
         <div id="rsvp-section-content">
+
             <h2>Confirmation</h2>
+
             <p style="color:#444; margin-bottom:60px; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-style: italic; font-weight: 600;">
+
                 Merci de confirmer votre présence dès réception.
+
             </p>
 
+
+
             <form id="rsvpForm" class="rsvp-container" onsubmit="handleFormSubmit(event)">
+
                 
-                <div class="input-group">
-                    <span class="form-label-styled">Noms & Prénoms *</span>
-                    <input type="text" name="nom" required placeholder="Noms & Prénoms des invités">
-                </div>
 
                 <div class="input-group">
+
+                    <span class="form-label-styled">Noms & Prénoms *</span>
+
+                    <input type="text" name="nom" required placeholder="Noms & Prénoms des invités">
+
+                </div>
+
+
+
+                <div class="input-group">
+
                     <span class="radio-title">Serez-vous présents à la Mairie ? *</span>
+
                     <div class="radio-options">
+
                         <input type="radio" id="mairie-oui" name="mairie" value="Oui" required onclick="toggleGuestInput('mairie-guests', true)">
+
                         <label for="mairie-oui">Présent</label>
 
+
+
                         <input type="radio" id="mairie-non" name="mairie" value="Non" required onclick="toggleGuestInput('mairie-guests', false)">
+
                         <label for="mairie-non">Absent</label>
+
                     </div>
+
                     <div id="mairie-guests" class="guest-input">
+
                         <input type="number" name="nb_mairie" placeholder="Nombre de personnes (Mairie) *" min="1">
+
                     </div>
+
                 </div>
 
+
+
                 <div class="input-group">
+
                     <span class="radio-title">Serez-vous présents à la Houppa ? *</span>
+
                     <div class="radio-options">
+
                         <input type="radio" id="houppa-oui" name="houppa" value="Oui" required onclick="toggleGuestInput('houppa-guests', true)">
+
                         <label for="houppa-oui">Présent</label>
 
+
+
                         <input type="radio" id="houppa-non" name="houppa" value="Non" required onclick="toggleGuestInput('houppa-guests', false)">
+
                         <label for="houppa-non">Absent</label>
+
                     </div>
+
                     <div id="houppa-guests" class="guest-input">
+
                         <input type="number" name="nb_houppa" placeholder="Nombre de personnes (Houppa) *" min="1">
+
                     </div>
+
                 </div>
+
+
 
                 <div class="input-group">
+
                     <span class="form-label-styled">Un petit mot ?</span>
+
                     <textarea name="message" rows="2" placeholder="Laissez un message aux mariés..." required></textarea>
+
                 </div>
 
+
+
                 <button type="submit" class="submit-btn">Confirmer ma présence</button>
+
             </form>
+
         </div>
+
     </section>
 
+
+
     <div class="final-container">
+
         <img src="photo4.jpeg" alt="Final">
+
         <div class="overlay"></div>
+
     </div>
+
+
 
     <script src="https://www.youtube.com/iframe_api"></script>
 
+
+
     <script>
+
         // --- GESTION FORMULAIRE (Inchangée) ---
+
         function toggleGuestInput(elementId, show) {
+
             var element = document.getElementById(elementId);
+
             var input = element.querySelector('input');
+
             if (show) {
+
                 element.style.display = 'block';
+
                 input.setAttribute('required', 'required');
+
             } else {
+
                 element.style.display = 'none';
+
                 input.removeAttribute('required');
+
                 input.value = '';
+
             }
+
         }
+
+
 
         function handleFormSubmit(event) {
+
             event.preventDefault();
+
             var formSection = document.getElementById('rsvp-section-content');
+
             var successMessage = document.getElementById('success-message');
+
             formSection.style.opacity = '0';
+
             setTimeout(function() {
+
                 formSection.style.display = 'none';
+
                 successMessage.style.display = 'block';
+
             }, 500);
+
         }
 
-        // --- GESTION MUSIQUE YOUTUBE (Nouveau code) ---
+
+
+        // --- GESTION MUSIQUE YOUTUBE (Code corrigé) ---
+
         var player;
+
         var isPlaying = false;
+
         var icon = document.getElementById("musicIcon");
 
-        // Cette fonction est appelée automatiquement par l'API YouTube quand elle est prête
+
+
         function onYouTubeIframeAPIReady() {
+
+            console.log("YouTube API Ready");
+
             player = new YT.Player('youtube-player', {
-                height: '0', // Invisible
-                width: '0',  // Invisible
-                videoId: 'nU5yvsyRE8o', // ID de ta vidéo Shorts
+
+                height: '1', // Important: au moins 1px sinon certains navigateurs bloquent
+
+                width: '1',
+
+                videoId: 'nU5yvsyRE8o', 
+
                 playerVars: {
+
                     'autoplay': 0, 
+
                     'controls': 0,
-                    'loop': 1, // Pour boucler la musique
-                    'playlist': 'nU5yvsyRE8o' // Nécessaire pour que le loop fonctionne
+
+                    'loop': 1,
+
+                    'playlist': 'nU5yvsyRE8o',
+
+                    'playsinline': 1 // Important pour mobile !
+
                 },
+
                 events: {
-                    'onReady': onPlayerReady
+
+                    'onReady': onPlayerReady,
+
+                    'onError': onPlayerError
+
                 }
+
             });
+
         }
+
+
 
         function onPlayerReady(event) {
-            // Le lecteur est prêt. On ne lance rien pour l'instant (attente du clic).
+
+            console.log("Lecteur prêt");
+
         }
+
+
+
+        function onPlayerError(event) {
+
+            console.log("Erreur lecteur YouTube :", event.data);
+
+        }
+
+
 
         function toggleMusic() {
-            if (!player || !player.playVideo) return; // Sécurité si le lecteur n'est pas chargé
+
+            if (!player || typeof player.playVideo !== 'function') {
+
+                console.log("Lecteur pas encore chargé");
+
+                return;
+
+            }
+
+
 
             if (isPlaying) {
+
                 player.pauseVideo();
+
                 icon.innerHTML = "🎵";
+
                 isPlaying = false;
+
             } else {
+
                 player.playVideo();
+
                 icon.innerHTML = "⏸";
+
                 isPlaying = true;
+
             }
+
         }
+
     </script>
 
-</body>
-</html>
 
+
+</body>
+
+</html>
