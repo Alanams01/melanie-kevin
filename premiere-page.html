@@ -287,6 +287,15 @@
         .mazal-tov { font-family: 'Pinyon Script', cursive; font-size: 5rem; color: #111; margin-bottom: 20px; }
         .success-text { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: #444; font-style: italic; }
 
+        /* CSS POUR LE LECTEUR YOUTUBE CACHÉ */
+        #youtube-player {
+            position: fixed;
+            top: -9999px;
+            left: -9999px;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
@@ -308,9 +317,8 @@
 </head>
 <body>
 
-    <audio id="bgMusic" loop>
-        <source src="https://youtube.com/shorts/nU5yvsyRE8o" type="audio/mp4">
-    </audio>
+    <div id="youtube-player"></div>
+
     <div class="music-btn" onclick="toggleMusic()">
         <span id="musicIcon" class="music-icon">🎵</span>
     </div>
@@ -481,7 +489,10 @@
         <div class="overlay"></div>
     </div>
 
+    <script src="https://www.youtube.com/iframe_api"></script>
+
     <script>
+        // --- GESTION FORMULAIRE (Inchangée) ---
         function toggleGuestInput(elementId, show) {
             var element = document.getElementById(elementId);
             var input = element.querySelector('input');
@@ -506,20 +517,47 @@
             }, 500);
         }
 
-        var music = document.getElementById("bgMusic");
+        // --- GESTION MUSIQUE YOUTUBE (Nouveau code) ---
+        var player;
+        var isPlaying = false;
         var icon = document.getElementById("musicIcon");
+
+        // Cette fonction est appelée automatiquement par l'API YouTube quand elle est prête
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtube-player', {
+                height: '0', // Invisible
+                width: '0',  // Invisible
+                videoId: 'nU5yvsyRE8o', // ID de ta vidéo Shorts
+                playerVars: {
+                    'autoplay': 0, 
+                    'controls': 0,
+                    'loop': 1, // Pour boucler la musique
+                    'playlist': 'nU5yvsyRE8o' // Nécessaire pour que le loop fonctionne
+                },
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            // Le lecteur est prêt. On ne lance rien pour l'instant (attente du clic).
+        }
+
         function toggleMusic() {
-            if (music.paused) {
-                music.play();
-                icon.innerHTML = "⏸";
-            } else {
-                music.pause();
+            if (!player || !player.playVideo) return; // Sécurité si le lecteur n'est pas chargé
+
+            if (isPlaying) {
+                player.pauseVideo();
                 icon.innerHTML = "🎵";
+                isPlaying = false;
+            } else {
+                player.playVideo();
+                icon.innerHTML = "⏸";
+                isPlaying = true;
             }
         }
     </script>
 
 </body>
 </html>
-
-
