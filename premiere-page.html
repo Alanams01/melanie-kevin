@@ -18,7 +18,7 @@
             font-family: 'Montserrat', sans-serif; 
             color: #1a1a1a; 
             background-color: #fcfcfc; 
-            background-image: url('fond-page.png');
+            background-image: url('photo.jpeg');
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
@@ -66,7 +66,8 @@
         .hero-names {
             font-family: 'Pinyon Script', cursive; 
             font-size: 6rem; 
-            color: #C5A059; /* DORÉ */
+            /* COULEUR OR */
+            color: #C5A059; 
             text-shadow: none; 
             font-weight: 700; 
             margin-bottom: 15px;
@@ -80,6 +81,7 @@
         }
 
         /* --- SECTIONS TEXTE --- */
+        /* --- CORRECTION BUG SCROLL --- */
         .white-section {
             position: relative; 
             z-index: 10;
@@ -91,6 +93,14 @@
             background-repeat: no-repeat;
             background-color: #fcfcfc; 
             box-shadow: 0 -10px 40px rgba(0,0,0,0.08);
+            
+            /* CES LIGNES FORCENT L'AFFICHAGE LORS DE LA REMONTÉE */
+            -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            perspective: 1000px;
+            will-change: transform;
         }
 
         /* LOGO */
@@ -119,6 +129,7 @@
 
         .names-script {
             font-family: 'Pinyon Script', cursive; font-size: 4.5rem; 
+            /* COULEUR OR */
             color: #C5A059;
             margin: 10px 0 20px 0; line-height: 1.1;
         }
@@ -138,6 +149,7 @@
         .venue {
             font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; 
             font-weight: 700; 
+            /* COULEUR OR */
             color: #C5A059; 
             line-height: 1.2; margin-bottom: 10px;
         }
@@ -145,6 +157,7 @@
         .address {
             font-style: italic; font-family: 'Cormorant Garamond', serif; 
             font-size: 1.4rem; 
+            /* COULEUR OR */
             color: #C5A059; 
             font-weight: 500;
         }
@@ -185,6 +198,7 @@
         .couple-block-new { margin-bottom: 20px; }
         .couple-names-fr {
             font-family: 'Pinyon Script', cursive; font-size: 4.5rem; 
+            /* COULEUR OR */
             color: #C5A059;
             line-height: 1; margin-bottom: 10px;
         }
@@ -258,6 +272,7 @@
             margin: 0 auto; 
             text-align: left; 
             transition: opacity 0.5s ease; 
+            /* Fond légèrement texturé ou blanc pur */
             background-color: rgba(255,255,255,0.8);
             padding: 30px;
             border-radius: 10px;
@@ -418,7 +433,7 @@
     </div>
 
     <div class="parallax-container">
-        <img src="photo.jpeg" alt="Hero">
+        <img src="photo.png" alt="Hero">
         <div class="overlay"></div>
         <div class="hero-content">
             <div class="hero-names">Mélanie & Kévin</div>
@@ -648,4 +663,3 @@
 
 </body>
 </html>
-
