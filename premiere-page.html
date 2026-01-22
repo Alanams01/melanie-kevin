@@ -65,6 +65,8 @@
         .hero-names {
             font-family: 'Pinyon Script', cursive; 
             font-size: 6rem; 
+            /* COULEUR OR */
+            color: #C5A059; 
             text-shadow: 0 5px 20px rgba(0,0,0,0.4); margin-bottom: 15px;
             line-height: 1.1;
             font-weight: 400; 
@@ -115,7 +117,9 @@
         }
 
         .names-script {
-            font-family: 'Pinyon Script', cursive; font-size: 4.5rem; color: #111;
+            font-family: 'Pinyon Script', cursive; font-size: 4.5rem; 
+            /* COULEUR OR */
+            color: #C5A059;
             margin: 10px 0 20px 0; line-height: 1.1;
         }
 
@@ -133,12 +137,18 @@
         
         .venue {
             font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; 
-            font-weight: 700; color: #111; line-height: 1.2; margin-bottom: 10px;
+            font-weight: 700; 
+            /* MODIFICATION : LIEUX EN OR */
+            color: #C5A059; 
+            line-height: 1.2; margin-bottom: 10px;
         }
         
         .address {
             font-style: italic; font-family: 'Cormorant Garamond', serif; 
-            font-size: 1.4rem; color: #333; font-weight: 500;
+            font-size: 1.4rem; 
+            /* MODIFICATION : ADRESSES EN OR */
+            color: #C5A059; 
+            font-weight: 500;
         }
 
         /* PARENTS EN COLONNES */
@@ -176,7 +186,10 @@
 
         .couple-block-new { margin-bottom: 20px; }
         .couple-names-fr {
-            font-family: 'Pinyon Script', cursive; font-size: 4.5rem; color: #111; line-height: 1; margin-bottom: 10px;
+            font-family: 'Pinyon Script', cursive; font-size: 4.5rem; 
+            /* COULEUR OR */
+            color: #C5A059;
+            line-height: 1; margin-bottom: 10px;
         }
         .couple-names-he {
             font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: #555; font-weight: 500;
@@ -195,13 +208,19 @@
 
         .divider { width: 1px; height: 70px; background: #bbb; margin: 50px auto; opacity: 0.4; }
 
+        /* BOUTON WAZE RETOUR AU NOIR */
         .btn-waze {
             display: inline-block; text-decoration: none;
             font-family: 'Montserrat', sans-serif; font-size: 0.7rem; text-transform: uppercase;
-            letter-spacing: 3px; color: #111; border: 1px solid #111; 
+            letter-spacing: 3px; 
+            color: #111; /* Retour au Noir */
+            border: 1px solid #111; /* Retour au Noir */
             padding: 12px 30px; transition: 0.4s; margin-top: 20px; font-weight: 700;
         }
-        .btn-waze:hover { background-color: #111; color: white; }
+        .btn-waze:hover { 
+            background-color: #111; 
+            color: white; 
+        }
 
         /* BOUTON MUSIQUE FLOTTANT */
         .music-btn {
@@ -236,49 +255,130 @@
             font-style: italic; max-width: 700px; margin: 0 auto; line-height: 1.6; font-weight: 600;
         }
 
-        /* --- FORMULAIRE --- */
-        .rsvp-container { max-width: 600px; margin: 0 auto; text-align: left; transition: opacity 0.5s ease; }
-        .input-group { margin-bottom: 45px; position: relative; }
+        /* --- NOUVEAU FORMULAIRE (STYLE IMAGE) --- */
+        .rsvp-container { 
+            max-width: 500px; 
+            margin: 0 auto; 
+            text-align: left; 
+            transition: opacity 0.5s ease; 
+            /* Fond légèrement texturé ou blanc pur */
+            background-color: rgba(255,255,255,0.8);
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        /* En-tête formulaire */
+        .form-logo-img {
+            display: block;
+            margin: 0 auto 20px auto;
+            width: 150px; /* Ajustez la taille du logo ici */
+            height: auto;
+        }
+        .form-header-title {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 4rem; /* Écriture plus grande */
+            color: #E69DB3; /* Rose */
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .form-header-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            color: #111;
+            text-align: center;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .input-group { margin-bottom: 30px; position: relative; }
         
         .form-label-styled {
-            font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; 
-            color: #111; margin-bottom: 10px; display: block; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem; 
+            color: #111; 
+            margin-bottom: 10px; 
+            display: block; 
+            font-weight: 500;
         }
 
+        /* Champs texte : Ligne rose en bas uniquement */
         input[type="text"], input[type="number"], textarea {
-            width: 100%; padding: 15px 10px; 
-            border: none; border-bottom: 2px solid #ddd;
-            font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: #111;
-            background: rgba(255,255,255,0.3); outline: none; transition: 0.4s; border-radius: 4px 4px 0 0; font-weight: 600;
+            width: 100%; padding: 10px 0; 
+            border: none; 
+            border-bottom: 2px solid #E69DB3; /* Ligne Rose */
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 1.2rem; color: #333;
+            background: transparent; 
+            outline: none; 
+            border-radius: 0;
+            font-weight: 400;
         }
-        input:focus, textarea:focus { border-bottom: 2px solid #111; background: rgba(255,255,255,0.8); }
-        input::placeholder, textarea::placeholder { color: #999; font-style: italic; font-size: 1.2rem; font-weight: 400; }
+        input:focus, textarea:focus { border-bottom: 2px solid #C5A059; }
 
-        .radio-title {
-            font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase;
-            letter-spacing: 2px; display: block; margin-bottom: 20px; color: #222; text-align: center; font-weight: 700;
+        /* Style RADIO (Cases Carrées comme l'image) */
+        .radio-options-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 10px;
         }
-        .radio-options { display: flex; gap: 20px; justify-content: center; }
-        .radio-options input[type="radio"] { display: none; }
-        .radio-options label {
-            min-width: 130px; text-align: center; padding: 15px; border: 1px solid #bbb;
-            font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase;
-            cursor: pointer; transition: 0.3s; letter-spacing: 2px; color: #555;
-            background: rgba(255,255,255,0.5); font-weight: 600;
-        }
-        .radio-options input[type="radio"]:checked + label { 
-            background-color: #E69DB3; color: white; border-color: #E69DB3; box-shadow: 0 5px 15px rgba(230, 157, 179, 0.4);
+        
+        .custom-radio {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            color: #111;
+            font-weight: 500;
+            position: relative;
+            padding-left: 35px; /* Espace pour le carré */
+            user-select: none;
         }
 
-        .guest-input { display: none; margin-top: 25px; animation: slideDown 0.6s ease; }
+        /* Masquer le vrai input radio */
+        .custom-radio input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        /* Le Carré (Checkmark) */
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 22px;
+            width: 22px;
+            background-color: transparent;
+            border: 2px solid #E69DB3; /* Bordure Rose */
+            transition: 0.3s;
+        }
+
+        /* Quand coché : fond rose */
+        .custom-radio input:checked ~ .checkmark {
+            background-color: #E69DB3;
+        }
+
+        /* Optionnel: petit tick blanc à l'intérieur (ou juste rempli rose) */
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        .guest-input { display: none; margin-top: 15px; animation: slideDown 0.6s ease; }
         
         .submit-btn {
             width: 100%; padding: 20px; background-color: #111; color: white; border: none;
             font-family: 'Montserrat', sans-serif; font-size: 0.9rem; text-transform: uppercase;
-            letter-spacing: 4px; cursor: pointer; transition: 0.4s; margin-top: 20px; font-weight: 700;
+            letter-spacing: 4px; cursor: pointer; transition: 0.4s; margin-top: 30px; font-weight: 700;
             border: 1px solid #111;
         }
-        .submit-btn:hover { background-color: transparent; color: #111; }
+        .submit-btn:hover { background-color: white; color: #111; }
 
         #success-message { display: none; padding: 50px 20px; animation: fadeIn 1s ease; }
         .mazal-tov { font-family: 'Pinyon Script', cursive; font-size: 5rem; color: #111; margin-bottom: 20px; }
@@ -343,12 +443,18 @@
         </div>
 
         <div class="info-block">
-            <span class="time-location" style="margin-top: 40px; display: block;">SUIVI D'UN AFTER HENNÉ</span>
+            <span class="time-location" style="margin-top: 40px; display: block; font-size: 0.9rem; letter-spacing: 2px;">
+                La cérémonie civile sera suivie d’un AFTER HENNÉ
+            </span>
             <div class="venue">Pavillons des Fêtes</div>
             <div class="address">
                 1 Place de Verdun, Levallois-Perret<br>
                 <span style="font-size: 1.1rem; font-style: italic;">(5 min à pied)</span>
             </div>
+        </div>
+
+        <div class="address" style="font-size: 1rem; margin-top: 20px; font-style: italic; color: #444;">
+            Parking à proximité de la mairie (1 place de la république)
         </div>
 
         <a href="https://waze.com/ul?q=Mairie%20de%20Levallois-Perret" target="_blank" class="btn-waze">Itinéraire Waze</a>
@@ -368,11 +474,11 @@
         <div class="parents-columns-container">
             <div class="parents-col" style="text-align: right; padding-right: 10px; border-right: 1px solid #ddd;">
                 Daisy Mamou<br>
-                Lydia & Elias Azoura
+                Maguy & Joseph Zana
             </div>
             <div class="parents-col" style="text-align: left; padding-left: 10px;">
-                Véronique & James Azoura<br>
-                Maguy & Joseph Zana
+                Lydia & Elias Azoura<br>
+                Véronique & James Azoura
             </div>
         </div>
 
@@ -391,17 +497,17 @@
 
         <div class="houppa-date-block">
             <span class="date-line-bold">Lundi 25 mai 2026</span>
-            <span class="hebrew-date-line">6 Sivan 5786</span>
+            <span class="hebrew-date-line">9 Sivan 5786</span>
             <span class="time-line-bold">à 17h30 précises</span>
         </div>
 
         <div class="info-block">
-            <div class="venue">Salle des Pyramides</div>
-            <div class="address">La Marquise<br>16 avenue de Saint Germain, Le Port Marly</div>
+            <div class="venue">Les Pyramides</div>
+            <div class="address">16 avenue de Saint Germain, Le Port Marly</div>
         </div>
 
-        <div class="address" style="margin-bottom: 30px; font-size: 1.3rem;">
-            La cérémonie religieuse sera suivie d’une réception dans la Salle la Marquise
+        <div class="address" style="margin-bottom: 30px; font-size: 1.3rem; color: #444;">
+            La cérémonie religieuse sera suivie d’une réception dans le salon La Marquise
         </div>
 
         <a href="https://waze.com/ul?q=Les%20Pyramides%20Le%20Port-Marly" target="_blank" class="btn-waze">Itinéraire Waze</a>
@@ -419,12 +525,7 @@
     </div>
 
     <section class="white-section">
-        <img src="logo.png" alt="Logo" class="section-logo-img">
-        <h2>Confirmation</h2>
-        <p style="color:#444; margin-bottom:60px; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-style: italic; font-weight: 600;">
-            Merci de confirmer votre présence dès réception.
-        </p>
-
+        
         <div id="success-message">
             <div class="mazal-tov">Mazal Tov !</div>
             <p class="success-text">Votre réponse a bien été envoyée aux mariés.</p>
@@ -433,45 +534,61 @@
         <div id="rsvp-section-content">
             <form id="rsvpForm" class="rsvp-container" onsubmit="handleFormSubmit(event)">
                 
+                <img src="logo.png" alt="Logo AK" class="form-logo-img">
+                <div class="form-header-title">Votre réponse</div>
+                <div class="form-header-subtitle">Nous avons hâte de partager notre joie avec vous !</div>
+
                 <div class="input-group">
                     <span class="form-label-styled">Noms & Prénoms *</span>
-                    <input type="text" name="nom" required placeholder="Noms & Prénoms des invités">
+                    <input type="text" name="nom" required>
                 </div>
 
                 <div class="input-group">
-                    <span class="radio-title">Serez-vous présents à la Mairie ? *</span>
-                    <div class="radio-options">
-                        <input type="radio" id="mairie-oui" name="mairie" value="Oui" required onclick="toggleGuestInput('mairie-guests', true)">
-                        <label for="mairie-oui">Présent</label>
-
-                        <input type="radio" id="mairie-non" name="mairie" value="Non" required onclick="toggleGuestInput('mairie-guests', false)">
-                        <label for="mairie-non">Absent</label>
+                    <span class="form-label-styled">Présence à la Mairie *</span>
+                    <div class="radio-options-vertical">
+                        <label class="custom-radio">
+                            Oui
+                            <input type="radio" name="mairie" value="Oui" required onclick="toggleGuestInput('mairie-guests', true)">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="custom-radio">
+                            Non
+                            <input type="radio" name="mairie" value="Non" required onclick="toggleGuestInput('mairie-guests', false)">
+                            <span class="checkmark"></span>
+                        </label>
                     </div>
                     <div id="mairie-guests" class="guest-input">
-                        <input type="number" name="nb_mairie" placeholder="Nombre de personnes (Mairie) *" min="1">
+                        <span class="form-label-styled" style="margin-top:10px;">Nombre de personnes *</span>
+                        <input type="number" name="nb_mairie" min="1">
                     </div>
                 </div>
 
                 <div class="input-group">
-                    <span class="radio-title">Serez-vous présents à la Houppa ? *</span>
-                    <div class="radio-options">
-                        <input type="radio" id="houppa-oui" name="houppa" value="Oui" required onclick="toggleGuestInput('houppa-guests', true)">
-                        <label for="houppa-oui">Présent</label>
-
-                        <input type="radio" id="houppa-non" name="houppa" value="Non" required onclick="toggleGuestInput('houppa-guests', false)">
-                        <label for="houppa-non">Absent</label>
+                    <span class="form-label-styled">Présence à la Houppa *</span>
+                    <div class="radio-options-vertical">
+                        <label class="custom-radio">
+                            Oui
+                            <input type="radio" name="houppa" value="Oui" required onclick="toggleGuestInput('houppa-guests', true)">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="custom-radio">
+                            Non
+                            <input type="radio" name="houppa" value="Non" required onclick="toggleGuestInput('houppa-guests', false)">
+                            <span class="checkmark"></span>
+                        </label>
                     </div>
                     <div id="houppa-guests" class="guest-input">
-                        <input type="number" name="nb_houppa" placeholder="Nombre de personnes (Houppa) *" min="1">
+                        <span class="form-label-styled" style="margin-top:10px;">Nombre de personnes *</span>
+                        <input type="number" name="nb_houppa" min="1">
                     </div>
                 </div>
 
                 <div class="input-group">
                     <span class="form-label-styled">Un petit mot ?</span>
-                    <textarea name="message" rows="2" placeholder="Laissez un message aux mariés..." required></textarea>
+                    <textarea name="message" rows="2" required></textarea>
                 </div>
 
-                <button type="submit" class="submit-btn">Confirmer ma présence</button>
+                <button type="submit" class="submit-btn">ENVOYER</button>
             </form>
         </div>
     </section>
