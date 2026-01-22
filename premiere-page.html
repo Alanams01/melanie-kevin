@@ -68,7 +68,6 @@
             text-shadow: 0 5px 20px rgba(0,0,0,0.4); margin-bottom: 15px;
             line-height: 1.1;
             font-weight: 400; 
-            color: #D4AF37; /* Prénoms en doré */
         }
         .hero-date {
             font-family: 'Cormorant Garamond', serif; 
@@ -116,8 +115,7 @@
         }
 
         .names-script {
-            font-family: 'Pinyon Script', cursive; font-size: 4.5rem; 
-            color: #D4AF37; /* Prénoms en doré */
+            font-family: 'Pinyon Script', cursive; font-size: 4.5rem; color: #111;
             margin: 10px 0 20px 0; line-height: 1.1;
         }
 
@@ -151,7 +149,7 @@
         .parents-col {
             font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
             line-height: 1.6; color: #222; font-weight: 600; text-align: center;
-            flex: 1;
+            flex: 1; /* Distribue l'espace équitablement */
         }
 
         .invitation-phrase-standalone {
@@ -159,29 +157,29 @@
             font-style: italic; font-size: 1.3rem; color: #444; margin-bottom: 40px;
         }
         
-        .honor-phrase {
+        /* STYLE DU BLOC DATE HOUPPA */
+        .honor-phrase-intro {
             display: block; font-family: 'Cormorant Garamond', serif; 
-            font-size: 1.3rem; color: #444; margin-top: 10px; margin-bottom: 40px; line-height: 1.6;
+            font-size: 1.3rem; color: #444; margin-top: 10px; margin-bottom: 15px; line-height: 1.6;
         }
-
-        /* DATE 25 MAI EN GROS */
-        .big-date {
-            font-size: 1.8em; 
-            font-weight: 700; 
+        
+        .houppa-date-block {
+            font-family: 'Cormorant Garamond', serif;
             color: #000;
+            margin-bottom: 40px;
+            font-size: 1.5rem;
+            line-height: 1.4;
         }
+        .date-line-bold { font-weight: 700; display: block; }
+        .hebrew-date-line { font-weight: 400; font-size: 1.3rem; color: #555; display: block; margin: 5px 0; }
+        .time-line-bold { font-weight: 700; display: block; }
 
         .couple-block-new { margin-bottom: 20px; }
         .couple-names-fr {
-            font-family: 'Pinyon Script', cursive; font-size: 4.5rem; 
-            color: #D4AF37; /* Prénoms en doré */
-            line-height: 1; margin-bottom: 10px;
+            font-family: 'Pinyon Script', cursive; font-size: 4.5rem; color: #111; line-height: 1; margin-bottom: 10px;
         }
         .couple-names-he {
             font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: #555; font-weight: 500;
-        }
-        .hebrew-date-text {
-            font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: #666; margin-top: 5px;
         }
 
         /* DATE SEPARATOR */
@@ -269,8 +267,7 @@
             background: rgba(255,255,255,0.5); font-weight: 600;
         }
         .radio-options input[type="radio"]:checked + label { 
-            background-color: #E69DB3; /* Couleur ROSE au clic */
-            color: white; border-color: #E69DB3; box-shadow: 0 5px 15px rgba(230, 157, 179, 0.4);
+            background-color: #E69DB3; color: white; border-color: #E69DB3; box-shadow: 0 5px 15px rgba(230, 157, 179, 0.4);
         }
 
         .guest-input { display: none; margin-top: 25px; animation: slideDown 0.6s ease; }
@@ -308,10 +305,9 @@
 </head>
 <body>
 
-    <audio id="audioPlayer" loop>
-        <source src="musique.mp3" type="audio/mpeg">
+    <audio id="bgMusic" loop>
+        <source src="musique.mp4" type="audio/mp4">
     </audio>
-
     <div class="music-btn" onclick="toggleMusic()">
         <span id="musicIcon" class="music-icon">🎵</span>
     </div>
@@ -372,11 +368,11 @@
         <div class="parents-columns-container">
             <div class="parents-col" style="text-align: right; padding-right: 10px; border-right: 1px solid #ddd;">
                 Daisy Mamou<br>
-                Lydia & Elias Azoura<br>
-                Véronique & James Azoura
+                Lydia & Elias Azoura
             </div>
             <div class="parents-col" style="text-align: left; padding-left: 10px;">
-                <br> Maguy & Joseph Zana
+                Véronique & James Azoura<br>
+                Maguy & Joseph Zana
             </div>
         </div>
 
@@ -386,14 +382,18 @@
 
         <div class="couple-block-new">
             <div class="couple-names-fr">Mélanie & Kévin</div>
-            <div class="couple-names-he">‎רחל & ישראל</div>
-            <div class="hebrew-date-text">6 Sivan 5786</div>
+            <div class="couple-names-he">‎ישראל & רחל</div>
         </div>
 
-        <span class="honor-phrase">
-            et seront honorés de votre présence à la cérémonie religieuse qui sera célébrée le<br>
-            Lundi <span class="big-date">25</span> mai 2026 à 17h30 précises
+        <span class="honor-phrase-intro">
+            et seront honorés de votre présence à la cérémonie religieuse qui sera célébrée le
         </span>
+
+        <div class="houppa-date-block">
+            <span class="date-line-bold">Lundi 25 mai 2026</span>
+            <span class="hebrew-date-line">6 Sivan 5786</span>
+            <span class="time-line-bold">à 17h30 précises</span>
+        </div>
 
         <div class="info-block">
             <div class="venue">Salle des Pyramides</div>
@@ -420,18 +420,17 @@
 
     <section class="white-section">
         <img src="logo.png" alt="Logo" class="section-logo-img">
-        
+        <h2>Confirmation</h2>
+        <p style="color:#444; margin-bottom:60px; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-style: italic; font-weight: 600;">
+            Merci de confirmer votre présence dès réception.
+        </p>
+
         <div id="success-message">
             <div class="mazal-tov">Mazal Tov !</div>
             <p class="success-text">Votre réponse a bien été envoyée aux mariés.</p>
         </div>
 
         <div id="rsvp-section-content">
-            <h2>Confirmation</h2>
-            <p style="color:#444; margin-bottom:60px; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-style: italic; font-weight: 600;">
-                Merci de confirmer votre présence dès réception.
-            </p>
-
             <form id="rsvpForm" class="rsvp-container" onsubmit="handleFormSubmit(event)">
                 
                 <div class="input-group">
@@ -483,7 +482,6 @@
     </div>
 
     <script>
-        // --- GESTION FORMULAIRE (Inchangée) ---
         function toggleGuestInput(elementId, show) {
             var element = document.getElementById(elementId);
             var input = element.querySelector('input');
@@ -508,21 +506,18 @@
             }, 500);
         }
 
-        // --- GESTION MUSIQUE MP3 (Simple et efficace) ---
-        var audio = document.getElementById("audioPlayer");
+        var music = document.getElementById("bgMusic");
         var icon = document.getElementById("musicIcon");
-
         function toggleMusic() {
-            if (audio.paused) {
-                audio.play();
-                icon.innerHTML = "⏸"; // Change l'icône en pause
+            if (music.paused) {
+                music.play();
+                icon.innerHTML = "⏸";
             } else {
-                audio.pause();
-                icon.innerHTML = "🎵"; // Remet l'icône musique
+                music.pause();
+                icon.innerHTML = "🎵";
             }
         }
     </script>
 
 </body>
 </html>
-
