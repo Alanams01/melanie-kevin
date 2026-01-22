@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600;800&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600;700;800&family=Pinyon+Script&display=swap" rel="stylesheet">
 
     <style>
         /* --- RESET --- */
@@ -62,7 +62,7 @@
         .hero-content {
             position: relative; z-index: 2; text-align: center; color: white;
             animation: fadeIn 1.5s ease-out;
-            margin-top: -350px; 
+            margin-top: -380px; 
         }
         .hero-names {
             font-family: 'Pinyon Script', cursive; 
@@ -70,12 +70,13 @@
             color: #C5A059; /* DORÉ */
             text-shadow: none; 
             font-weight: 700; 
-            margin-bottom: 15px;
+            margin-bottom: 0px;
             line-height: 1.1;
         }
         .hero-date {
             font-family: 'Cormorant Garamond', serif; 
-            font-size: 1.3rem; letter-spacing: 8px; font-weight: 700;
+            font-size: 1.8rem; 
+            letter-spacing: 8px; font-weight: 700;
             text-transform: uppercase; border-top: 2px solid rgba(255,255,255,0.9); 
             border-bottom: 2px solid rgba(255,255,255,0.9); padding: 15px 0; display: inline-block;
         }
@@ -113,7 +114,7 @@
 
         /* LOGO */
         .section-logo-img { 
-            width: 280px; 
+            width: 350px; 
             height: auto; 
             margin-bottom: 40px; 
             display: inline-block; 
@@ -122,8 +123,7 @@
         /* --- IMAGE HEBRAIQUE --- */
         .hebrew-phrase-img {
             display: block;
-            /* MODIFICATION: Remonté moins fort (-100px) */
-            margin: -100px auto 30px auto; 
+            margin: -330px auto 30px auto; 
             max-width: 90%;
             width: 400px; 
             height: auto;
@@ -154,7 +154,7 @@
             font-size: 0.9rem; 
             text-transform: uppercase;
             letter-spacing: 3px; 
-            font-weight: 800; /* GRAS */
+            font-weight: 800; 
             margin-bottom: 15px; color: #555; display: block;
         }
         
@@ -188,7 +188,7 @@
             font-style: italic; font-size: 1.3rem; color: #444; margin-bottom: 40px;
         }
         
-        /* STYLE DU BLOC DATE HOUPPA */
+        /* STYLE DU BLOC DATE */
         .honor-phrase-intro {
             display: block; font-family: 'Cormorant Garamond', serif; 
             font-size: 1.3rem; color: #444; margin-top: 10px; margin-bottom: 15px; line-height: 1.6;
@@ -292,7 +292,7 @@
         .form-logo-img {
             display: block;
             margin: 0 auto 20px auto;
-            width: 150px; 
+            width: 200px; 
             height: auto;
         }
         .form-header-title {
@@ -310,8 +310,18 @@
             font-size: 1rem;
             color: #111;
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 20px; 
             font-style: italic;
+        }
+
+        /* Texte confirmation gras */
+        .form-confirm-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            color: #111;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 700; /* GRAS */
         }
 
         .input-group { margin-bottom: 30px; position: relative; }
@@ -464,7 +474,7 @@
 
         <div class="info-block">
             <div class="address" style="margin-top: 40px; margin-bottom: 10px; font-size: 1.3rem; color: #444;">
-                La cérémonie civile sera suivie d’un AFTER HENNÉ
+                La cérémonie civile sera suivie<br>d’un AFTER HENNÉ
             </div>
             <div class="venue">aux Pavillons des Fêtes</div>
             <div class="address">
@@ -486,7 +496,7 @@
     </div>
 
     <section class="white-section">
-        <img src="logo.png" alt="Logo" class="section-logo-img" style="margin-top: -100px;">
+        <img src="logo.png" alt="Logo" class="section-logo-img" style="margin-top: -180px;">
         <img src="hebreu.png" alt="Phrase Hébraïque" class="hebrew-phrase-img">
 
         <h2>Houppa & Soirée</h2>
@@ -522,7 +532,7 @@
         </div>
 
         <div class="info-block">
-            <div class="venue">Aux salons<br>Les Pyramides</div>
+            <div class="venue">au Complexe<br>Les Pyramides</div>
             <div class="address">16 avenue de Saint Germain, 78560 Le Port Marly</div>
         </div>
 
@@ -557,6 +567,8 @@
                 <img src="logo.png" alt="Logo AK" class="form-logo-img">
                 <div class="form-header-title">Votre réponse</div>
                 <div class="form-header-subtitle">Nous avons hâte de partager notre joie avec vous !</div>
+                
+                <p class="form-confirm-text">Merci de confirmer votre présence dès réception !</p>
 
                 <div class="input-group">
                     <span class="form-label-styled">Nom *</span>
@@ -603,8 +615,11 @@
                         </label>
                     </div>
                     <div id="houppa-guests" class="guest-input">
-                        <span class="form-label-styled" style="margin-top:10px;">Nombre de personnes *</span>
-                        <input type="number" name="nb_houppa" min="1">
+                        <span class="form-label-styled" style="margin-top:10px;">Nombre de personnes présentes à la Houppa *</span>
+                        <input type="number" name="nb_houppa" min="1" style="margin-bottom: 20px;">
+                        
+                        <span class="form-label-styled">Nombre de personnes présentes à la soirée *</span>
+                        <input type="number" name="nb_soiree" min="1">
                     </div>
                 </div>
 
@@ -626,14 +641,19 @@
     <script>
         function toggleGuestInput(elementId, show) {
             var element = document.getElementById(elementId);
-            var input = element.querySelector('input');
+            var inputs = element.querySelectorAll('input'); 
+
             if (show) {
                 element.style.display = 'block';
-                input.setAttribute('required', 'required');
+                inputs.forEach(function(input) {
+                    input.setAttribute('required', 'required');
+                });
             } else {
                 element.style.display = 'none';
-                input.removeAttribute('required');
-                input.value = '';
+                inputs.forEach(function(input) {
+                    input.removeAttribute('required');
+                    input.value = '';
+                });
             }
         }
 
