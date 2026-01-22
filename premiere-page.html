@@ -62,7 +62,7 @@
         .hero-content {
             position: relative; z-index: 2; text-align: center; color: white;
             animation: fadeIn 1.5s ease-out;
-            margin-top: -280px; 
+            margin-top: -350px; 
         }
         .hero-names {
             font-family: 'Pinyon Script', cursive; 
@@ -70,7 +70,7 @@
             color: #C5A059; /* DORÉ */
             text-shadow: none; 
             font-weight: 700; 
-            margin-bottom: 15px;
+            margin-bottom: 0px;
             line-height: 1.1;
         }
         .hero-date {
@@ -122,7 +122,6 @@
         /* --- IMAGE HEBRAIQUE --- */
         .hebrew-phrase-img {
             display: block;
-            /* MODIFICATION: Remonté encore plus haut (-220px) */
             margin: -220px auto 30px auto; 
             max-width: 90%;
             width: 400px; 
@@ -151,10 +150,9 @@
         
         .time-location {
             font-family: 'Montserrat', sans-serif; 
-            font-size: 0.9rem; /* Un peu plus grand */
+            font-size: 0.9rem; 
             text-transform: uppercase;
             letter-spacing: 3px; 
-            /* MODIFICATION: TRÈS GRAS */
             font-weight: 800; 
             margin-bottom: 15px; color: #555; display: block;
         }
@@ -189,7 +187,7 @@
             font-style: italic; font-size: 1.3rem; color: #444; margin-bottom: 40px;
         }
         
-        /* STYLE DU BLOC DATE HOUPPA */
+        /* STYLE DU BLOC DATE (UTILISÉ POUR MAIRIE ET HOUPPA) */
         .honor-phrase-intro {
             display: block; font-family: 'Cormorant Garamond', serif; 
             font-size: 1.3rem; color: #444; margin-top: 10px; margin-bottom: 15px; line-height: 1.6;
@@ -216,21 +214,8 @@
             font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: #555; font-weight: 500;
         }
 
-        /* DATE SEPARATOR */
-        .date-separator {
-            display: flex; align-items: center; justify-content: center;
-            margin: 35px auto; width: 100%; max-width: 500px;
-        }
+        /* DATE SEPARATOR (SUPPRIMÉ MAIS GARDÉ AU CAS OÙ) */
         .line { height: 1px; background-color: #111; flex-grow: 1; opacity: 0.2; }
-        
-        /* MODIFICATION: DATE EN GROS */
-        .date-text {
-            font-family: 'Cormorant Garamond', serif; 
-            font-size: 2.2rem; /* Beaucoup plus gros */
-            font-weight: 700;
-            text-transform: uppercase; letter-spacing: 2px; margin: 0 20px; color: #111;
-        }
-
         .divider { width: 1px; height: 70px; background: #bbb; margin: 50px auto; opacity: 0.4; }
 
         /* BOUTON WAZE EN OR */
@@ -454,14 +439,12 @@
         <div class="names-script">Mélanie & Kévin</div>
         <div class="action-text">Se diront "Oui"</div>
 
-        <div class="date-separator">
-            <span class="line"></span>
-            <span class="date-text">Mercredi 20 Mai 2026</span>
-            <span class="line"></span>
+        <div class="houppa-date-block">
+            <span class="date-line-bold">Mercredi 20 Mai 2026</span>
+            <span class="time-line-bold">À 13H45</span>
         </div>
 
         <div class="info-block">
-            <span class="time-location">À 13H45</span>
             <div class="venue">Mairie de Levallois-Perret</div>
             <div class="address">1 Place de la République<br>92300 Levallois-Perret</div>
         </div>
@@ -526,7 +509,7 @@
         </div>
 
         <div class="info-block">
-            <div class="venue">Les Pyramides</div>
+            <div class="venue">aux salons Les Pyramides</div>
             <div class="address">16 avenue de Saint Germain, 78560 Le Port Marly</div>
         </div>
 
@@ -538,7 +521,7 @@
 
         <div class="footer-text-box">
             <div class="footer-text">
-                Que leurs benedictions illuminent notre vie.
+                Une pensée très émue pour nos grands-parents Élie Mamou, Jacques & Germaine Habib, Saidou Edmond Benmoussa & Germaine Benmoussa, Gaston Israel & Emilie Zana qui nous manqueront tant en ce jour unique.<br>Que leurs bénédictions illuminent notre vie.
             </div>
         </div>
     </section>
