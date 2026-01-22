@@ -287,16 +287,18 @@
         .mazal-tov { font-family: 'Pinyon Script', cursive; font-size: 5rem; color: #111; margin-bottom: 20px; }
         .success-text { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: #444; font-style: italic; }
 
-        /* --- CORRECTION YOUTUBE --- */
-        /* On place la vidéo en dehors de l'écran plutôt que de la rendre invisible */
-        /* Cela trompe mieux les navigateurs mobiles */
+        /* --- CORRECTION CRUCIALE POUR MOBILE --- */
+        /* On met la vidéo en PLEIN ÉCRAN mais quasi-invisible (opacity 0.01) */
+        /* Les téléphones ne bloquent pas ça car ils pensent que c'est un "fond vidéo" */
         #youtube-player {
-            position: absolute;
-            top: -9999px;
-            left: -9999px;
-            width: 640px; 
-            height: 360px;
-            z-index: -1;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%; 
+            height: 100%;
+            z-index: -99; /* Derrière tout */
+            opacity: 0.01; /* Ruse : pas 0, mais 0.01 */
+            pointer-events: none; /* Empêche de cliquer sur la vidéo par erreur */
         }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -520,16 +522,16 @@
             }, 500);
         }
 
-        // --- GESTION MUSIQUE YOUTUBE (RENFORCÉ) ---
+        // --- GESTION MUSIQUE YOUTUBE (SPECIAL MOBILE) ---
         var player;
         var isPlaying = false;
         var icon = document.getElementById("musicIcon");
 
         function onYouTubeIframeAPIReady() {
-            console.log("Tentative de chargement YouTube...");
+            // Pas de console.log, mais on charge le player
             player = new YT.Player('youtube-player', {
-                height: '360', // On met une vraie taille (mais caché par CSS)
-                width: '640',  // pour éviter les blocages mobile
+                height: '100%', 
+                width: '100%',
                 videoId: 'nU5yvsyRE8o', 
                 playerVars: {
                     'autoplay': 0, 
@@ -537,7 +539,7 @@
                     'loop': 1,
                     'playlist': 'nU5yvsyRE8o',
                     'playsinline': 1,
-                    'origin': window.location.origin // Sécurité CORS importante !
+                    'origin': window.location.origin
                 },
                 events: {
                     'onReady': onPlayerReady,
@@ -548,16 +550,15 @@
         }
 
         function onPlayerReady(event) {
-            console.log("Lecteur prêt ! Vous pouvez cliquer.");
+            // DEBUG : Affiche une alerte quand c'est prêt
+            alert("Le moteur Audio est chargé ! Tu peux cliquer sur le bouton Musique.");
         }
 
         function onPlayerError(event) {
-            console.error("Erreur YouTube code :", event.data);
-            alert("Erreur chargement musique (Code " + event.data + "). Vérifiez que le site est bien sur GitHub et pas en local.");
+            alert("Erreur YouTube : " + event.data);
         }
 
         function onPlayerStateChange(event) {
-            // Si la vidéo se termine (bien que loop soit activé), on relance
             if (event.data === YT.PlayerState.ENDED) {
                 player.playVideo(); 
             }
@@ -565,7 +566,7 @@
 
         function toggleMusic() {
             if (!player || typeof player.playVideo !== 'function') {
-                alert("Le lecteur audio charge encore... Attendez 2 secondes.");
+                alert("Attends encore 2 secondes, ça charge...");
                 return;
             }
 
@@ -574,7 +575,8 @@
                 icon.innerHTML = "🎵";
                 isPlaying = false;
             } else {
-                player.unMute(); // Sécurité : on s'assure que le son est activé
+                player.unMute(); // Force le son
+                player.setVolume(100); // Force le volume max
                 player.playVideo();
                 icon.innerHTML = "⏸";
                 isPlaying = true;
