@@ -43,7 +43,9 @@
             text-align: center;
             width: 100%;
             padding: 0 10px; /* Marges très fines sur les côtés */
-            transform: translateY(-15vh); /* On remonte le tout vers le haut */
+            
+            /* --- MODIFICATION ICI : On remonte plus haut (-30vh au lieu de -15vh) --- */
+            transform: translateY(-30vh); 
         }
 
         /* --- COMPTE À REBOURS --- */
@@ -103,8 +105,8 @@
         @media (max-width: 768px) {
             
             .content {
-                /* On remonte encore plus sur mobile pour dégager la photo */
-                transform: translateY(-20vh); 
+                /* --- MODIFICATION MOBILE : On remonte encore plus sur téléphone --- */
+                transform: translateY(-35vh); 
             }
 
             .countdown-container {
@@ -197,4 +199,3 @@
 </body>
 
 </html>
-
