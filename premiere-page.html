@@ -68,6 +68,7 @@
             text-shadow: 0 5px 20px rgba(0,0,0,0.4); margin-bottom: 15px;
             line-height: 1.1;
             font-weight: 400; 
+            color: #D4AF37; /* Prénoms en doré */
         }
         .hero-date {
             font-family: 'Cormorant Garamond', serif; 
@@ -115,7 +116,8 @@
         }
 
         .names-script {
-            font-family: 'Pinyon Script', cursive; font-size: 4.5rem; color: #111;
+            font-family: 'Pinyon Script', cursive; font-size: 4.5rem; 
+            color: #D4AF37; /* Prénoms en doré */
             margin: 10px 0 20px 0; line-height: 1.1;
         }
 
@@ -171,7 +173,9 @@
 
         .couple-block-new { margin-bottom: 20px; }
         .couple-names-fr {
-            font-family: 'Pinyon Script', cursive; font-size: 4.5rem; color: #111; line-height: 1; margin-bottom: 10px;
+            font-family: 'Pinyon Script', cursive; font-size: 4.5rem; 
+            color: #D4AF37; /* Prénoms en doré */
+            line-height: 1; margin-bottom: 10px;
         }
         .couple-names-he {
             font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: #555; font-weight: 500;
@@ -265,7 +269,8 @@
             background: rgba(255,255,255,0.5); font-weight: 600;
         }
         .radio-options input[type="radio"]:checked + label { 
-            background-color: #111; color: white; border-color: #111; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            background-color: #E69DB3; /* Couleur ROSE au clic */
+            color: white; border-color: #E69DB3; box-shadow: 0 5px 15px rgba(230, 157, 179, 0.4);
         }
 
         .guest-input { display: none; margin-top: 25px; animation: slideDown 0.6s ease; }
@@ -395,7 +400,7 @@
         </div>
 
         <div class="address" style="margin-bottom: 30px; font-size: 1.3rem;">
-            La cérémonie religieuse sera suivie d’une réception
+            La cérémonie religieuse sera suivie d’une réception dans la Salle la Marquise
         </div>
 
         <a href="https://waze.com/ul?q=Les%20Pyramides%20Le%20Port-Marly" target="_blank" class="btn-waze">Itinéraire Waze</a>
@@ -429,12 +434,12 @@
             <form id="rsvpForm" class="rsvp-container" onsubmit="handleFormSubmit(event)">
                 
                 <div class="input-group">
-                    <span class="form-label-styled">Qui êtes-vous ?</span>
+                    <span class="form-label-styled">Noms & Prénoms *</span>
                     <input type="text" name="nom" required placeholder="Noms & Prénoms des invités">
                 </div>
 
                 <div class="input-group">
-                    <span class="radio-title">Serez-vous présents à la Mairie ?</span>
+                    <span class="radio-title">Serez-vous présents à la Mairie ? *</span>
                     <div class="radio-options">
                         <input type="radio" id="mairie-oui" name="mairie" value="Oui" required onclick="toggleGuestInput('mairie-guests', true)">
                         <label for="mairie-oui">Présent</label>
@@ -443,12 +448,12 @@
                         <label for="mairie-non">Absent</label>
                     </div>
                     <div id="mairie-guests" class="guest-input">
-                        <input type="number" name="nb_mairie" placeholder="Nombre de personnes (Mairie)" min="1">
+                        <input type="number" name="nb_mairie" placeholder="Nombre de personnes (Mairie) *" min="1">
                     </div>
                 </div>
 
                 <div class="input-group">
-                    <span class="radio-title">Serez-vous présents à la Houppa ?</span>
+                    <span class="radio-title">Serez-vous présents à la Houppa ? *</span>
                     <div class="radio-options">
                         <input type="radio" id="houppa-oui" name="houppa" value="Oui" required onclick="toggleGuestInput('houppa-guests', true)">
                         <label for="houppa-oui">Présent</label>
@@ -457,7 +462,7 @@
                         <label for="houppa-non">Absent</label>
                     </div>
                     <div id="houppa-guests" class="guest-input">
-                        <input type="number" name="nb_houppa" placeholder="Nombre de personnes (Houppa)" min="1">
+                        <input type="number" name="nb_houppa" placeholder="Nombre de personnes (Houppa) *" min="1">
                     </div>
                 </div>
 
@@ -472,7 +477,7 @@
     </section>
 
     <div class="final-container">
-        <img src="photo4.jpeg" alt="Final">
+        <img src="photo4.png" alt="Final">
         <div class="overlay"></div>
     </div>
 
