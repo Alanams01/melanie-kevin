@@ -287,20 +287,6 @@
         .mazal-tov { font-family: 'Pinyon Script', cursive; font-size: 5rem; color: #111; margin-bottom: 20px; }
         .success-text { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: #444; font-style: italic; }
 
-        /* --- CORRECTION CRUCIALE POUR MOBILE --- */
-        /* On met la vidéo en PLEIN ÉCRAN mais quasi-invisible (opacity 0.01) */
-        /* Les téléphones ne bloquent pas ça car ils pensent que c'est un "fond vidéo" */
-        #youtube-player {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%; 
-            height: 100%;
-            z-index: -99; /* Derrière tout */
-            opacity: 0.01; /* Ruse : pas 0, mais 0.01 */
-            pointer-events: none; /* Empêche de cliquer sur la vidéo par erreur */
-        }
-
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
@@ -322,7 +308,9 @@
 </head>
 <body>
 
-    <div id="youtube-player"></div>
+    <audio id="audioPlayer" loop>
+        <source src="musique.mp3" type="audio/mpeg">
+    </audio>
 
     <div class="music-btn" onclick="toggleMusic()">
         <span id="musicIcon" class="music-icon">🎵</span>
@@ -494,10 +482,8 @@
         <div class="overlay"></div>
     </div>
 
-    <script src="https://www.youtube.com/iframe_api"></script>
-
     <script>
-        // --- GESTION FORMULAIRE ---
+        // --- GESTION FORMULAIRE (Inchangée) ---
         function toggleGuestInput(elementId, show) {
             var element = document.getElementById(elementId);
             var input = element.querySelector('input');
@@ -522,64 +508,17 @@
             }, 500);
         }
 
-        // --- GESTION MUSIQUE YOUTUBE (SPECIAL MOBILE) ---
-        var player;
-        var isPlaying = false;
+        // --- GESTION MUSIQUE MP3 (Simple et efficace) ---
+        var audio = document.getElementById("audioPlayer");
         var icon = document.getElementById("musicIcon");
 
-        function onYouTubeIframeAPIReady() {
-            // Pas de console.log, mais on charge le player
-            player = new YT.Player('youtube-player', {
-                height: '100%', 
-                width: '100%',
-                videoId: 'nU5yvsyRE8o', 
-                playerVars: {
-                    'autoplay': 0, 
-                    'controls': 0,
-                    'loop': 1,
-                    'playlist': 'nU5yvsyRE8o',
-                    'playsinline': 1,
-                    'origin': window.location.origin
-                },
-                events: {
-                    'onReady': onPlayerReady,
-                    'onError': onPlayerError,
-                    'onStateChange': onPlayerStateChange
-                }
-            });
-        }
-
-        function onPlayerReady(event) {
-            // DEBUG : Affiche une alerte quand c'est prêt
-            alert("Le moteur Audio est chargé ! Tu peux cliquer sur le bouton Musique.");
-        }
-
-        function onPlayerError(event) {
-            alert("Erreur YouTube : " + event.data);
-        }
-
-        function onPlayerStateChange(event) {
-            if (event.data === YT.PlayerState.ENDED) {
-                player.playVideo(); 
-            }
-        }
-
         function toggleMusic() {
-            if (!player || typeof player.playVideo !== 'function') {
-                alert("Attends encore 2 secondes, ça charge...");
-                return;
-            }
-
-            if (isPlaying) {
-                player.pauseVideo();
-                icon.innerHTML = "🎵";
-                isPlaying = false;
+            if (audio.paused) {
+                audio.play();
+                icon.innerHTML = "⏸"; // Change l'icône en pause
             } else {
-                player.unMute(); // Force le son
-                player.setVolume(100); // Force le volume max
-                player.playVideo();
-                icon.innerHTML = "⏸";
-                isPlaying = true;
+                audio.pause();
+                icon.innerHTML = "🎵"; // Remet l'icône musique
             }
         }
     </script>
