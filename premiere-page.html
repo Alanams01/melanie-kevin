@@ -61,17 +61,17 @@
         .hero-content {
             position: relative; z-index: 2; text-align: center; color: white;
             animation: fadeIn 1.5s ease-out;
-            /* MODIFICATION: Remonte le bloc titre/date ENCORE PLUS HAUT */
             margin-top: -280px; 
         }
         .hero-names {
             font-family: 'Pinyon Script', cursive; 
             font-size: 6rem; 
-            /* COULEUR OR */
-            color: #C5A059; 
-            text-shadow: 0 5px 20px rgba(0,0,0,0.4); margin-bottom: 15px;
+            color: #E69DB3; 
+            /* MODIFICATION: SUPPRESSION DU FLOU (SHADOW) ET AJOUT DU GRAS */
+            text-shadow: none; 
+            font-weight: 700; 
+            margin-bottom: 15px;
             line-height: 1.1;
-            font-weight: 400; 
         }
         .hero-date {
             font-family: 'Cormorant Garamond', serif; 
@@ -105,7 +105,8 @@
         /* --- IMAGE HEBRAIQUE --- */
         .hebrew-phrase-img {
             display: block;
-            margin: -100px auto 30px auto; 
+            /* MODIFICATION: REMONTÉE ENCORE PLUS FORTE (-160px) */
+            margin: -160px auto 30px auto; 
             max-width: 90%;
             width: 400px; 
             height: auto;
@@ -120,7 +121,7 @@
 
         .names-script {
             font-family: 'Pinyon Script', cursive; font-size: 4.5rem; 
-            /* COULEUR OR */
+            /* COULEUR OR (Resté tel quel pour les titres) */
             color: #C5A059;
             margin: 10px 0 20px 0; line-height: 1.1;
         }
@@ -140,7 +141,6 @@
         .venue {
             font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; 
             font-weight: 700; 
-            /* COULEUR OR */
             color: #C5A059; 
             line-height: 1.2; margin-bottom: 10px;
         }
@@ -148,7 +148,6 @@
         .address {
             font-style: italic; font-family: 'Cormorant Garamond', serif; 
             font-size: 1.4rem; 
-            /* COULEUR OR */
             color: #C5A059; 
             font-weight: 500;
         }
@@ -189,7 +188,6 @@
         .couple-block-new { margin-bottom: 20px; }
         .couple-names-fr {
             font-family: 'Pinyon Script', cursive; font-size: 4.5rem; 
-            /* COULEUR OR */
             color: #C5A059;
             line-height: 1; margin-bottom: 10px;
         }
@@ -215,7 +213,6 @@
             display: inline-block; text-decoration: none;
             font-family: 'Montserrat', sans-serif; font-size: 0.7rem; text-transform: uppercase;
             letter-spacing: 3px; 
-            /* COULEUR OR */
             color: #C5A059; 
             border: 1px solid #C5A059;
             padding: 12px 30px; transition: 0.4s; margin-top: 20px; font-weight: 700;
@@ -264,7 +261,6 @@
             margin: 0 auto; 
             text-align: left; 
             transition: opacity 0.5s ease; 
-            /* Fond légèrement texturé ou blanc pur */
             background-color: rgba(255,255,255,0.8);
             padding: 30px;
             border-radius: 10px;
@@ -280,8 +276,7 @@
         .form-header-title {
             font-family: 'Cormorant Garamond', serif;
             font-size: 2.8rem; 
-            /* COULEUR OR */
-            color: #C5A059; 
+            color: #C5A059; /* Or pour le titre */
             text-align: center;
             margin-bottom: 20px;
             font-style: italic;
@@ -308,12 +303,12 @@
             font-weight: 500;
         }
 
-        /* Champs texte : Ligne or en bas uniquement */
+        /* MODIFICATION: Champs texte : Ligne ROSE en bas uniquement */
         input[type="text"], input[type="number"], textarea {
             width: 100%; padding: 10px 0; 
             border: none; 
-            /* COULEUR OR */
-            border-bottom: 2px solid #C5A059; 
+            /* LIGNE ROSE */
+            border-bottom: 2px solid #E69DB3; 
             font-family: 'Montserrat', sans-serif; 
             font-size: 1.2rem; color: #333;
             background: transparent; 
@@ -321,7 +316,7 @@
             border-radius: 0;
             font-weight: 400;
         }
-        input:focus, textarea:focus { border-bottom: 2px solid #111; }
+        input:focus, textarea:focus { border-bottom: 2px solid #C5A059; }
 
         /* Style RADIO (Cases Carrées comme l'image) */
         .radio-options-vertical {
@@ -340,7 +335,7 @@
             color: #111;
             font-weight: 500;
             position: relative;
-            padding-left: 35px; /* Espace pour le carré */
+            padding-left: 35px;
             user-select: none;
         }
 
@@ -361,14 +356,15 @@
             height: 22px;
             width: 22px;
             background-color: transparent;
-            /* COULEUR OR */
-            border: 2px solid #C5A059; 
+            /* MODIFICATION: BORDURE ROSE */
+            border: 2px solid #E69DB3; 
             transition: 0.3s;
         }
 
-        /* Quand coché : fond or */
+        /* Quand coché : fond rose */
         .custom-radio input:checked ~ .checkmark {
-            background-color: #C5A059;
+            /* MODIFICATION: FOND ROSE */
+            background-color: #E69DB3;
         }
 
         .checkmark:after {
@@ -379,20 +375,19 @@
 
         .guest-input { display: none; margin-top: 15px; animation: slideDown 0.6s ease; }
         
-        /* BOUTON OR */
+        /* MODIFICATION: BOUTON ROSE */
         .submit-btn {
             width: 100%; padding: 20px; 
-            /* COULEUR OR */
-            background-color: #C5A059; 
+            background-color: #E69DB3; /* ROSE */
             color: white; 
             border: none;
             font-family: 'Montserrat', sans-serif; font-size: 0.9rem; text-transform: uppercase;
             letter-spacing: 4px; cursor: pointer; transition: 0.4s; margin-top: 30px; font-weight: 700;
-            border: 1px solid #C5A059;
+            border: 1px solid #E69DB3;
         }
         .submit-btn:hover { 
             background-color: white; 
-            color: #C5A059; 
+            color: #E69DB3; 
         }
 
         #success-message { display: none; padding: 50px 20px; animation: fadeIn 1s ease; }
