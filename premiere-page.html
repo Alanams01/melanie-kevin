@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600;800&family=Pinyon+Script&display=swap" rel="stylesheet">
 
     <style>
         /* --- RESET --- */
@@ -18,7 +18,7 @@
             font-family: 'Montserrat', sans-serif; 
             color: #1a1a1a; 
             background-color: #fcfcfc; 
-            background-image: url('photo.jpeg');
+            background-image: url('fond-page.png');
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
@@ -36,11 +36,12 @@
         }
         .parallax-container img {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover; z-index: -1;
+            object-fit: cover; 
+            z-index: 0; 
         }
         .overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.2); z-index: 0;
+            background: rgba(0,0,0,0.2); z-index: 1;
         }
 
         /* --- PHOTO 4 (FIN) --- */
@@ -66,8 +67,7 @@
         .hero-names {
             font-family: 'Pinyon Script', cursive; 
             font-size: 6rem; 
-            /* COULEUR OR */
-            color: #C5A059; 
+            color: #C5A059; /* DORÉ */
             text-shadow: none; 
             font-weight: 700; 
             margin-bottom: 15px;
@@ -79,9 +79,20 @@
             text-transform: uppercase; border-top: 2px solid rgba(255,255,255,0.9); 
             border-bottom: 2px solid rgba(255,255,255,0.9); padding: 15px 0; display: inline-block;
         }
+        
+        /* Style de la flèche cliquable */
+        .scroll-down-arrow {
+            margin-top: 60px; 
+            font-size: 2.5rem; 
+            animation: bounce 2s infinite; 
+            opacity: 0.9;
+            cursor: pointer;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+        }
 
         /* --- SECTIONS TEXTE --- */
-        /* --- CORRECTION BUG SCROLL --- */
         .white-section {
             position: relative; 
             z-index: 10;
@@ -94,12 +105,9 @@
             background-color: #fcfcfc; 
             box-shadow: 0 -10px 40px rgba(0,0,0,0.08);
             
-            /* CES LIGNES FORCENT L'AFFICHAGE LORS DE LA REMONTÉE */
+            /* Correction bug scroll */
             -webkit-transform: translate3d(0,0,0);
             transform: translate3d(0,0,0);
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            perspective: 1000px;
             will-change: transform;
         }
 
@@ -114,7 +122,8 @@
         /* --- IMAGE HEBRAIQUE --- */
         .hebrew-phrase-img {
             display: block;
-            margin: -160px auto 30px auto; 
+            /* MODIFICATION: Remonté encore plus haut (-220px) */
+            margin: -220px auto 30px auto; 
             max-width: 90%;
             width: 400px; 
             height: auto;
@@ -129,7 +138,6 @@
 
         .names-script {
             font-family: 'Pinyon Script', cursive; font-size: 4.5rem; 
-            /* COULEUR OR */
             color: #C5A059;
             margin: 10px 0 20px 0; line-height: 1.1;
         }
@@ -142,14 +150,18 @@
         .info-block { margin-bottom: 50px; }
         
         .time-location {
-            font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase;
-            letter-spacing: 3px; font-weight: 600; margin-bottom: 15px; color: #555; display: block;
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 0.9rem; /* Un peu plus grand */
+            text-transform: uppercase;
+            letter-spacing: 3px; 
+            /* MODIFICATION: TRÈS GRAS */
+            font-weight: 800; 
+            margin-bottom: 15px; color: #555; display: block;
         }
         
         .venue {
             font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; 
             font-weight: 700; 
-            /* COULEUR OR */
             color: #C5A059; 
             line-height: 1.2; margin-bottom: 10px;
         }
@@ -157,7 +169,6 @@
         .address {
             font-style: italic; font-family: 'Cormorant Garamond', serif; 
             font-size: 1.4rem; 
-            /* COULEUR OR */
             color: #C5A059; 
             font-weight: 500;
         }
@@ -170,7 +181,7 @@
         .parents-col {
             font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
             line-height: 1.6; color: #222; font-weight: 600; text-align: center;
-            flex: 1; /* Distribue l'espace équitablement */
+            flex: 1; 
         }
 
         .invitation-phrase-standalone {
@@ -198,7 +209,6 @@
         .couple-block-new { margin-bottom: 20px; }
         .couple-names-fr {
             font-family: 'Pinyon Script', cursive; font-size: 4.5rem; 
-            /* COULEUR OR */
             color: #C5A059;
             line-height: 1; margin-bottom: 10px;
         }
@@ -212,8 +222,12 @@
             margin: 35px auto; width: 100%; max-width: 500px;
         }
         .line { height: 1px; background-color: #111; flex-grow: 1; opacity: 0.2; }
+        
+        /* MODIFICATION: DATE EN GROS */
         .date-text {
-            font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 700;
+            font-family: 'Cormorant Garamond', serif; 
+            font-size: 2.2rem; /* Beaucoup plus gros */
+            font-weight: 700;
             text-transform: uppercase; letter-spacing: 2px; margin: 0 20px; color: #111;
         }
 
@@ -266,19 +280,17 @@
             font-style: italic; max-width: 700px; margin: 0 auto; line-height: 1.6; font-weight: 600;
         }
 
-        /* --- NOUVEAU FORMULAIRE (STYLE IMAGE) --- */
+        /* --- FORMULAIRE --- */
         .rsvp-container { 
             max-width: 500px; 
             margin: 0 auto; 
             text-align: left; 
             transition: opacity 0.5s ease; 
-            /* Fond légèrement texturé ou blanc pur */
             background-color: rgba(255,255,255,0.8);
             padding: 30px;
             border-radius: 10px;
         }
         
-        /* En-tête formulaire */
         .form-logo-img {
             display: block;
             margin: 0 auto 20px auto;
@@ -315,12 +327,10 @@
             font-weight: 500;
         }
 
-        /* Champs texte : Ligne ROSE en bas uniquement */
         input[type="text"], input[type="number"], textarea {
             width: 100%; padding: 10px 0; 
             border: none; 
-            /* LIGNE ROSE */
-            border-bottom: 2px solid #E69DB3; 
+            border-bottom: 2px solid #E69DB3; /* ROSE */
             font-family: 'Montserrat', sans-serif; 
             font-size: 1.2rem; color: #333;
             background: transparent; 
@@ -330,7 +340,6 @@
         }
         input:focus, textarea:focus { border-bottom: 2px solid #C5A059; }
 
-        /* Style RADIO (Cases Carrées comme l'image) */
         .radio-options-vertical {
             display: flex;
             flex-direction: column;
@@ -359,7 +368,6 @@
             width: 0;
         }
 
-        /* Le Carré (Checkmark) */
         .checkmark {
             position: absolute;
             top: 0;
@@ -367,15 +375,12 @@
             height: 22px;
             width: 22px;
             background-color: transparent;
-            /* BORDURE ROSE */
-            border: 2px solid #E69DB3; 
+            border: 2px solid #E69DB3; /* ROSE */
             transition: 0.3s;
         }
 
-        /* Quand coché : fond rose */
         .custom-radio input:checked ~ .checkmark {
-            /* FOND ROSE */
-            background-color: #E69DB3;
+            background-color: #E69DB3; /* ROSE */
         }
 
         .checkmark:after {
@@ -386,7 +391,6 @@
 
         .guest-input { display: none; margin-top: 15px; animation: slideDown 0.6s ease; }
         
-        /* BOUTON ROSE */
         .submit-btn {
             width: 100%; padding: 20px; 
             background-color: #E69DB3; /* ROSE */
@@ -438,11 +442,11 @@
         <div class="hero-content">
             <div class="hero-names">Mélanie & Kévin</div>
             <div class="hero-date">25 . 05 . 2026</div>
-            <div style="margin-top: 60px; font-size: 1.5rem; animation: bounce 2s infinite; opacity: 0.8;">↓</div>
+            <a href="#ceremonie-civile" class="scroll-down-arrow">↓</a>
         </div>
     </div>
 
-    <section class="white-section">
+    <section id="ceremonie-civile" class="white-section">
         <img src="logo.png" alt="Logo" class="section-logo-img">
         
         <h2>Cérémonie Civile</h2>
@@ -503,7 +507,7 @@
         </div>
 
         <span class="invitation-phrase-standalone">
-            Ont la joie de vous convier au mariage de leurs enfants et petits enfants
+            Ont la joie de vous faire part du mariage de leurs enfants et petits enfants
         </span>
 
         <div class="couple-block-new">
@@ -534,7 +538,7 @@
 
         <div class="footer-text-box">
             <div class="footer-text">
-                Une pensée très émue pour nos grands-parents Élie Mamou, Jacques & Germaine Habib, Saidou Edmond Benmoussa & Germaine Benmoussa, Gaston Israel & Emilie Zana qui nous manqueront tant en ce jour unique.<br>Que vos bénédictions illuminent notre vie.
+                Que leurs benedictions illuminent notre vie.
             </div>
         </div>
     </section>
@@ -663,6 +667,3 @@
 
 </body>
 </html>
-
-
-
