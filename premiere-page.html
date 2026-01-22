@@ -61,12 +61,14 @@
         .hero-content {
             position: relative; z-index: 2; text-align: center; color: white;
             animation: fadeIn 1.5s ease-out;
+            /* MODIFICATION: Remonte le bloc titre/date ENCORE PLUS HAUT */
+            margin-top: -280px; 
         }
         .hero-names {
             font-family: 'Pinyon Script', cursive; 
             font-size: 6rem; 
-            /* COULEUR OR */
-            color: #C5A059; 
+            /* COULEUR ROSE */
+            color: #E69DB3; 
             text-shadow: 0 5px 20px rgba(0,0,0,0.4); margin-bottom: 15px;
             line-height: 1.1;
             font-weight: 400; 
@@ -118,8 +120,8 @@
 
         .names-script {
             font-family: 'Pinyon Script', cursive; font-size: 4.5rem; 
-            /* COULEUR OR */
-            color: #C5A059;
+            /* COULEUR ROSE */
+            color: #E69DB3;
             margin: 10px 0 20px 0; line-height: 1.1;
         }
 
@@ -138,16 +140,16 @@
         .venue {
             font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; 
             font-weight: 700; 
-            /* COULEUR OR */
-            color: #C5A059; 
+            /* COULEUR ROSE */
+            color: #E69DB3; 
             line-height: 1.2; margin-bottom: 10px;
         }
         
         .address {
             font-style: italic; font-family: 'Cormorant Garamond', serif; 
             font-size: 1.4rem; 
-            /* COULEUR OR */
-            color: #C5A059; 
+            /* COULEUR ROSE */
+            color: #E69DB3; 
             font-weight: 500;
         }
 
@@ -187,8 +189,8 @@
         .couple-block-new { margin-bottom: 20px; }
         .couple-names-fr {
             font-family: 'Pinyon Script', cursive; font-size: 4.5rem; 
-            /* COULEUR OR */
-            color: #C5A059;
+            /* COULEUR ROSE */
+            color: #E69DB3;
             line-height: 1; margin-bottom: 10px;
         }
         .couple-names-he {
@@ -208,17 +210,18 @@
 
         .divider { width: 1px; height: 70px; background: #bbb; margin: 50px auto; opacity: 0.4; }
 
-        /* BOUTON WAZE RETOUR AU NOIR */
+        /* BOUTON WAZE EN ROSE */
         .btn-waze {
             display: inline-block; text-decoration: none;
             font-family: 'Montserrat', sans-serif; font-size: 0.7rem; text-transform: uppercase;
             letter-spacing: 3px; 
-            color: #111; /* Retour au Noir */
-            border: 1px solid #111; /* Retour au Noir */
+            /* COULEUR ROSE */
+            color: #E69DB3; 
+            border: 1px solid #E69DB3;
             padding: 12px 30px; transition: 0.4s; margin-top: 20px; font-weight: 700;
         }
         .btn-waze:hover { 
-            background-color: #111; 
+            background-color: #E69DB3; 
             color: white; 
         }
 
@@ -261,6 +264,7 @@
             margin: 0 auto; 
             text-align: left; 
             transition: opacity 0.5s ease; 
+            /* Fond légèrement texturé ou blanc pur */
             background-color: rgba(255,255,255,0.8);
             padding: 30px;
             border-radius: 10px;
@@ -546,8 +550,13 @@
                 <div class="form-header-subtitle">Nous avons hâte de partager notre joie avec vous !</div>
 
                 <div class="input-group">
-                    <span class="form-label-styled">Noms & Prénoms *</span>
+                    <span class="form-label-styled">Nom *</span>
                     <input type="text" name="nom" required>
+                </div>
+
+                <div class="input-group">
+                    <span class="form-label-styled">Prénom *</span>
+                    <input type="text" name="prenom" required>
                 </div>
 
                 <div class="input-group">
@@ -591,7 +600,7 @@
                 </div>
 
                 <div class="input-group">
-                    <span class="form-label-styled">Un petit mot ?</span>
+                    <span class="form-label-styled">Un petit mot pour les mariés ?</span>
                     <textarea name="message" rows="2" required></textarea>
                 </div>
 
