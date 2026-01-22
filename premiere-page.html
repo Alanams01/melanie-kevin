@@ -103,7 +103,7 @@
         /* --- IMAGE HEBRAIQUE --- */
         .hebrew-phrase-img {
             display: block;
-            margin: -65px auto 30px auto; 
+            margin: -100px auto 30px auto; 
             max-width: 90%;
             width: 400px; 
             height: auto;
@@ -138,7 +138,7 @@
         .venue {
             font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; 
             font-weight: 700; 
-            /* MODIFICATION : LIEUX EN OR */
+            /* COULEUR OR */
             color: #C5A059; 
             line-height: 1.2; margin-bottom: 10px;
         }
@@ -146,7 +146,7 @@
         .address {
             font-style: italic; font-family: 'Cormorant Garamond', serif; 
             font-size: 1.4rem; 
-            /* MODIFICATION : ADRESSES EN OR */
+            /* COULEUR OR */
             color: #C5A059; 
             font-weight: 500;
         }
@@ -261,7 +261,6 @@
             margin: 0 auto; 
             text-align: left; 
             transition: opacity 0.5s ease; 
-            /* Fond légèrement texturé ou blanc pur */
             background-color: rgba(255,255,255,0.8);
             padding: 30px;
             border-radius: 10px;
@@ -275,9 +274,8 @@
             height: auto;
         }
         .form-header-title {
-            /* MODIFICATION: Police Formelle (Garamond) au lieu de Script */
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.8rem; /* Taille ajustée */
+            font-size: 2.8rem; 
             color: #E69DB3; /* Rose */
             text-align: center;
             margin-bottom: 20px;
@@ -366,7 +364,6 @@
             background-color: #E69DB3;
         }
 
-        /* Optionnel: petit tick blanc à l'intérieur (ou juste rempli rose) */
         .checkmark:after {
             content: "";
             position: absolute;
@@ -375,13 +372,20 @@
 
         .guest-input { display: none; margin-top: 15px; animation: slideDown 0.6s ease; }
         
+        /* BOUTON ROSE */
         .submit-btn {
-            width: 100%; padding: 20px; background-color: #111; color: white; border: none;
+            width: 100%; padding: 20px; 
+            background-color: #E69DB3; /* Rose */
+            color: white; 
+            border: none;
             font-family: 'Montserrat', sans-serif; font-size: 0.9rem; text-transform: uppercase;
             letter-spacing: 4px; cursor: pointer; transition: 0.4s; margin-top: 30px; font-weight: 700;
-            border: 1px solid #111;
+            border: 1px solid #E69DB3;
         }
-        .submit-btn:hover { background-color: white; color: #111; }
+        .submit-btn:hover { 
+            background-color: white; 
+            color: #E69DB3; 
+        }
 
         #success-message { display: none; padding: 50px 20px; animation: fadeIn 1s ease; }
         .mazal-tov { font-family: 'Pinyon Script', cursive; font-size: 5rem; color: #111; margin-bottom: 20px; }
@@ -440,7 +444,7 @@
         </div>
 
         <div class="info-block">
-            <span class="time-location">À 14H00 PRÉCISES</span>
+            <span class="time-location">À 13H45</span>
             <div class="venue">Mairie de Levallois-Perret</div>
             <div class="address">1 Place de la République<br>92300 Levallois-Perret</div>
         </div>
@@ -449,7 +453,7 @@
             <span class="time-location" style="margin-top: 40px; display: block; font-size: 0.9rem; letter-spacing: 2px;">
                 La cérémonie civile sera suivie d’un AFTER HENNÉ
             </span>
-            <div class="venue">Pavillons des Fêtes</div>
+            <div class="venue">aux Pavillons des Fêtes</div>
             <div class="address">
                 1 Place de Verdun, Levallois-Perret<br>
                 <span style="font-size: 1.1rem; font-style: italic;">(5 min à pied)</span>
@@ -477,10 +481,10 @@
         <div class="parents-columns-container">
             <div class="parents-col" style="text-align: right; padding-right: 10px; border-right: 1px solid #ddd;">
                 Daisy Mamou<br>
-                Maguy & Joseph Zana
+                Maguy & Joseph Zana<br>
+                Lydia & Elias Azoura
             </div>
             <div class="parents-col" style="text-align: left; padding-left: 10px;">
-                Lydia & Elias Azoura<br>
                 Véronique & James Azoura
             </div>
         </div>
