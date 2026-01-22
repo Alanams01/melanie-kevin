@@ -70,7 +70,7 @@
             color: #C5A059; /* DORÉ */
             text-shadow: none; 
             font-weight: 700; 
-            margin-bottom: 0px;
+            margin-bottom: 15px;
             line-height: 1.1;
         }
         .hero-date {
@@ -153,7 +153,7 @@
             font-size: 0.9rem; 
             text-transform: uppercase;
             letter-spacing: 3px; 
-            font-weight: 800; 
+            font-weight: 800; /* GRAS */
             margin-bottom: 15px; color: #555; display: block;
         }
         
@@ -187,7 +187,7 @@
             font-style: italic; font-size: 1.3rem; color: #444; margin-bottom: 40px;
         }
         
-        /* STYLE DU BLOC DATE (UTILISÉ POUR MAIRIE ET HOUPPA) */
+        /* STYLE DU BLOC DATE HOUPPA */
         .honor-phrase-intro {
             display: block; font-family: 'Cormorant Garamond', serif; 
             font-size: 1.3rem; color: #444; margin-top: 10px; margin-bottom: 15px; line-height: 1.6;
@@ -214,8 +214,20 @@
             font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: #555; font-weight: 500;
         }
 
-        /* DATE SEPARATOR (SUPPRIMÉ MAIS GARDÉ AU CAS OÙ) */
+        /* DATE SEPARATOR */
+        .date-separator {
+            display: flex; align-items: center; justify-content: center;
+            margin: 35px auto; width: 100%; max-width: 500px;
+        }
         .line { height: 1px; background-color: #111; flex-grow: 1; opacity: 0.2; }
+        
+        .date-text {
+            font-family: 'Cormorant Garamond', serif; 
+            font-size: 2.2rem; 
+            font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; margin: 0 20px; color: #111;
+        }
+
         .divider { width: 1px; height: 70px; background: #bbb; margin: 50px auto; opacity: 0.4; }
 
         /* BOUTON WAZE EN OR */
@@ -441,7 +453,7 @@
 
         <div class="houppa-date-block">
             <span class="date-line-bold">Mercredi 20 Mai 2026</span>
-            <span class="time-line-bold">À 13H45</span>
+            <span class="time-line-bold">à 13h45</span>
         </div>
 
         <div class="info-block">
@@ -450,9 +462,9 @@
         </div>
 
         <div class="info-block">
-            <span class="time-location" style="margin-top: 40px; display: block; font-size: 0.9rem; letter-spacing: 2px;">
+            <div class="address" style="margin-top: 40px; margin-bottom: 10px; font-size: 1.3rem; color: #444;">
                 La cérémonie civile sera suivie d’un AFTER HENNÉ
-            </span>
+            </div>
             <div class="venue">aux Pavillons des Fêtes</div>
             <div class="address">
                 1 Place de Verdun, Levallois-Perret<br>
@@ -509,7 +521,7 @@
         </div>
 
         <div class="info-block">
-            <div class="venue">aux salons Les Pyramides</div>
+            <div class="venue">Aux salons<br>Les Pyramides</div>
             <div class="address">16 avenue de Saint Germain, 78560 Le Port Marly</div>
         </div>
 
