@@ -123,8 +123,7 @@
         /* --- IMAGE HEBRAIQUE --- */
         .hebrew-phrase-img {
             display: block;
-            /* MODIFICATION: Ajusté à -300px pour suivre le logo */
-            margin: -300px auto 30px auto; 
+            margin: -330px auto 30px auto; 
             max-width: 90%;
             width: 400px; 
             height: auto;
@@ -602,7 +601,7 @@
                 </div>
 
                 <div class="input-group">
-                    <span class="form-label-styled">Présence à la Houppa *</span>
+                    <span class="form-label-styled">Présence à la Houppa/Réception *</span>
                     <div class="radio-options-vertical">
                         <label class="custom-radio">
                             Oui
@@ -619,7 +618,7 @@
                         <span class="form-label-styled" style="margin-top:10px;">Nombre de personnes présentes à la Houppa *</span>
                         <input type="number" name="nb_houppa" min="1" style="margin-bottom: 20px;">
                         
-                        <span class="form-label-styled">Nombre de personnes présentes à la soirée *</span>
+                        <span class="form-label-styled">Nombre de personnes présentes à la réception *</span>
                         <input type="number" name="nb_soiree" min="1">
                     </div>
                 </div>
@@ -635,7 +634,7 @@
     </section>
 
     <div class="final-container">
-        <img src="photo4.jpg" alt="Final">
+        <img src="photo4.jpeg" alt="Final">
         <div class="overlay"></div>
     </div>
 
@@ -660,13 +659,32 @@
 
         function handleFormSubmit(event) {
             event.preventDefault();
-            var formSection = document.getElementById('rsvp-section-content');
-            var successMessage = document.getElementById('success-message');
-            formSection.style.opacity = '0';
-            setTimeout(function() {
-                formSection.style.display = 'none';
-                successMessage.style.display = 'block';
-            }, 500);
+            
+            // --- URL DU SCRIPT GOOGLE ---
+            var scriptURL = "https://script.google.com/macros/s/AKfycbypiYpsdODzTzCoIrnI1i3O8eFctJEYQ91haZjUsfZO68GwvRkEBNjzpHq4mp4v40qURA/exec"; 
+            // ----------------------------
+
+            var form = document.forms['rsvpForm'];
+            var submitBtn = document.querySelector('.submit-btn');
+
+            submitBtn.innerHTML = "ENVOI EN COURS...";
+            submitBtn.style.opacity = "0.7";
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    var formSection = document.getElementById('rsvp-section-content');
+                    var successMessage = document.getElementById('success-message');
+                    formSection.style.opacity = '0';
+                    setTimeout(function() {
+                        formSection.style.display = 'none';
+                        successMessage.style.display = 'block';
+                    }, 500);
+                })
+                .catch(error => {
+                    console.error('Erreur!', error.message);
+                    submitBtn.innerHTML = "ERREUR - RÉESSAYER";
+                    alert("Une erreur est survenue. Merci de réessayer.");
+                });
         }
 
         var music = document.getElementById("bgMusic");
