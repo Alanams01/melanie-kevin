@@ -44,7 +44,7 @@
             width: 100%;
             padding: 0 10px; /* Marges très fines sur les côtés */
             
-            /* --- MODIFICATION ICI : On remonte plus haut (-30vh au lieu de -15vh) --- */
+            /* Position verticale */
             transform: translateY(-30vh); 
         }
 
@@ -53,7 +53,7 @@
             display: flex;
             justify-content: center;
             gap: 15px; /* Espace standard sur PC */
-            margin-bottom: 30px;
+            margin-bottom: 40px; /* Un peu plus d'espace sous le compteur */
         }
 
         .countdown-item {
@@ -81,12 +81,12 @@
             margin-top: -5px;
         }
 
-        /* --- BOUTON --- */
+        /* --- BOUTON AGRANDI --- */
         .btn-outer-border {
             display: inline-block;
             border: 0.5px solid rgba(255,255,255,0.8);
-            padding: 3px;
-            border-radius: 3px;
+            padding: 5px; /* Bordure un peu plus écartée */
+            border-radius: 4px;
         }
 
         .btn-inner {
@@ -94,18 +94,26 @@
             background-color: #E69DB3;
             color: white;
             text-decoration: none;
-            padding: 10px 25px;
-            font-size: 0.8rem;
+            
+            /* TAILLE AUGMENTÉE ICI (PC) */
+            padding: 15px 40px; 
+            font-size: 1.1rem; 
+            
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             border: 0.5px solid white;
+            transition: transform 0.2s; /* Petit effet au survol */
+        }
+        
+        .btn-inner:hover {
+            transform: scale(1.02);
         }
 
         /* --- VERSION MOBILE (Alignement forcé sur une ligne) --- */
         @media (max-width: 768px) {
             
             .content {
-                /* --- MODIFICATION MOBILE : On remonte encore plus sur téléphone --- */
+                /* Position verticale mobile */
                 transform: translateY(-35vh); 
             }
 
@@ -115,7 +123,7 @@
                 gap: 5px; /* Espace tout petit entre les bulles */
                 width: 100%;
                 max-width: 400px; /* Sécurité */
-                margin: 0 auto 25px auto;
+                margin: 0 auto 30px auto;
             }
 
             .countdown-item {
@@ -136,10 +144,10 @@
                 margin-top: 0;
             }
 
-            /* Bouton plus petit */
+            /* TAILLE BOUTON MOBILE AUGMENTÉE */
             .btn-inner {
-                padding: 8px 20px;
-                font-size: 0.7rem;
+                padding: 12px 30px;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -199,5 +207,3 @@
 </body>
 
 </html>
-
-
